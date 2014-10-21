@@ -1,9 +1,9 @@
 ---
 layout: home
-excerpt: "A responsive Jekyll theme with editorial tendencies by designer Michael Rose."
-tags: [Jekyll, theme, responsive, blog, template]
+excerpt: "Home page of Neal Hughes"
+tags: [economics, water, python, machine learning, econlearn]
 image:
-  feature: texture-feature-01.jpg
-  credit: Texture Lovers
-  creditlink: http://texturelovers.com
+  feature: Burr_spill.jpg
+  credit: rswilliams
+  creditlink: http://www.rswilliamsports.com
 ---

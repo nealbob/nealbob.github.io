@@ -1,25 +1,14 @@
 ---
 layout: page
-title: About the Theme
-tags: [about, Jekyll, theme, responsive]
+title: About me
+tags: [about]
 modified: 2014-08-08T20:53:07.573882-04:00
 comments: true
 image:
-  feature: texture-feature-02.jpg
-  credit: Texture Lovers
-  creditlink: http://texturelovers.com
 ---
 
-Minimal Mistakes is responsive Jekyll theme with large featured images and solid typography. As the name implies the styling is fairly minimal to make it easier for you to build on top of.
+I'm an economist working at [ABARES](http://www.daff.gov.au/abares) and completing a Phd at the [ANU](https://crawford.anu.edu.au/people/phd/neal-hughes).<br> <br> A lot of my [research](../research) has focused on water, particularly water property rights and markets in the context of storage (i.e., large dams). Here is my [CV](../images/cv_7.pdf).  <br> <br> As an economist I'm a bit of a frustrated engineer and computer programmer.  Recently I've been working on adapting machine learning methods to economic problems, see the [code](../code) page if your interested. <br><br>  I live in Canberra, Australia with my wife Kylie and daughter Elizabeth.
 
-## Minimal Mistakes is all about:
-
-* Responsive templates. Looking good on mobile, tablet, and desktop.
-* Gracefully degrading in older browsers. Compatible with Internet Explorer 8+ and all modern browsers. 
-* Minimal embellishments -- content first.
-* Optional large feature images for posts and pages.
-* Simple and clear permalink structure.
-* [Custom 404 page](http://mmistakes.github.io/minimal-mistakes/404.html) to get you started.
-* Support for Disqus Comments
-
-<a markdown="0" href="{{ site.url }}/theme-setup" class="btn">Install Minimal Mistakes Theme</a>
+<figure>
+	<img src="http://localhost:4000/images/dadee.jpg">
+</figure>
