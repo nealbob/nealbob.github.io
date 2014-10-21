@@ -2,7 +2,7 @@
 
 title:            Neal Hughes
 locale:           en_US
-url:              http://localhost:4000
+url:              http://nealbob.github.io/ 
 
 
 # Jekyll configuration
@@ -28,7 +28,7 @@ kramdown:
 owner:
   name: Neal Hughes
   avatar: bio-photo.jpg
-  bio: "Economist. Public servant. Toddler slave."
+  bio: "Economist.<br> <s>Public</s> Toddler servant."
   email: neal.hughes@anu.edu.au
   disqus-shortname: 
   twitter: #username
