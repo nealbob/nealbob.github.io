@@ -27,11 +27,14 @@ Once your'e approved you'll receive a username via email and a temporary passwor
 
 You login online via ssh (if your on windows or mac you will need an ssh client, see the [user guide](http://nci.org.au/services-support/getting-help/raijin-user-guide/)), on linux just open the terminal and type 
 
+{% highlight bash %}
     ssh -l username raijin.nci.org.au
+{% endhighlight %}
 
 You'll get a warning about connecting for the first time, just type yes, then enter your password and your in.
 
 
+{% highlight bash %}
     ###############################################################################
     #                            NCI National Facility                            #
     #      This service is for authorised clients only. It is a criminal          #
@@ -45,18 +48,23 @@ You'll get a warning about connecting for the first time, just type yes, then en
     |        raijin.nci.org.au - 57472 processor InfiniBand x86_64 cluster        |
     |     Assistance: help@nci.org.au     Information: http://nci.org.au          |
     ===============================================================================
+{% endhighlight %}
 
 # First steps
 
 So now you are in a command line linux environment on a single raijin node (with 16 cores). You should have a prompt that looks like this
 
+{% highlight bash %}
     [username@raijin4 ~]$
+{% endhighlight %}
 
 Each users gets there own profile to play with, here you can install your code and any dependencies and store your input and output files. Any changes you make here will be saved when you log out. Your profile is located on the system at /home/username.
 
 First lets reset our password
 
+{% highlight bash %}
     [username@raijin4 ~]$ passwd
+{% end highlight %}
 
 Next we can check our account status
 
@@ -99,41 +107,57 @@ You should see your 1000 hour allocation, plus nearly 100GB in storage. Note tha
 
 raijin has just about all the software you might need already installed (see the [list](http://nci.org.au/nci-systems/national-facility/peak-system/raijin/application-software/)). You just need to make it available to your profile with the `module` command. To view the list of all software type
 
+{% highlight bash %}
     module avail
+{% endhighlight %}
 
 To install Python (with `numpy`, `scipy` and `matplotlib`) you type
 
+{% highlight bash %}
     module load python/2.7.3
     module load python/2.7.3-matplotlib
+{% endhighlight %}
 
 To use Cython I also needed to replace the default intel C compiler with gcc
 
+{% highlight bash %}
     module unload intel-cc
     module load gcc/4.9.0
+{% endhighlight %}
 
 You can then add these commands to your `.profile` file, to make sure they are executed on login. I used vim to edit these text files
 
+{% highlight bash %}
     vim .profile
+{% endhighlight %}
 
 # Installing your code and dependencies
 
 An easy way to load your code is via [github](https://github.com) (which is like dropbox for code). Once you've learnt github, and have your code in a github repository [like this](https://github.com/nealbob/regrivermod), you can clone it directly onto your profile.
 
+{% highlight bash %}
     git clone git://github.com/nealbob/regrivermod.git ~/Model
+{% endhighlight %}
 
 Too easy. I also needed to compile my code, which once I installed `gcc` worked just like it does on my local machine. 
 
 Next I needed to install a number of other Python packages not included on raijin by default (`cython`, `pandas`, `scikit-learn`). First create a folder to hold them
 
+{% highlight bash %}
     mkdir packages
+{% endhighlight %}
 
 For this I can use `easy_install`. You just need to tell `easy_install` to install locally, for example
 
+{% highlight bash %}
     easy_install --install-dir=~/packages pandas
+{% endhighlight %}
 
 Next you need to add ~/packages to your PYTHONPATH environment variable so Python can find it
 
+{% highlight bash %}
     export PYTHONPATH=~/packages:$PYTHONPATH
+{% endhighlight %}
 
 Its best to make this change permanent by adding it to your `.bashrc` file.
 
@@ -141,6 +165,7 @@ Its best to make this change permanent by adding it to your `.bashrc` file.
 
 Just to check that it works I can run my code interactively 
 
+{% highlight bash %}
     [username@raijin4 ~]$ cd Model
     [username@raijin4 Model]$ python test.py
 
@@ -171,6 +196,7 @@ Just to check that it works I can run my code interactively
     Inflow mean: 694593.226731
     Withdrawal mean: 520950.115529
     Welfare mean: 186576969.954
+{% endhighlight %}
 
 Horah it works! To run larger jobs across multiple nodes we need to use the PBS job scheduling system (I haven't tried this yet).
 
