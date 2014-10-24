@@ -27,7 +27,7 @@ Once your'e approved you'll receive a username via email and a temporary passwor
 
 You login online via ssh (if your on windows or mac you will need an ssh client, see the [user guide](http://nci.org.au/services-support/getting-help/raijin-user-guide/)), on linux just open the terminal and type 
 
-{% highlight bash %}
+{% highlight console %}
 ssh -l username raijin.nci.org.au
 {% endhighlight %}
 
@@ -54,7 +54,7 @@ You'll get a warning about connecting for the first time, just type yes, then en
 
 So now you are in a command line linux environment on a single raijin node (with 16 cores). You should have a prompt that looks like this
 
-{% highlight bash %}
+{% highlight console %}
 [username@raijin4 ~]$
 {% endhighlight %}
 
@@ -62,13 +62,13 @@ Each users gets there own profile to play with, here you can install your code a
 
 First lets reset our password
 
-{% highlight bash %}
+{% highlight console %}
 [username@raijin4 ~]$ passwd
 {% endhighlight %}
 
 Next we can check our account status
 
-{% highlight bash %}
+{% highlight console %}
 [username@raijin4 ~]$ nci_account
 
 Usage Report: Project=fr3 Compute Period=2014.q4 (01/10/2014-31/12/2014)
@@ -107,27 +107,27 @@ You should see your 1000 hour allocation, plus nearly 100GB in storage. Note tha
 
 raijin has just about all the software you might need already installed (see the [list](http://nci.org.au/nci-systems/national-facility/peak-system/raijin/application-software/)). You just need to make it available to your profile with the `module` command. To view the list of all software type
 
-{% highlight bash %}
+{% highlight console %}
 module avail
 {% endhighlight %}
 
 To install Python (with `numpy`, `scipy` and `matplotlib`) you type
 
-{% highlight bash %}
+{% highlight console %}
 module load python/2.7.3
 module load python/2.7.3-matplotlib
 {% endhighlight %}
 
 To use Cython I also needed to replace the default intel C compiler with gcc
 
-{% highlight bash %}
+{% highlight console %}
 module unload intel-cc
 module load gcc/4.9.0
 {% endhighlight %}
 
 You can then add these commands to your `.profile` file, to make sure they are executed on login. I used vim to edit these text files
 
-{% highlight bash %}
+{% highlight console %}
 vim .profile
 {% endhighlight %}
 
@@ -135,7 +135,7 @@ vim .profile
 
 An easy way to load your code is via [github](https://github.com) (which is like dropbox for code). Once you've learnt github, and have your code in a github repository [like this](https://github.com/nealbob/regrivermod), you can clone it directly onto your profile.
 
-{% highlight bash %}
+{% highlight console %}
 git clone git://github.com/nealbob/regrivermod.git ~/Model
 {% endhighlight %}
 
@@ -143,19 +143,19 @@ Too easy. I also needed to compile my code, which once I installed `gcc` worked 
 
 Next I needed to install a number of other Python packages not included on raijin by default (`cython`, `pandas`, `scikit-learn`). First create a folder to hold them
 
-{% highlight bash %}
+{% highlight console %}
 mkdir packages
 {% endhighlight %}
 
 For this I can use `easy_install`. You just need to tell `easy_install` to install locally, for example
 
-{% highlight bash %}
+{% highlight console %}
 easy_install --install-dir=~/packages pandas
 {% endhighlight %}
 
 Next you need to add ~/packages to your PYTHONPATH environment variable so Python can find it
 
-{% highlight bash %}
+{% highlight console %}
 export PYTHONPATH=~/packages:$PYTHONPATH
 {% endhighlight %}
 
@@ -165,7 +165,7 @@ Its best to make this change permanent by adding it to your `.bashrc` file.
 
 Just to check that it works I can run my code interactively 
 
-{% highlight bash %}
+{% highlight console %}
 [username@raijin4 ~]$ cd Model
 [username@raijin4 Model]$ python test.py
 
