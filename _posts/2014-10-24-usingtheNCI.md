@@ -34,7 +34,7 @@ ssh -l username raijin.nci.org.au
 You'll get a warning about connecting for the first time, just type yes, then enter your password and your in.
 
 
-{% highlight bash %}
+{% highlight console %}
 ###############################################################################
 #                            NCI National Facility                            #
 #      This service is for authorised clients only. It is a criminal          #
