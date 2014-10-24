@@ -7,14 +7,14 @@ tags: [NCI, ANU, Python]
 comments: true
 ---
 
-Here's what Ive learnt so far trying to get my code running on the ANUs [National Computing Infrastructure](nci.org.au). The NCI website provides a lot information on all of this (see the [raijin user guide](http://nci.org.au/services-support/getting-help/raijin-user-guide/)), but I've found it can be a bit opaque and incomplete. Luckily the help desk staff are very responsive if you ever get stuck (help@nf.nci.org.au).
+Here's what Ive learnt so far trying to get my code running on the ANUs [National Computing Infrastructure](http://nci.org.au). The NCI website provides a lot information on all of this (see the [raijin user guide](http://nci.org.au/services-support/getting-help/raijin-user-guide/)), but I've found it can be a bit opaque and incomplete. Luckily the help desk staff are very responsive if you ever get stuck (help@nf.nci.org.au).
 
 # What is the NCI?
 
 The NCI houses raijin a 60,000 CPU core supercomputer - the largest in the Southern hemisphere. Its located at the ANU a short walk from the Crawford School. 
 
 <figure>
-	<img src="http://nealbob.github.io/images/dadee.jpg">
+	<img src="http://nealbob.github.io/images/nci.jpg">
 </figure>
 
 # Applying for time on raijin
@@ -52,7 +52,7 @@ You'll get a warning about connecting for the first time, just type yes, then en
 
 # First steps
 
-So now you are in a command line linux environment on a single raijin node (with 16 cores).  Each users gets there own profile to modify: install your code and any dependencies, store results etc. Any changes you make here will be stored when you log out. Your profile is located on the system at /home/username.
+So now you are in a command line linux environment on a single raijin node (with 16 cores).  Each users gets there own profile to play with, here you can install your code and any dependencies and store your input and output files. Any changes you make here will be saved when you log out. Your profile is located on the system at /home/username.
 
 First lets reset our password
 
@@ -62,8 +62,7 @@ Next we can check our account status
 
     nci_account
 
-
-
+    
     Usage Report: Project=fr3 Compute Period=2014.q4 (01/10/2014-31/12/2014)
     ========================================================================
 
@@ -71,6 +70,16 @@ Next we can check our account status
     Total Used:   0.00 SU
     Total Avail: 1000.00 SU
     Bonus Used:   0.00 SU
+
+    -------------------------------------------------------------------------------------------------------------
+    System      Queue  Charge         Usage         Usage       SU used   Reserved SU    Pending SU      Total SU
+                       Weight     (CPU Hrs)    (Walltime)                   (Running)      (Queued)     Committed
+    raijin      copyq     1.0          0.00          0.00          0.00          0.00          0.00          0.00
+    raijin    express     3.0          0.00          0.00          0.00          0.00          0.00          0.00
+    raijin    hugemem     1.0          0.00          0.00          0.00          0.00          0.00          0.00
+    raijin     normal     1.0          0.00          0.00          0.00          0.00          0.00          0.00
+    -------------------------------------------------------------------------------------------------------------
+    Overall                            0.00          0.00          0.00          0.00          0.00          0.00
 
 
     Usage Report: Project=fr3 Storage Period=2014.10 (01/10/2014-31/12/2014)
@@ -87,7 +96,7 @@ So you should see your 1000 hour allocation, plus nearly 100GB in storage. Note 
 
 # Installing software
 
-raijin has just about all the software you might need already installed (see the [list] (http://nci.org.au/nci-systems/national-facility/peak-system/raijin/application-software/)). You just need to make it available to your profile with the `module` command. To view the list of all software type
+raijin has just about all the software you might need already installed (see the [list](http://nci.org.au/nci-systems/national-facility/peak-system/raijin/application-software/)). You just need to make it available to your profile with the `module` command. To view the list of all software type
 
     module avail
 
@@ -101,9 +110,7 @@ To use Cython I also needed to replace the default intel C compiler with gcc
     module unload intel-cc
     module load gcc/4.9.0
 
-You can then add these commands to your `.profile` file, to make sure they are executed on login.
-
-I used vim to edit these text files
+You can then add these commands to your `.profile` file, to make sure they are executed on login. I used vim to edit these text files
 
     vim .profile
 
@@ -119,7 +126,7 @@ Next I needed to install a number of other Python packages not included on raiji
 
     mkdir packages
 
-Now raijin doesn't have `pip` but it does have `easy_install`. You just need to tell `easy_install` to install locally, for example
+For this I can use `easy_install`. You just need to tell `easy_install` to install locally, for example
 
     easy_install --install-dir=~/packages pandas
 
