@@ -60,7 +60,7 @@ First lets reset our password
 
 Next we can check our account status
 
-{% highlight console %}
+{% highlight bash %}
 [username@raijin4 ~]$ nci_account
 
 Usage Report: Project=fr3 Compute Period=2014.q4 (01/10/2014-31/12/2014)
