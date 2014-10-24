@@ -19,15 +19,15 @@ The NCI houses raijin a 60,000 CPU core supercomputer - the largest in the South
 
 # Applying for time on raijin
 
-For ANU Phds the first step is applying for a startup grant. This is a small allocation of time (1000 core hours) to do do initial testing: learn how to use the system and give you an idea of how many core hours you will need for you main application.
+For ANU Phd students the first step is to apply for a startup grant. This is a small allocation of time (1000 core hours) to do do initial testing: learn how to use the system and give you an idea of how many core hours you will need for you main application. <br><br>
 
-To apply go [here](http://nci.org.au/access/user-registration/application-form-resource/), you need to fill in the form and get your supervisor to sign (technically the application comes from them not you) then email it to the help desk (or just walk it over its not that far!). The application process was a bit confusing at times, but a few emails to the help desk got it done.
+To apply go [here](http://nci.org.au/access/user-registration/application-form-resource/), fill in the form and get your supervisor to sign (technically the application comes from them not you) then email it to the help desk (or just walk it over its not that far!). The application process was a bit confusing at times, but a few emails to the help desk got it done. <br><br>
 
 Full applications open in November for computing time the next year, the form is here. The minimum computing time request on raijin is 20,000 core hours, which is fairly large: equivalent to about 4000 hours or 20 weeks time on an i7 desktop or around $5000 worth on a commercial service like [multyvac](http://www.multyvac.com/). 
 
 # Logging in
 
-Once you are approved you will receive a username via email and a temporary password via sms.
+Once your'e approved you will receive a username via email and a temporary password via sms.
 
 You login via ssh (if your on windows or mac you will need an ssh client, see the [user guide](http://nci.org.au/services-support/getting-help/raijin-user-guide/)), on linux just type 
 
@@ -52,17 +52,20 @@ You'll get a warning about connecting for the first time, just type yes, then en
 
 # First steps
 
-So now you are in a command line linux environment on a single raijin node (with 16 cores).  Each users gets there own profile to play with, here you can install your code and any dependencies and store your input and output files. Any changes you make here will be saved when you log out. Your profile is located on the system at /home/username.
+So now you are in a command line linux environment on a single raijin node (with 16 cores). You should have a prompt that looks like this
+
+    [username@raijin4 ~]$
+
+Each users gets there own profile to play with, here you can install your code and any dependencies and store your input and output files. Any changes you make here will be saved when you log out. Your profile is located on the system at /home/username.
 
 First lets reset our password
 
-    passwd
+    [username@raijin4 ~]$ passwd
 
 Next we can check our account status
 
-    nci_account
+    [username@raijin4 ~]$ nci_account
 
-    
     Usage Report: Project=fr3 Compute Period=2014.q4 (01/10/2014-31/12/2014)
     ========================================================================
 
@@ -140,8 +143,36 @@ Its best to make this change permanent by adding it to your `.bashrc` file.
 
 Just to check that it works I can run my code interactively 
 
-    cd Model
-    python test.py
+    [username@raijin4 ~]$ cd Model
+    [username@raijin4 Model]$ python test.py
+
+     --- Main parameters --- 
+
+    Inflow to capacity: 0.708747484611
+    Coefficient of variation: 0.7
+    Proportion of high demand: 0.234622818122
+    Target water price: 10.0
+    Transaction cost: 55.0
+    High user inflow share: 0.469245636245
+    Land: 4833.896933
+    High Land: 0.0655588606907
+
+    Decentralised storage model with 100 users. 
+
+    Solving the planner's problem...
+    PI Iteration: 1, Error: 100.0, PE Iterations: 68
+    PI Iteration: 2, Error: 0.0102, PE Iterations: 11
+    PI Iteration: 3, Error: 0.0014, PE Iterations: 2
+    PI Iteration: 4, Error: 0.001, PE Iterations: 1
+    Solve time: 11.7644062042
+    Running simulation for 500000 periods...
+    Simulation time: 5.42
+    Summary stats time 1.61270594597
+    Data stacking time: 1.63947796822
+    Storage mean: 698008.184127
+    Inflow mean: 694593.226731
+    Withdrawal mean: 520950.115529
+    Welfare mean: 186576969.954
 
 Horah it works! To run larger jobs across multiple nodes we need to use the PBS job scheduling system (I haven't tried this yet).
 
