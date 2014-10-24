@@ -58,7 +58,7 @@ So now you are in a command line linux environment on a single raijin node (with
 [username@raijin4 ~]$
 {% endhighlight %}
 
-Each users gets there own profile to play with, here you can install your code and any dependencies and store your input and output files. Any changes you make here will be saved when you log out. Your profile is located on the system at /home/username.
+Each users gets there own profile to play with, here you can install your code and any dependencies and store your input and output files. Any changes you make will be saved when you log out. Your profile is located on the system at /home/username.
 
 First lets reset our password
 

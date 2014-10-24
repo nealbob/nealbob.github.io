@@ -14,8 +14,6 @@ modified: 2014-08-08T20:53:07.573882-04:00
 
 - N. Hughes (2011) ‘[Estimating irrigation farm production functions using ABARES irrigation survey data](http://data.daff.gov.au/data/warehouse/pe_abares99001777/CP11.01_Irrigation_farm.pdf)’, AARES Conference (55th), February 8-11, 2011, Melbourne, Australia
 
-http://data.daff.gov.au/data/warehouse/pe_abares99001777/CP11.01_Irrigation_farm.pdf
-
 - N. Hughes (2010) ‘[Defining property rights to water in complex regulated river systems: generalising the capacity sharing concept](http://data.daff.gov.au/data/warehouse/pe_abarebrs99014389/AARES_3.pdf)’, AARES Conference (54th), February 10-12, 2010, Adelaide, Australia
 
 - N. Hughes, A. Hafi, and T. Goesch (2009) ‘[Urban water management: optimal price and investment policy under climate variability](http://onlinelibrary.wiley.com/doi/10.1111/j.1467-8489.2007.00446.x/abstract)’, Australian Journal of Agricultural and Resource Economics, 53 (2), 175-192
