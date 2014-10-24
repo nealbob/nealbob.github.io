@@ -35,19 +35,19 @@ You'll get a warning about connecting for the first time, just type yes, then en
 
 
 {% highlight bash %}
-    ###############################################################################
-    #                            NCI National Facility                            #
-    #      This service is for authorised clients only. It is a criminal          #
-    #      offence to:                                                            #
-    #                - Obtain access to data without permission                   #
-    #                - Damage, delete, alter or insert data without permission    #
-    #      Use of this system requires acceptance of the Conditions of Use        #
-    #      published at http://nci.org.au/conditions/                             #
-    ###############################################################################
-    |                  Welcome to the NCI National Facility!                      |
-    |        raijin.nci.org.au - 57472 processor InfiniBand x86_64 cluster        |
-    |     Assistance: help@nci.org.au     Information: http://nci.org.au          |
-    ===============================================================================
+###############################################################################
+#                            NCI National Facility                            #
+#      This service is for authorised clients only. It is a criminal          #
+#      offence to:                                                            #
+#                - Obtain access to data without permission                   #
+#                - Damage, delete, alter or insert data without permission    #
+#      Use of this system requires acceptance of the Conditions of Use        #
+#      published at http://nci.org.au/conditions/                             #
+###############################################################################
+|                  Welcome to the NCI National Facility!                      |
+|        raijin.nci.org.au - 57472 processor InfiniBand x86_64 cluster        |
+|     Assistance: help@nci.org.au     Information: http://nci.org.au          |
+===============================================================================
 {% endhighlight %}
 
 # First steps
@@ -55,7 +55,7 @@ You'll get a warning about connecting for the first time, just type yes, then en
 So now you are in a command line linux environment on a single raijin node (with 16 cores). You should have a prompt that looks like this
 
 {% highlight bash %}
-    [username@raijin4 ~]$
+[username@raijin4 ~]$
 {% endhighlight %}
 
 Each users gets there own profile to play with, here you can install your code and any dependencies and store your input and output files. Any changes you make here will be saved when you log out. Your profile is located on the system at /home/username.
@@ -63,8 +63,8 @@ Each users gets there own profile to play with, here you can install your code a
 First lets reset our password
 
 {% highlight bash %}
-    [username@raijin4 ~]$ passwd
-{% end highlight %}
+[username@raijin4 ~]$ passwd
+{% endhighlight %}
 
 Next we can check our account status
 
@@ -108,27 +108,27 @@ You should see your 1000 hour allocation, plus nearly 100GB in storage. Note tha
 raijin has just about all the software you might need already installed (see the [list](http://nci.org.au/nci-systems/national-facility/peak-system/raijin/application-software/)). You just need to make it available to your profile with the `module` command. To view the list of all software type
 
 {% highlight bash %}
-    module avail
+module avail
 {% endhighlight %}
 
 To install Python (with `numpy`, `scipy` and `matplotlib`) you type
 
 {% highlight bash %}
-    module load python/2.7.3
-    module load python/2.7.3-matplotlib
+module load python/2.7.3
+module load python/2.7.3-matplotlib
 {% endhighlight %}
 
 To use Cython I also needed to replace the default intel C compiler with gcc
 
 {% highlight bash %}
-    module unload intel-cc
-    module load gcc/4.9.0
+module unload intel-cc
+module load gcc/4.9.0
 {% endhighlight %}
 
 You can then add these commands to your `.profile` file, to make sure they are executed on login. I used vim to edit these text files
 
 {% highlight bash %}
-    vim .profile
+vim .profile
 {% endhighlight %}
 
 # Installing your code and dependencies
@@ -136,7 +136,7 @@ You can then add these commands to your `.profile` file, to make sure they are e
 An easy way to load your code is via [github](https://github.com) (which is like dropbox for code). Once you've learnt github, and have your code in a github repository [like this](https://github.com/nealbob/regrivermod), you can clone it directly onto your profile.
 
 {% highlight bash %}
-    git clone git://github.com/nealbob/regrivermod.git ~/Model
+git clone git://github.com/nealbob/regrivermod.git ~/Model
 {% endhighlight %}
 
 Too easy. I also needed to compile my code, which once I installed `gcc` worked just like it does on my local machine. 
@@ -144,19 +144,19 @@ Too easy. I also needed to compile my code, which once I installed `gcc` worked 
 Next I needed to install a number of other Python packages not included on raijin by default (`cython`, `pandas`, `scikit-learn`). First create a folder to hold them
 
 {% highlight bash %}
-    mkdir packages
+mkdir packages
 {% endhighlight %}
 
 For this I can use `easy_install`. You just need to tell `easy_install` to install locally, for example
 
 {% highlight bash %}
-    easy_install --install-dir=~/packages pandas
+easy_install --install-dir=~/packages pandas
 {% endhighlight %}
 
 Next you need to add ~/packages to your PYTHONPATH environment variable so Python can find it
 
 {% highlight bash %}
-    export PYTHONPATH=~/packages:$PYTHONPATH
+export PYTHONPATH=~/packages:$PYTHONPATH
 {% endhighlight %}
 
 Its best to make this change permanent by adding it to your `.bashrc` file.
@@ -166,36 +166,36 @@ Its best to make this change permanent by adding it to your `.bashrc` file.
 Just to check that it works I can run my code interactively 
 
 {% highlight bash %}
-    [username@raijin4 ~]$ cd Model
-    [username@raijin4 Model]$ python test.py
+[username@raijin4 ~]$ cd Model
+[username@raijin4 Model]$ python test.py
 
-     --- Main parameters --- 
+ --- Main parameters --- 
 
-    Inflow to capacity: 0.708747484611
-    Coefficient of variation: 0.7
-    Proportion of high demand: 0.234622818122
-    Target water price: 10.0
-    Transaction cost: 55.0
-    High user inflow share: 0.469245636245
-    Land: 4833.896933
-    High Land: 0.0655588606907
+Inflow to capacity: 0.708747484611
+Coefficient of variation: 0.7
+Proportion of high demand: 0.234622818122
+Target water price: 10.0
+Transaction cost: 55.0
+High user inflow share: 0.469245636245
+Land: 4833.896933
+High Land: 0.0655588606907
 
-    Decentralised storage model with 100 users. 
+Decentralised storage model with 100 users. 
 
-    Solving the planner's problem...
-    PI Iteration: 1, Error: 100.0, PE Iterations: 68
-    PI Iteration: 2, Error: 0.0102, PE Iterations: 11
-    PI Iteration: 3, Error: 0.0014, PE Iterations: 2
-    PI Iteration: 4, Error: 0.001, PE Iterations: 1
-    Solve time: 11.7644062042
-    Running simulation for 500000 periods...
-    Simulation time: 5.42
-    Summary stats time 1.61270594597
-    Data stacking time: 1.63947796822
-    Storage mean: 698008.184127
-    Inflow mean: 694593.226731
-    Withdrawal mean: 520950.115529
-    Welfare mean: 186576969.954
+Solving the planner's problem...
+PI Iteration: 1, Error: 100.0, PE Iterations: 68
+PI Iteration: 2, Error: 0.0102, PE Iterations: 11
+PI Iteration: 3, Error: 0.0014, PE Iterations: 2
+PI Iteration: 4, Error: 0.001, PE Iterations: 1
+Solve time: 11.7644062042
+Running simulation for 500000 periods...
+Simulation time: 5.42
+Summary stats time 1.61270594597
+Data stacking time: 1.63947796822
+Storage mean: 698008.184127
+Inflow mean: 694593.226731
+Withdrawal mean: 520950.115529
+Welfare mean: 186576969.954
 {% endhighlight %}
 
 Horah it works! To run larger jobs across multiple nodes we need to use the PBS job scheduling system (I haven't tried this yet).
