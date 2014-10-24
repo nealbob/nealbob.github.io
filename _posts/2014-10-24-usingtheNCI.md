@@ -28,7 +28,7 @@ Once your'e approved you'll receive a username via email and a temporary passwor
 You login online via ssh (if your on windows or mac you will need an ssh client, see the [user guide](http://nci.org.au/services-support/getting-help/raijin-user-guide/)), on linux just open the terminal and type 
 
 {% highlight bash %}
-    ssh -l username raijin.nci.org.au
+ssh -l username raijin.nci.org.au
 {% endhighlight %}
 
 You'll get a warning about connecting for the first time, just type yes, then enter your password and your in.
