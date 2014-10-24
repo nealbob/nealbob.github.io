@@ -7,7 +7,7 @@ tags: [NCI, ANU, Python]
 comments: true
 ---
 
-Here's what I've learnt so far trying to get my code running on ANU's [National Computing Infrastructure](http://nci.org.au). The NCI website provides a lot information on all of this (see the [raijin user guide](http://nci.org.au/services-support/getting-help/raijin-user-guide/)), but I've found it can be a bit opaque and incomplete. Luckily the help desk staff are very responsive if you ever get stuck (help@nf.nci.org.au).
+Here's what I've learnt so far trying to get my code running on ANU's [National Computational Infrastructure](http://nci.org.au). The NCI website provides a lot information on all of this (see the [raijin user guide](http://nci.org.au/services-support/getting-help/raijin-user-guide/)), but I've found it can be a bit opaque. Luckily the help desk staff are very responsive if you ever get stuck (help@nf.nci.org.au).
 
 # What is the NCI?
 
