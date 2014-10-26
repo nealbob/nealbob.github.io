@@ -101,7 +101,7 @@ raijin    short               72.00GB      0.00GB     72.00GB     164.00K       
 Total                         92.00GB      0.00GB     92.00GB     264.00K       0.01K     263.99K
 {% endhighlight %}
 
-You should see your 1000 hour allocation. Note that these interactive sessions don't count towards your quota. massdata and short are where you can store your larger input and output data files, together you have a default allocation of 92Gb storage.
+You should see your 1000 hour allocation. Note that these interactive sessions don't count towards your quota. 
 
 # Installing software
 
@@ -163,9 +163,7 @@ Its best to make this change permanent by adding it to your `.bashrc` file.
 
 # Data storage
 
-The first place to store large data files is in your `short` folder, located at \\\\
-
-To transfer data between short on raijin to your local computer you use `rsync`. I don't have any large input files, but I do have to download some large result files, saved on to my short folder. To transfer a file from your `short` folder to you local machine, naviagate to the local folder you want to hold the file the type
+The first place to store large data files is in your `short` folder, located at /short/project/username. As we saw from the `nci_account' output, you get 72 Gb on short and 20 on massdata. <br> <br> To transfer data between short on raijin to your local computer you use `rsync`. I don't have any large input files, but I do have to download some large result files, saved on to my short folder. To transfer a file from your `short` folder to you local machine, naviagate to the local folder you want to hold the file the type
 
 For longer term storage, the user guide recommends massdata because it is backed up.
 
