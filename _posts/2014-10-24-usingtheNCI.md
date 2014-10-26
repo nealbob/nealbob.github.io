@@ -23,7 +23,7 @@ For ANU Phd students the first step is to apply for a startup grant. This is a s
 
 # Logging in
 
-Once your'e approved you'll receive a username via email and a temporary password via sms.
+Once you're approved you'll receive a username and project code via email and a temporary password via sms.
 
 You login online via ssh (if your on windows or mac you will need an ssh client, see the [user guide](http://nci.org.au/services-support/getting-help/raijin-user-guide/)), on linux just open the terminal and type 
 
@@ -32,7 +32,6 @@ ssh -l username raijin.nci.org.au
 {% endhighlight %}
 
 You'll get a warning about connecting for the first time, just type yes, then enter your password and your in.
-
 
 {% highlight bash %}
 ###############################################################################
@@ -163,7 +162,9 @@ Its best to make this change permanent by adding it to your `.bashrc` file.
 
 # Data storage
 
-The first place to store large data files is in your `short` folder, located at /short/project/username. As we saw from the `nci_account' output, you get 72 Gb on short and 20 on massdata. <br> <br> To transfer data between short on raijin to your local computer you use `rsync`. I don't have any large input files, but I do have to download some large result files, saved on to my short folder. To transfer a file from your `short` folder to you local machine, naviagate to the local folder you want to hold the file the type
+The first place to store large data files is in your 'short' folder, located at /short/project/username. As we saw from the `nci_account` output, you get 72 Gb on short and 20 on massdata. <br> <br> To transfer data between short on raijin to your local computer you use `rsync`. I don't have any large input files, but I do have to download some large result files, saved on to my short folder. To transfer a file from your `short` folder to you local machine, naviagate to the local folder you want to hold the file the type
+
+rsync  -e "ssh -c arcfour" username@r-dm.nci.org.au:/short/projectcode/username/filename 
 
 For longer term storage, the user guide recommends massdata because it is backed up.
 
