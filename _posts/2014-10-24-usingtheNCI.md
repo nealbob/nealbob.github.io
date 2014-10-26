@@ -57,7 +57,7 @@ So now you are in a command line linux environment on a single raijin node (with
 [username@raijin4 ~]$
 {% endhighlight %}
 
-You begin in your home folder, which is on the filesystem at /home/username. Here you can install your code and any dependencies. Any changes you make will be saved when you log out. Your home folder has a capacity of 2 Gb.
+You begin in your home folder, which is on the filesystem at /home/unigrp/username (where unigrp is the last three digits of your username). Here you can install all your code and any dependencies. Any changes you make will be saved when you log out. Your home folder has a capacity of 2 Gb.
 
 First lets reset our password
 
