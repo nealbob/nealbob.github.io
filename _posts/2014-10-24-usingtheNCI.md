@@ -11,7 +11,7 @@ Here's what I've learnt so far trying to get my code running on ANU's [National 
 
 # What is the NCI?
 
-The NCI houses raijin a 60,000 CPU core supercomputer - the largest in the Southern Hemisphere. Its located at the ANU next to South oval. 
+The NCI houses raijin a 60,000 CPU core supercomputer - the largest in the Southern Hemisphere - and its located at the ANU next to South oval. 
 
 <figure>
 	<img src="http://nealbob.github.io/images/nci.jpg">
@@ -58,7 +58,7 @@ So now you are in a command line linux environment on a single raijin node (with
 [username@raijin4 ~]$
 {% endhighlight %}
 
-Each users gets there own profile to play with, here you can install your code and any dependencies and store your input and output files. Any changes you make will be saved when you log out. Your profile is located on the system at /home/username.
+You begin in your home folder, which is on the filesystem at /home/username. Here you can install your code and any dependencies. Any changes you make will be saved when you log out. Your home folder has a capacity of 2 Gb.
 
 First lets reset our password
 
@@ -101,7 +101,7 @@ raijin    short               72.00GB      0.00GB     72.00GB     164.00K       
 Total                         92.00GB      0.00GB     92.00GB     264.00K       0.01K     263.99K
 {% endhighlight %}
 
-You should see your 1000 hour allocation, plus nearly 100GB in storage. Note that these interactive sessions don't count towards your quota.
+You should see your 1000 hour allocation. Note that these interactive sessions don't count towards your quota. massdata and short are where you can store your larger input and output data files, together you have a default allocation of 92Gb storage.
 
 # Installing software
 
@@ -160,6 +160,14 @@ export PYTHONPATH=~/packages:$PYTHONPATH
 {% endhighlight %}
 
 Its best to make this change permanent by adding it to your `.bashrc` file.
+
+# Data storage
+
+The first place to store large data files is in your `short` folder, located at \\\\
+
+To transfer data between short on raijin to your local computer you use `rsync`. I don't have any large input files, but I do have to download some large result files, saved on to my short folder. To transfer a file from your `short` folder to you local machine, naviagate to the local folder you want to hold the file the type
+
+For longer term storage, the user guide recommends massdata because it is backed up.
 
 # Running jobs
 
