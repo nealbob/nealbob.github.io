@@ -162,7 +162,7 @@ Its best to make this change permanent by adding it to your `.bashrc` file.
 
 # Data storage
 
-The first place to store large data files is in your 'short' folder, located at /short/projectcode/username. As we saw from the `nci_account` output, you get 72 Gb on short and 20 on massdata. <br> <br> To transfer data files between raijin and your local computer you can use `rsync`. I don't have any large input files, but I do have to download some large result files. To transfer a file from your short folder to you local machine, naviagate to the local folder you want to hold the file then type
+The first place to store large data files is in your 'short' folder, located at /short/projectcode/username. As we saw from the `nci_account` output, you get 72 Gb on short and 20 on massdata. <br> <br> To transfer data files between raijin and your local computer you can use `rsync`. For example, to transfer a file from your short folder to you local machine, naviagate to the local folder you want to hold the file then type
 
 {% highlight bash %}
 rsync  -e "ssh -c arcfour" username@r-dm.nci.org.au:/short/projectcode/username/filename 
@@ -207,6 +207,98 @@ Withdrawal mean: 520950.115529
 Welfare mean: 186576969.954
 {% endhighlight %}
 
-Horah it works! To run larger jobs across multiple nodes we need to use the PBS job scheduling system (I haven't tried this yet).
+Horah it works! To run larger jobs across multiple nodes we need to use the [PBS job scheduling system](http://nci.org.au/services-support/getting-help/pbspro-commands/)). To run the above job using PBS we type
+
+
+{% highlight bash %}
+qsub jobscript
+{% endhighlight %}
+
+where jobscript is a text file that contains the following
+
+{% highlight bash %}
+#!/bin/bash
+#PBS -P projectcode 
+#PBS -q express
+#PBS -l walltime=60
+#PBS -l mem=500MB
+#PBS -l ncpus=8
+#PBS -l wd
+module load python/2.7.3
+module load python/2.7.3-matplotlib
+python test.py
+{% endhighlight %}
+
+All of the lines beginning with `#PBS` are job scheduling options. `-P projectcode` just tells the system which project to charge the time against. `-q express` sets the type of 'queue' to join, either `express' (for testing), `normal`, or `copyq` (for data intensive jobs) - see the [user guide](http://nci.org.au/services-support/getting-help/raijin-user-guide/). `-l wd' just tells the system to start the job from the current directory. <br><br> '-l walltime=60' is the expected running time of the job in seconds (best to allow slightly longer than you expect).  For large jobs you can specify the time in hours:minutes:seconds format.   `-l ncpus=8' sets the number of cpus the job requires, if greater than 16 (one node) this needs to be in multiples of 16. `-l mem=500Mb' Is the amount of memory required for the job - your job won't run if you don't allow enough memory.<br><br> Next we need to repeat out `module load' statements. While all the changes we've made to our home folder and in our `.bashrc` file will be availbale to the job, anything we've added to `.profile' needs to be repeated. Finally, we put our job command. 
+
+So after submitting this job we get the uninspiring response
+
+{% highlight bash %}
+jobid.r-man2
+{% endhighlight %}
+
+where `jobid' is some number. We can query the status of the job with 
+
+{% highlight bash %}
+[username@raijin1 Model]$ qstat -s jobid
+qstat: 7516166.r-man2 Job has finished, use -x or -H to obtain historical job information
+[username@raijin1 Model]$ qstat -s jobid -x
+
+r-man2: 
+                                                            Req'd  Req'd   Elap
+Job ID          Username Queue    Jobname    SessID NDS TSK Memory Time  S Time
+--------------- -------- -------- ---------- ------ --- --- ------ ----- - -----
+jobid.r-man2   username express- jobscript   27544  --   8  500mb 00:01 F 00:00
+   Job run at Tue Oct 28 at 08:58 on (r102:jobfs_local=102400kb:mem=512000...
+{% endhighlight %}
+
+OK so it seems to have worked. Now if the job worked as planned you should find a jobscript.ojobid text file has been created with all of the output (if not you might find a jobscript.ejobid file with an error message). To view these file use the `cat` command
+
+{% highlight bash %}
+[username@raijin1 Model]$ cat jobscript.ojobid
+
+ --- Main parameters --- 
+
+Inflow to capacity: 0.708747484611
+Coefficient of variation: 0.7
+Proportion of high demand: 0.234622818122
+Target water price: 10.0
+Transaction cost: 55.0
+High user inflow share: 0.469245636245
+Land: 4833.896933
+High Land: 0.0655588606907
+
+Decentralised storage model with 100 users. 
+
+Solving the planner's problem...
+PI Iteration: 1, Error: 100.0, PE Iterations: 68
+PI Iteration: 2, Error: 0.0102, PE Iterations: 11
+PI Iteration: 3, Error: 0.0014, PE Iterations: 2
+PI Iteration: 4, Error: 0.001, PE Iterations: 1
+Solve time: 3.24676513672
+Running simulation for 500000 periods...
+Simulation time: 0.89
+Summary stats time 1.6745159626
+Data stacking time: 1.70569396019
+Storage mean: 697642.617942
+Inflow mean: 693752.110128
+Withdrawal mean: 520867.804524
+Welfare mean: 186632658.338
+======================================================================================
+			Resource Usage on 2014-10-28 08:59:26.639311:
+	JobId:  jobid.r-man2  
+	Project: projectcode 
+	Exit Status: 0 (Linux Signal 0)
+	Service Units: 0.04
+	NCPUs Requested: 8				NCPUs Used: 8
+							CPU Time Used: 00:00:36
+	Memory Requested: 500mb 			Memory Used: 56mb
+							Vmem Used: 531mb
+	Walltime requested: 00:01:00 			Walltime Used: 00:00:20
+	jobfs request: 100mb				jobfs used: 1mb
+======================================================================================
+{% endhighlight %}
+
+Great so it worked. The resource usage info at the end, is a good way to work out the CPU / Memory requirements of your jobs.
 
 
