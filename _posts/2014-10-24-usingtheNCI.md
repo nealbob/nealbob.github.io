@@ -70,7 +70,7 @@ Next we can check our account status
 {% highlight bash %}
 [username@raijin4 ~]$ nci_account
 
-Usage Report: Project=fr3 Compute Period=2014.q4 (01/10/2014-31/12/2014)
+Usage Report: Project=projectcode Compute Period=2014.q4 (01/10/2014-31/12/2014)
 ========================================================================
 
 Total Grant: 1000.00 SU
@@ -89,7 +89,7 @@ raijin     normal     1.0          0.00          0.00          0.00          0.0
 Overall                            0.00          0.00          0.00          0.00          0.00          0.00
 
 
-Usage Report: Project=fr3 Storage Period=2014.10 (01/10/2014-31/12/2014)
+Usage Report: Project=projectcode Storage Period=2014.10 (01/10/2014-31/12/2014)
 ========================================================================
 -------------------------------------------------------------------------------------------------
 System    StoragePt             Grant       Usage       Avail      iGrant      iUsage      iAvail
@@ -146,7 +146,7 @@ Next I needed to install a number of other Python packages not included on raiji
 [username@raijin4 ~] mkdir packages
 {% endhighlight %}
 
-For this I can use `easy_install`. You just need to tell `easy_install` to install locally, for example
+To install python packages I can use `easy_install`. You just need to tell `easy_install` to install locally, for example
 
 {% highlight bash %}
 [username@raijin4 ~] easy_install --install-dir=~/packages pandas
@@ -235,7 +235,7 @@ All of the lines beginning with `#PBS` are job scheduling options. `-P projectco
 
 Next we need to repeat our `module load` statements. While all the changes we've made to our home folder  will be available to the job, anything we've added to `.profile` needs to be repeated. Finally, we add our job command. 
 
-So after submitting the job we get the uninspiring response
+So after submitting we get the uninspiring response
 
 {% highlight bash %}
 jobid.r-man2
@@ -256,7 +256,7 @@ jobid.r-man2   username express- jobscript   27544  --   8  500mb 00:01 F 00:00
    Job run at Tue Oct 28 at 08:58 on (r102:jobfs_local=102400kb:mem=512000...
 {% endhighlight %}
 
-Now if the job worked as planned we should find a `jobscript.ojobid` text file has been created with all of the output (if not you might find a `jobscript.ejobid` file with an error message). To view these file use the `cat` command
+Now if the job worked as planned we should find a `jobscript.ojobid` text file has been created with all of the output (if not you might find a `jobscript.ejobid` file with an error message). To view any of these files use the `cat` command
 
 {% highlight bash %}
 [username@raijin1 Model]$ cat jobscript.ojobid
@@ -303,6 +303,6 @@ Welfare mean: 186632658.338
 ======================================================================================
 {% endhighlight %}
 
-Great so it worked. The resource usage info at the end, is a good way to work out the CPU / memory requirements of your jobs.
+Great so it worked, and we have this resource usage info at the end, which is a good way to work out the CPU / memory requirements of your jobs.
 
 
