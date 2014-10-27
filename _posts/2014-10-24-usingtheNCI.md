@@ -107,27 +107,27 @@ You should see your 1000 hour allocation. Note that these interactive sessions d
 raijin has just about all the software you might need already installed (see the [list](http://nci.org.au/nci-systems/national-facility/peak-system/raijin/application-software/)). You just need to make it available to your profile with the `module` command. To view the list of all software type
 
 {% highlight bash %}
-module avail
+[username@raijin4 ~] module avail
 {% endhighlight %}
 
 To install Python (with `numpy`, `scipy` and `matplotlib`) you type
 
 {% highlight bash %}
-module load python/2.7.3
-module load python/2.7.3-matplotlib
+[username@raijin4 ~] module load python/2.7.3
+[username@raijin4 ~] module load python/2.7.3-matplotlib
 {% endhighlight %}
 
 To use Cython I also needed to replace the default intel C compiler with gcc
 
 {% highlight bash %}
-module unload intel-cc
-module load gcc/4.9.0
+[username@raijin4 ~] module unload intel-cc
+[username@raijin4 ~] module load gcc/4.9.0
 {% endhighlight %}
 
 You can then add these commands to your `.profile` file, to make sure they are executed on login. I used vim to edit these text files
 
 {% highlight bash %}
-vim .profile
+[username@raijin4 ~] vim .profile
 {% endhighlight %}
 
 # Installing your code and dependencies
@@ -135,7 +135,7 @@ vim .profile
 An easy way to load your code is via [github](https://github.com) (which is like dropbox for code). Once you've learnt github, and have your code in a github repository [like this](https://github.com/nealbob/regrivermod), you can clone it directly onto your profile.
 
 {% highlight bash %}
-git clone git://github.com/nealbob/regrivermod.git ~/Model
+[username@raijin4 ~] git clone git://github.com/nealbob/regrivermod.git ~/Model
 {% endhighlight %}
 
 Too easy. I also needed to compile my code, which once I installed `gcc` worked just like it does on my local machine. 
@@ -143,19 +143,19 @@ Too easy. I also needed to compile my code, which once I installed `gcc` worked 
 Next I needed to install a number of other Python packages not included on raijin by default (`cython`, `pandas`, `scikit-learn`). First create a folder to hold them
 
 {% highlight bash %}
-mkdir packages
+[username@raijin4 ~] mkdir packages
 {% endhighlight %}
 
 For this I can use `easy_install`. You just need to tell `easy_install` to install locally, for example
 
 {% highlight bash %}
-easy_install --install-dir=~/packages pandas
+[username@raijin4 ~] easy_install --install-dir=~/packages pandas
 {% endhighlight %}
 
 Next you need to add ~/packages to your PYTHONPATH environment variable so Python can find it
 
 {% highlight bash %}
-export PYTHONPATH=~/packages:$PYTHONPATH
+[username@raijin4 ~] export PYTHONPATH=~/packages:$PYTHONPATH
 {% endhighlight %}
 
 Its best to make this change permanent by adding it to your `.bashrc` file.
@@ -165,7 +165,7 @@ Its best to make this change permanent by adding it to your `.bashrc` file.
 The first place to store large data files is in your 'short' folder, located at /short/projectcode/username. As we saw from the `nci_account` output, you get 72 Gb on short and 20 on massdata. <br> <br> To transfer data files between raijin and your local computer you can use `rsync`. For example, to transfer a file from your short folder to you local machine, naviagate to the local folder you want to hold the file then type
 
 {% highlight bash %}
-rsync  -e "ssh -c arcfour" username@r-dm.nci.org.au:/short/projectcode/username/filename 
+[username@raijin4 ~] rsync  -e "ssh -c arcfour" username@r-dm.nci.org.au:/short/projectcode/username/filename 
 {% endhighlight %}
 
 For longer term storage, the user guide recommends massdata because it's backed up.
@@ -211,7 +211,7 @@ Horah it works! To run larger jobs across multiple nodes we need to use the [PBS
 
 
 {% highlight bash %}
-qsub jobscript
+[username@raijin1 Model]$ qsub jobscript
 {% endhighlight %}
 
 where jobscript is a text file that contains the following
