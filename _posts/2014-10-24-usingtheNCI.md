@@ -207,7 +207,7 @@ Withdrawal mean: 520950.115529
 Welfare mean: 186576969.954
 {% endhighlight %}
 
-Horah it works! To run larger jobs across multiple nodes we need to use the [PBS job scheduling system](http://nci.org.au/services-support/getting-help/pbspro-commands/)). To run the above job using PBS we type
+Horah it works! To run larger jobs across multiple nodes we need to use the [PBS job scheduling system](http://nci.org.au/services-support/getting-help/pbspro-commands/). To run the above job using PBS we type
 
 
 {% highlight bash %}
@@ -229,7 +229,7 @@ module load python/2.7.3-matplotlib
 python test.py
 {% endhighlight %}
 
-All of the lines beginning with `#PBS` are job scheduling options. `-P projectcode` just tells the system which project to charge the time against. `-q express` sets the type of 'queue' to join, either `express' (for testing), `normal`, or `copyq` (for data intensive jobs) - see the [user guide](http://nci.org.au/services-support/getting-help/raijin-user-guide/). `-l wd' just tells the system to start the job from the current directory. <br><br> '-l walltime=60' is the expected running time of the job in seconds (best to allow slightly longer than you expect).  For large jobs you can specify the time in hours:minutes:seconds format.   `-l ncpus=8' sets the number of cpus the job requires, if greater than 16 (one node) this needs to be in multiples of 16. `-l mem=500Mb' Is the amount of memory required for the job - your job won't run if you don't allow enough memory.<br><br> Next we need to repeat out `module load' statements. While all the changes we've made to our home folder and in our `.bashrc` file will be availbale to the job, anything we've added to `.profile' needs to be repeated. Finally, we put our job command. 
+All of the lines beginning with `#PBS` are job scheduling options. `-P projectcode` just tells the system which project to charge the time against. `-q express` sets the type of 'queue' to join, either `express` (for testing), `normal`, or `copyq` (for data intensive jobs) - see the [user guide](http://nci.org.au/services-support/getting-help/raijin-user-guide/). `-l wd` just tells the system to start the job from the current directory. <br><br> `-l walltime=60` is the expected running time of the job in seconds (best to allow slightly longer than you expect).  For large jobs you can specify the time in hours:minutes:seconds format.   `-l ncpus=8` sets the number of cpus the job requires, if greater than 16 (one node) this needs to be in multiples of 16. `-l mem=500Mb` Is the amount of memory required for the job - your job won't run if you don't allow enough memory.<br><br> Next we need to repeat out `module load' statements. While all the changes we've made to our home folder and in our `.bashrc` file will be availbale to the job, anything we've added to `.profile` needs to be repeated. Finally, we put our job command. 
 
 So after submitting this job we get the uninspiring response
 
@@ -237,7 +237,7 @@ So after submitting this job we get the uninspiring response
 jobid.r-man2
 {% endhighlight %}
 
-where `jobid' is some number. We can query the status of the job with 
+where `jobid` is some number. We can query the status of the job with 
 
 {% highlight bash %}
 [username@raijin1 Model]$ qstat -s jobid
