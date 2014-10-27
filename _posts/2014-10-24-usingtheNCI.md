@@ -235,7 +235,7 @@ All of the lines beginning with `#PBS` are job scheduling options. `-P projectco
 
 Next we need to repeat our `module load` statements. While all the changes we've made to our home folder  will be available to the job, anything we've added to `.profile` needs to be repeated. Finally, we add our job command. 
 
-So after submitting this job we get the uninspiring response
+So after submitting the job we get the uninspiring response
 
 {% highlight bash %}
 jobid.r-man2
@@ -256,7 +256,7 @@ jobid.r-man2   username express- jobscript   27544  --   8  500mb 00:01 F 00:00
    Job run at Tue Oct 28 at 08:58 on (r102:jobfs_local=102400kb:mem=512000...
 {% endhighlight %}
 
-OK so it seems to have worked. Now if the job worked as planned you should find a jobscript.ojobid text file has been created with all of the output (if not you might find a jobscript.ejobid file with an error message). To view these file use the `cat` command
+Now if the job worked as planned we should find a `jobscript.ojobid` text file has been created with all of the output (if not you might find a `jobscript.ejobid` file with an error message). To view these file use the `cat` command
 
 {% highlight bash %}
 [username@raijin1 Model]$ cat jobscript.ojobid
@@ -303,6 +303,6 @@ Welfare mean: 186632658.338
 ======================================================================================
 {% endhighlight %}
 
-Great so it worked. The resource usage info at the end, is a good way to work out the CPU / Memory requirements of your jobs.
+Great so it worked. The resource usage info at the end, is a good way to work out the CPU / memory requirements of your jobs.
 
 
