@@ -57,12 +57,22 @@ So now you are in a command line linux environment on a single raijin node (with
 [username@raijin4 ~]$
 {% endhighlight %}
 
-You begin in your home folder, which is on the filesystem at /home/unigrp/username (where unigrp is the last three digits of your username). Here you can install all your code and any dependencies. Any changes you make will be saved when you log out. Your home folder has a capacity of 2 Gb.
-
 First lets reset our password
 
 {% highlight bash %}
 [username@raijin4 ~]$ passwd
+{% endhighlight %}
+
+We begin in our home folder, which is on the filesystem at /home/unigrp/username (where unigrp is the last three digits of your username). Here you can install all your code and any dependencies. Any changes you make will be saved when you log out. Your home folder has a capacity of 2 Gb. You can check how much you have used with `lquota`.
+
+{% highlight bash %}
+[username@raijin4 ~]$ lquota
+--------------------------------------------------------------
+          fs  Usage  Quota  Limit   iUsage    iQuota   iLimit
+--------------------------------------------------------------
+ndh401  home  383MB 2000MB 2000MB     5449         0    88000 
+   fr3 short   28kB 72.0GB  144GB        7    164000   328000 
+--------------------------------------------------------------
 {% endhighlight %}
 
 Next we can check our account status
@@ -110,7 +120,7 @@ raijin has just about all the software you might need already installed (see the
 [username@raijin4 ~] module avail
 {% endhighlight %}
 
-To install Python (with `numpy`, `scipy` and `matplotlib`) you type
+To load Python (with `numpy`, `scipy` and `matplotlib`) you type
 
 {% highlight bash %}
 [username@raijin4 ~] module load python/2.7.3
@@ -138,7 +148,7 @@ An easy way to load your code is via [github](https://github.com) (which is like
 [username@raijin4 ~] git clone git://github.com/nealbob/regrivermod.git ~/Model
 {% endhighlight %}
 
-Too easy. I also needed to compile my code, which once I installed `gcc` worked just like it does on my local machine. 
+Too easy. I also needed to compile my code, which once I loaded `gcc` worked just like it does on my local machine. 
 
 Next I needed to install a number of other Python packages not included on raijin by default (`cython`, `pandas`, `scikit-learn`). First create a folder to hold them
 
