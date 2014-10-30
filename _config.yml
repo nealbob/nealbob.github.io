@@ -8,7 +8,7 @@ url:              http://nealbob.github.io
 # Jekyll configuration
 
 permalink:   /:categories/:title/
-markdown:    redcarpet
+markdown:    discount
 highlighter: pygments
 sass:
   sass_dir: _sass
