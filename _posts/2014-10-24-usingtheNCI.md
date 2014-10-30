@@ -172,7 +172,7 @@ Its best to make this change permanent by adding it to your `.bashrc` file.
 
 # Data storage
 
-The first place to store large data files is in your 'short' folder, located at /short/projectcode/username. As we saw from the `nci_account` output, you get 72 Gb on short and 20 on massdata. <br> <br> To transfer data files between raijin and your local computer you can use `rsync`. For example, to transfer a file from your short folder to you local machine, naviagate to the local folder you want to hold the file then type
+The first place to store large data files is in your 'short' folder, located at /short/projectcode/username. As we saw from the `nci_account` output, you get 72 Gb on short and 20 on massdata. <br> <br> To transfer data files between raijin and your local computer you can use `rsync`. For example, to transfer a file from your short folder to you local machine, navigate to the local folder you want to hold the file then type
 
 {% highlight bash %}
 [username@raijin4 ~] rsync  -e "ssh -c arcfour" username@r-dm.nci.org.au:/short/projectcode/username/filename 
