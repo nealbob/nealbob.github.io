@@ -27,8 +27,8 @@ X = np.array([np.random.rand(N) for d in range(D)]).T
 beta = np.random.rand(N)
 theta = 10
 
-#%timeit rbf_network(X, beta, theta)
-
+%timeit rbf_network(X, beta, theta)
+"""
 from scipy.interpolate import Rbf
 
 Xtuple = tuple([X[:, i] for i in range(D)])
@@ -40,4 +40,4 @@ rbf = Rbf(X[:,0], X[:,1], X[:,2], X[:,3], X[:, 4], np.random.rand(N))
 from fastloop import rbf_network as rbf_fast
 
 %timeit rbf_fast(X, beta, theta)
-
+"""
