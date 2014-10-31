@@ -1,10 +1,8 @@
-
-##POO
-# PP cython: boundscheck=False, wraparound=False, nonecheck=False
+#cython: boundscheck=False, wraparound=False, nonecheck=False
 
 from cython.parallel import prange
 import numpy as np
-from math import exp
+#from math import exp
 from libc.math cimport exp as c_exp
 
 cdef extern from "vfastexp.h":
@@ -31,6 +29,6 @@ def rbf_network(double[:, :] X,  double[:] beta, double theta):
             r = 0
             for d in range(D):
                 r += (X[j, d] - X[i, d]) ** 2
-            Y[i] += beta[j] * exp(-(r * theta)**2)
+            Y[i] += beta[j] * c_exp_approx(-(r * theta)**2)
 
     return Y
