@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How to use the ANU supercomputer
-excerpt: "Everything I've learnt so far about how to use the NCI"
+excerpt: "Everything I've learnt so far about using the NCI"
 modified: 2014-10-24
 tags: [NCI, ANU, Python]
 comments: true
