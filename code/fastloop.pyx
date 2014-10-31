@@ -29,6 +29,6 @@ def rbf_network(double[:, :] X,  double[:] beta, double theta):
             r = 0
             for d in range(D):
                 r += (X[j, d] - X[i, d]) ** 2
-            Y[i] += beta[j] * c_exp(-(r * theta)**2)
+            Y[i] += beta[j] * exp(-(r * theta)**2)
 
     return Y
