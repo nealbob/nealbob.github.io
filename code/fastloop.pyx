@@ -1,4 +1,6 @@
-#cython: boundscheck=False, wraparound=False, nonecheck=False
+
+##POO
+# PP cython: boundscheck=False, wraparound=False, nonecheck=False
 
 from cython.parallel import prange
 import numpy as np
