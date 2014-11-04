@@ -5,7 +5,6 @@
 import numpy as np
 from math import exp
 
-
 def rbf_network(X, beta, theta):
 
     N = X.shape[0]
@@ -17,6 +16,7 @@ def rbf_network(X, beta, theta):
             r = 0
             for d in range(D):
                 r += (X[j, d] - X[i, d]) ** 2
+            r = r**0.5
             Y[i] += beta[j] * exp(-(r * theta)**2)
 
     return Y
