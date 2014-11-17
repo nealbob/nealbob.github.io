@@ -4,6 +4,8 @@ title: Research
 modified: 2014-08-08T20:53:07.573882-04:00
 ---
 
+- N. Hughes (2014) ‘[Applying reinforcement learning to economic problems](RL_article.pdf)’, ANU Crawford Phd Conference, Canberra.
+
 - N. Hughes (2014) ‘[Water storage rights: decentralising reservoir operation](storagerights.pdf)’, International Atlantic Economic Society Conference, Madrid.
 
 - N. Hughes (2013) ‘[The water storage problem](http://www.globalwaterforum.org/2013/12/09/the-water-storage-problem/)’, Global Water Forum
