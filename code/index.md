@@ -6,7 +6,7 @@ modified: 2014-08-08T20:53:07.573882-04:00
 comments: false
 ---
 
-For my thesis I've learnt to code in Python. [John Stachurski](http://johnstachurski.net/) and Thomas Sargent's [quant-econ](http://quant-econ.net/) site provides a great introduction to Python for economists. <br> <br> Python is a joy to use, but it's a bit slow. Here I rely on [Cython](http://cython.org/) which is basically a Python to C translator, see {% post_url 2014-10-30-cython1.md %}.
+For my thesis I've learnt to code in Python. [John Stachurski](http://johnstachurski.net/) and Thomas Sargent's [quant-econ](http://quant-econ.net/) site provides a great introduction to Python for economists. <br> <br> Python is a joy to use, but it's a bit slow. Here I rely on [Cython](http://cython.org/) which is basically a Python to C translator, see [this post]({% post_url 2014-10-30-cython1 %}).
 
 econlearn
 ---------
