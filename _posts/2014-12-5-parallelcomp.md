@@ -11,7 +11,7 @@ These days CPUs are not getting any faster: computers just have more of them. Th
 
 # Processes and threads
 
-There are two forms of parallel computing: shared memory (i.e., threads) and message passing (i.e., processes). With threading, multiple CPU cores can simultaneously operate on shared input data. With processes, each CPU core runs an essentially independent task, requiring its own copy of the input data. 
+There are two forms of parallel computing: shared memory (i.e., threads) and message passing (i.e., processes). With threading, multiple CPU cores operate on shared input data. With processes, each CPU core runs an essentially independent task, requiring its own copy of the input data. 
 
 Message passing involves performance overheads - as such it is more suited to large complicated computing jobs. Shared memory is fast but is limited by concurrency problems (where different threads try to access the same data at the same time) - as such it is suited to running large numbers of very simple jobs (i.e., running a loop in parallel).   
 
@@ -60,7 +60,7 @@ plt.plot(S)
 {% endhighlight %}
 
 <figure>
-	<img src="http://localhost:4000/images/fig1.jpg">
+	<img src="../images/fig1.jpg">
 </figure>
 
 Now lets time it in `IPython`
@@ -162,7 +162,7 @@ plt.scatter(S[0:101], S[101:202])
 {% endhighlight %}
 
 <figure>
-	<img src="http://localhost:4000/images/fig2.jpg">
+	<img src="../images/fig2.jpg">
 </figure>
 Uh oh, the two series are identical. The problem is that each process gives the same 'seed' to the random number generator. So both have the same inflow shock series, and given the same initial state the same path for storage levels. To fix this we need to set the seed within each process using `np.random.seed()`. 
 
@@ -209,11 +209,11 @@ plt.plot(S)
 {% endhighlight %}
 
 <figure>
-	<img src="http://localhost:4000/images/fig3.jpg">
+	<img src="../images/fig3.jpg">
 </figure>
 
 <figure>
-	<img src="http://localhost:4000/images/fig4.jpg">
+	<img src="../images/fig4.jpg">
 </figure>
 
 Much better, now we have 200 unique samples.
