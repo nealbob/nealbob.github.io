@@ -2,7 +2,7 @@
 
 title:            Neal Hughes
 locale:           en_US
-url:              http://nealhughes.net
+url:              http://localhost:4000
 
 
 # Jekyll configuration
@@ -41,6 +41,7 @@ owner:
     ad-slot: 
   bing-verify: 
   github: nealbob
+  strava: nealbob
   stackoverflow: 2910587/neal-hughes
   linkedin: #username 
   instagram: #username
