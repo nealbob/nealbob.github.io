@@ -135,11 +135,13 @@ from multicore_storage_sim import multi_sim
 1 loops, best of 3: 988 ms per loop
 {% endhighlight %}
 
-So with two cores we get just under a two times speed up. The message passing overhead is essentially fixed (in this case around 0.12 seconds) so the speed up declines slightly as we increase the number of jobs. With 4 cores we get a speed up of around 3.5. Of course the message passing overhead will depend on the application. The ideal case is where the size of the inputs/outputs is small relative to the complexity of the jobs.
+So with two cores we get just under a two times speed up. With 4 cores we get a speed up of around 3.5. 
 
 <figure>
 	<img src="../images/fig5.jpg">
 </figure>
+
+The message passing overhead is essentially fixed (in this case around 0.12 seconds) so the speed up declines slightly as we increase the number of jobs. Of course the message passing overhead will depend on the application: ideally the size of the input/output data is small relative to the complexity of the jobs.
 
 In practice, messaging passing under `multiprocessing` can lead to stability problems, even with `Queues`. Below is a useful wrapper for `Queue` objects that handles exceptions. I've found this code all but eliminates message passing errors.
 
