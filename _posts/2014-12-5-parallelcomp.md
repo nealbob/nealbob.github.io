@@ -175,7 +175,7 @@ plt.scatter(S[0:101], S[101:202])
 	<img src="../images/fig2.jpg">
 </figure>
 
-Uh oh, the two series are identical. The problem is that each process gives the same 'seed' to the random number generator. So both have the same inflow shock series, and given the same initial state the same path for storage levels. To fix this we need to set the seed within each process using `np.random.seed()`. 
+Uh oh, the two series are identical. The problem is that each process gives the same 'seed' to the random number generator. So both have the same inflow shock series, and given the same initial state, the same path for storage levels. To fix this we need to set the seed within each process using `np.random.seed()`. 
 
 {% highlight python %}
 def simulate(K, mu, sig, Sbar, T, multi=False, que=0, jobno=0):
