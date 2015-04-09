@@ -72,14 +72,14 @@ Now lets time it in `IPython`
 
 # Using multiprocessing
 
-To run this in parallel we need to use the [multiprocessing](https://docs.python.org/2/library/multiprocessing.html) module. Here we have two options for passing messages between processes: `Queues` and `Pipes` (see the [docs](https://docs.python.org/2/library/multiprocessing.html)). We use `Queues` because they tend to be more stable (`Pipes` are faster but less reliable).
+To run this in parallel we need to use the [multiprocessing](https://docs.python.org/2/library/multiprocessing.html) module. Here we have two options for passing messages between processes: `Queues` and `Pipes` (see the [docs](https://docs.python.org/2/library/multiprocessing.html)). We use `Queues` because they tend to be more stable.
 
 First, we modify our function so that it can return its output via a `Queue` instance:
 
 {% highlight python %}
 import numpy as np
 
-def simulate(K, mu, sig, Sbar, T, multi=False, que=0):
+def simulate(K, mu, sig, Sbar, T, multi=False, queue=0):
     
     S = np.zeros(T+1)
     W = np.zeros(T+1)
@@ -92,12 +92,12 @@ def simulate(K, mu, sig, Sbar, T, multi=False, que=0):
         S[t+1] = min(S[t] - W[t] + I[t+1], K)
 
     if multi:
-        que.put(S)
+        queue.put(S)
     else:
         return S
 {% endhighlight %}
 
-The code for generating multiple processes then looks like this
+The code for generating multiple processes looks like this
 
 {% highlight python %}
 from multiprocessing import Process
@@ -106,8 +106,8 @@ from multiprocessing.queues import Queue
 def multi_sim(CORES=2, T=100):
     
     results = []
-    ques = [Queue() for i in range(CORES)]
-    args = [(100, 70, 70, 70, int(T/CORES), True, ques[i]) for i in range(CORES)]
+    queues = [Queue() for i in range(CORES)]
+    args = [(100, 70, 70, 70, int(T/CORES), True, queues[i]) for i in range(CORES)]
     jobs = [Process(target=simulate, args=(a)) for a in args]
     for j in jobs: j.start()
     for q in ques: results.append(q.get())
@@ -117,11 +117,11 @@ def multi_sim(CORES=2, T=100):
     return S
 {% endhighlight %}
 
-For each process we create both a: `Queue` object (to receive the outputs) and an argument tuple. To create a process we call `multiprocessing.Process`,  passing the target function `simulate` and the arguments.
+For each process we create both a: `Queue` object and an argument tuple. To create a process we call `multiprocessing.Process`,  passing the target function `simulate` and the arguments.
 
-We execute processes by calling the `start()` method. Note this is non-blocking: the interpreter won't wait for a process to complete before executing the next instruction. To force the interpreter to pause until a process finishes we call the `join()` method. We collect the results from the `Queues` with the `get()` method. Finally, we stack the results into a single array. 
+We execute processes by calling the `start()` method. Note this is non-blocking: the interpreter won't wait for a process to complete before executing the next instruction. To force the interpreter to pause until a process finishes we call the `join()` method. We collect the results from the `Queue` instances with the `get()` method. Finally, we stack the results into a single array. 
 
-Note that the target needs to be a Python function. Cython code can run in multiple processes, but only  within a Python 'wrapper' function. Be aware though, that converting large Python numpy arrays into Cython memoryviews can involve additional overhead. Where this becomes a problem, you have two options: don't use memoryviews (adopt the older [Cython numpy array syntax](http://docs.cython.org/0.14/src/tutorial/numpy.html)) or try threads (see here).
+Note that the target needs to be a Python function. Cython code can run in multiple processes, but only  within a Python 'wrapper' function. Be aware though, that converting large Python numpy arrays into Cython memoryviews can involve additional overhead. Where this becomes a problem, you have two options: don't use memoryviews (adopt the older [Cython numpy array syntax](http://docs.cython.org/0.14/src/tutorial/numpy.html)) or try threads (see here). 
 
 Anyway, lets time it in `IPython`
 
@@ -178,7 +178,7 @@ plt.scatter(S[0:101], S[101:202])
 Uh oh, the two series are identical. The problem is that each process gives the same 'seed' to the random number generator. So both have the same inflow shock series, and given the same initial state, the same path for storage levels. To fix this we need to set the seed within each process using `np.random.seed()`. 
 
 {% highlight python %}
-def simulate(K, mu, sig, Sbar, T, multi=False, que=0, jobno=0):
+def simulate(K, mu, sig, Sbar, T, multi=False, queue=0, jobno=0):
     
     np.random.seed(jobno)
 
@@ -193,15 +193,15 @@ def simulate(K, mu, sig, Sbar, T, multi=False, que=0, jobno=0):
         S[t+1] = min(S[t] - W[t] + I[t+1], K)
 
     if multi:
-        que.put(S)
+        queue.put(S)
     else:
         return S
 
 def multi_sim(CORES=2, T=100):
     
     results = []
-    ques = [RetryQueue() for i in range(CORES)]
-    args = [(100, 70, 70, 70, int(T/CORES), True, ques[i]) for i in range(CORES)]
+    queues = [RetryQueue() for i in range(CORES)]
+    args = [(100, 70, 70, 70, int(T/CORES), True, queues[i]) for i in range(CORES)]
     jobs = [Process(target=simulate, args=(a)) for a in args]
     for j in jobs: j.start()
     for q in ques: results.append(q.get())
