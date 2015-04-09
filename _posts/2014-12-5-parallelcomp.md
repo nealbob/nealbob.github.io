@@ -164,7 +164,7 @@ class RetryQueue(Queue):
 
 Now we can just use the `RetryQueue` class in place of `Queue`
 
-Cool so all done? Not quite. If we look at the results from the two processes, we'll see a problem 
+Cool so all done? Not quite. A closer look at the results reveals a problem 
 
 {% highlight python %}
 S = multi_sim(2, 200)
