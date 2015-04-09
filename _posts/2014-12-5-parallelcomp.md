@@ -66,8 +66,8 @@ plt.plot(S)
 Now lets time it in `IPython`
 
 {% highlight python %}
-%timeit simulate(100, 70, 70, 70, 1000000)
-1 loops, best of 3: 5.04 s per loop
+%timeit simulate(100, 70, 70, 70, 2000000)
+1 loops, best of 3: 3.47 s per loop
 {% endhighlight %}
 
 # Using multiprocessing
@@ -127,11 +127,19 @@ Anyway, lets time it in `IPython`
 
 {% highlight python %}
 from multicore_storage_sim import multi_sim
-%timeit multi_sim(2, 1000000)
-1 loops, best of 3: 2.63 s per loop
+%timeit multi_sim(2, 2000000)
+1 loops, best of 3: 1.85 s per loop
+%timeit multi_sim(3, 2000000)
+1 loops, best of 3: 1.27 s per loop
+%timeit multi_sim(4, 2000000)
+1 loops, best of 3: 988 ms per loop
 {% endhighlight %}
 
-OK, so on my old 2-core laptop we have just under a 2 times speed up. The message passing overhead is essentially a fixed cost, so the relative speed up gradually declines as we increase the number of jobs.
+So with two cores we get just under a two times speed up. The message passing overhead is essentially fixed (in this case around 0.12 seconds) so the speed up declines slightly as we increase the number of jobs. With 4 cores we get a speed up of around 3.5. Of course the message passing overhead will depend on the application. The ideal case is where the size of the inputs/outputs is small relative to the complexity of the jobs.
+
+<figure>
+	<img src="../images/fig5.jpg">
+</figure>
 
 In practice, messaging passing under `multiprocessing` can lead to stability problems, even with `Queues`. Below is a useful wrapper for `Queue` objects that handles exceptions. I've found this code all but eliminates message passing errors.
 
@@ -164,6 +172,7 @@ plt.scatter(S[0:101], S[101:202])
 <figure>
 	<img src="../images/fig2.jpg">
 </figure>
+
 Uh oh, the two series are identical. The problem is that each process gives the same 'seed' to the random number generator. So both have the same inflow shock series, and given the same initial state the same path for storage levels. To fix this we need to set the seed within each process using `np.random.seed()`. 
 
 {% highlight python %}
@@ -203,7 +212,7 @@ def multi_sim(CORES=2, T=100):
 
 {% highlight python %}
 from multicore_storage_sim import multi_sim
-S = multi_sim(2, 100)
+S = multi_sim(2, 200)
 plt.scatter(S[0:101], results[101:202])
 plt.plot(S)
 {% endhighlight %}
