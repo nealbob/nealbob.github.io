@@ -18,6 +18,13 @@ Results
 
 - [Chapter 5: General case results](https://public.tableau.com/views/chapter5_0/Story1?:embed=y&:showTabs=y&:display_count=yes)
 
+Related posts
+-------------
+- [Parallel computing in Python - processes]({% post_url 2014-12-5-parallelcomp %})
+
+- [Fast python loops with Cython]({% post_url 2014-10-30-cython1 %})
+
+- [How to use the ANU supercomputer]({% post_url 2014-10-24-usingtheNCI %})
 
 Working papers
 --------------
