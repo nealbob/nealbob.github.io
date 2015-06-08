@@ -3,6 +3,7 @@ layout: page
 title: Research
 modified: 2014-08-08T20:53:07.573882-04:00
 ---
+- N. Hughes (2015) ‘[Water property rights in rivers with large environmental water holders](EWH_article.pdf)’, ANU Phd Seminar, Canberra.
 
 - N. Hughes (2014) ‘[Applying reinforcement learning to economic problems](RL_article.pdf)’, ANU Crawford Phd Conference, Canberra.
 
