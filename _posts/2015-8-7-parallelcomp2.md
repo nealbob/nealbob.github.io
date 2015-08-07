@@ -9,13 +9,14 @@ comments: true
 
 One of the cool things about [Cython]({% post_url 2014-10-30-cython1 %}) is that it supports multi-threaded code, via the C library [OpenMP](https://en.wikipedia.org/wiki/OpenMP). 
 
-While Python allows for message passing (multiple processes) shared memory (multi-threading) is not possible due to the [Global Interpreter Lock](https://en.wikipedia.org/wiki/Global_Interpreter_Lock) (see this [earlier post]({% post_url 2014-12-5-parallelcomp %})). 
+While Python allows for message passing (i.e., multiple processes) shared memory (i.e., multi-threading) is not possible due to the [Global Interpreter Lock](https://en.wikipedia.org/wiki/Global_Interpreter_Lock) (see this [earlier post]({% post_url 2014-12-5-parallelcomp %})). 
  
-Relative to message passing, multi-threading is fast (and has lower memory requirements). The catch is that you can run into concurrency problems: where the threads need to access the same memory locations at the same time.  As such, multi-threading is best suited to performing large numbers of simple calculations. The main requirement, is that the order in which the calculations are executed doesn't matter. The perfect example is when we need to apply a function element wise over a large array. 
+Relative to message passing, multi-threading is fast (and has lower memory requirements). The catch is that you can run into concurrency problems: where the different threads need to access the same memory locations at the same time.  As such, multi-threading is best suited to performing large numbers of simple calculations: where the order in which the calculations are executed doesn't matter.  
 
 # A simple Cython example
 
-Lets say we need to apply a function \\( f\\) element wise to a large array \\( X\\):
+The perfect use case is applying a function element wise over a large array. Consider function \\( f\\)
+
 
 <div>$$  f(x) = \begin{cases} e^x if & \mbox{if } x > 0.5 \\
          0 & \mbox{if } otherwise \end{cases} $$</div>
