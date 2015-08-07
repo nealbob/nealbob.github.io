@@ -9,7 +9,7 @@ comments: true
 
 One of the cool things about [Cython]({% post_url 2014-10-30-cython1 %}) is that it supports multi-threaded code, via the C library [OpenMP](https://en.wikipedia.org/wiki/OpenMP). While Python allows for message passing (i.e., multiple processes) shared memory (i.e., multi-threading) is not possible due to the [Global Interpreter Lock](https://en.wikipedia.org/wiki/Global_Interpreter_Lock) (see this [earlier post]({% post_url 2014-12-5-parallelcomp %})). 
  
-Relative to message passing, multi-threading is fast (and has lower memory requirements). The catch is that you can run into concurrency problems: where the different threads need to access the same memory locations at the same time.  As such, multi-threading is best suited to performing large numbers of simple calculations. In particular, where the order in which the calculations are executed doesn't matter.  
+Relative to message passing, multi-threading is fast (and has lower memory requirements). The catch is that you can run into concurrency problems: where different threads need to access the same memory locations at the same time.  As such, multi-threading is best suited to performing large numbers of simple calculations: where the order in which the calculations are executed doesn't matter.  
 
 # A simple Cython example
 
@@ -19,7 +19,7 @@ The perfect use case is applying a function element wise over a large array. Let
 <div>$$  f(x) = \begin{cases} e^x & \mbox{if } x > 0.5 \\
          0 & \mbox{if } otherwise \end{cases} $$</div>
 
-Below I have a Python version and a Cython version of \\( f\\) in the file thread_demo.pyx
+Below I have a Python version and a Cython version of \\( f\\) in the file `thread_demo.pyx`
 
 {% highlight cython %}
 import numpy as np
@@ -83,7 +83,7 @@ def c_array_f_multi(double[:] X):
     return Y
 {% endhighlight %}
 
-Too easy. This tells the compiler to run the loop across multiple CPU cores. In this case, we have no concurrency problems: the order in which the loop is executed doesn't matter. Now we just need to make a few changes to our `setup.py` file, in order to compile our code with the OpenMP:
+Too easy. This tells the compiler to run the loop across multiple CPU cores. In this case, we have no concurrency problems: the order in which the loop is executed doesn't matter. Now we just need to make a few changes to our `setup.py` file, in order to compile our code with OpenMP:
 
 {% highlight python %}
 from distutils.core import setup
@@ -142,7 +142,7 @@ def c_array_f_multi(double[:] X):
 
 `prange()` takes a few other arguments including `num_threads`: which will default to the number of cores on your system and `schedule`: which has to do with load balancing. The simplest option here is 'static' which just breaks the loop into equal chunks. This is fine if all steps compute in around the same time. If not, one thread may finish before the others leaving resources idle. In this case, you might try 'dynamic' (see the [docs](http://docs.cython.org/src/userguide/parallelism.html) for detail).
 
-The other key issue is memory management: that is, which variables are shared between all threads and which are private or 'thread local'. With multi-threading this can very quickly get complex . The good thing with Cython is that all of this detail is - in true Python style - magically inferred from your code.  The basic idea is that variables that are only read from are shared, while variables assigned to are private. 
+The other key issue is memory management, in particular working out which variables should be shared between threads and which should be private or 'thread local'. With multi-threading this can very quickly get complex . The good thing with Cython is that all of this detail is - in true Python style - magically inferred from your code.  The basic idea is that variables that are only read from are shared, while variables assigned to are private. 
 
 An important special case are 'reduction' variables. `cython.parallel` will take any variable with an in-place operator (i.e., `+=') as a reduction, which means that the thread local values are combined after all threads have completed to give you a final value. This is useful if you need to compute a sum:
 
