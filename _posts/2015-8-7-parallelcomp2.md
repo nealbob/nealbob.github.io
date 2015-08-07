@@ -7,9 +7,9 @@ tags: [Cython, Python, prange, thread, OpenMP]
 comments: true
 ---
 
-One of the cool things about [Cython]{% post_url 2014-10-30-cython1 %} is that it supports multi-threaded code, via the C library [OpenMP](https://en.wikipedia.org/wiki/OpenMP). 
+One of the cool things about [Cython](({% post_url 2014-10-30-cython1 %})) is that it supports multi-threaded code, via the C library [OpenMP](https://en.wikipedia.org/wiki/OpenMP). 
 
-While Python allows for message passing (multiple processes) shared memory (multi-threading) is not possible due to the [Global Interpreter Lock](https://en.wikipedia.org/wiki/Global_Interpreter_Lock), refer back to this [earlier post]{% post_url 2014-12-5-parallelcomp %}. 
+While Python allows for message passing (multiple processes) shared memory (multi-threading) is not possible due to the [Global Interpreter Lock](https://en.wikipedia.org/wiki/Global_Interpreter_Lock), refer back to this [earlier post]({% post_url 2014-12-5-parallelcomp %}). 
  
 Relative to message passing, shared memory multi-processing is fast (and has lower memory requirements). The catch is that you can run into concurrency problems, where the threads need to access the same memory locations at the same time.  As such, multi-threading is best suited to performing large numbers of simple calculations, as opposed to message passing which is suited to smaller numbers of complex calculations.
 
@@ -52,7 +52,7 @@ def c_array_f(double[:] X):
     return Y
 {% endhighlight %}
 
-Next we compile this file with a standard `setup.py` (like we did [here]{% post_url 2014-10-30-cython1 %}). Now lets test these functions in IPython:
+Next we compile this file with a standard `setup.py` (like we did [here]({% post_url 2014-10-30-cython1 %})). Now lets test these functions in IPython:
 
 {% highlight python %}
 from thread_demo import *
@@ -183,7 +183,7 @@ This gives us the correct answer. Note that if we instead put `Ysum = Ysum + f(X
 
 # Radial Basis Function (RBF) example 
 
-Recall the problem of evaluating a RBF approximation scheme from this [post]{% post_url 2014-10-30-cython1 %}, well here is a multi-threaded version:
+Recall the problem of evaluating a RBF approximation scheme from this [post]({% post_url 2014-10-30-cython1 %}), well here is a multi-threaded version:
 
 {% highlight cython %}
 def rbf_network_multithread(double[:, :] X,  double[:] beta, double theta):
