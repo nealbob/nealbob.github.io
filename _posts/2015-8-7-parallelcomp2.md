@@ -9,11 +9,9 @@ comments: true
 
 One of the cool things about [Cython]({% post_url 2014-10-30-cython1 %}) is that it supports multi-threaded code, via the C library [OpenMP](https://en.wikipedia.org/wiki/OpenMP). 
 
-While Python allows for message passing (multiple processes) shared memory (multi-threading) is not possible due to the [Global Interpreter Lock](https://en.wikipedia.org/wiki/Global_Interpreter_Lock), refer back to this [earlier post]({% post_url 2014-12-5-parallelcomp %}). 
+While Python allows for message passing (multiple processes) shared memory (multi-threading) is not possible due to the [Global Interpreter Lock](https://en.wikipedia.org/wiki/Global_Interpreter_Lock) (see this [earlier post]({% post_url 2014-12-5-parallelcomp %})). 
  
-Relative to message passing, shared memory multi-processing is fast (and has lower memory requirements). The catch is that you can run into concurrency problems, where the threads need to access the same memory locations at the same time.  As such, multi-threading is best suited to performing large numbers of simple calculations, as opposed to message passing which is suited to smaller numbers of complex calculations.
-
-The main requirement for multi-threading, is that the order in which the calculations are executed doesn't matter.The perfect example is when we need to apply a function element wise over a large array. 
+Relative to message passing, multi-threading is fast (and has lower memory requirements). The catch is that you can run into concurrency problems: where the threads need to access the same memory locations at the same time.  As such, multi-threading is best suited to performing large numbers of simple calculations. The main requirement, is that the order in which the calculations are executed doesn't matter. The perfect example is when we need to apply a function element wise over a large array. 
 
 # A simple Cython example
 
