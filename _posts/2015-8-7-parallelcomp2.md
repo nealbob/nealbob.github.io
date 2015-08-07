@@ -18,7 +18,7 @@ Relative to message passing, multi-threading is fast (and has lower memory requi
 The perfect use case is applying a function element wise over a large array. Lets say we want to apply the function \\( f\\) below to some array \\( X\\) 
 
 
-<div>$$  f(x) = \begin{cases} e^x if &\mbox{if } x > 0.5 \\
+<div>$$  f(x) = \begin{cases} e^x & \mbox{if } x > 0.5 \\
          0 & \mbox{if } otherwise \end{cases} $$</div>
 
 Below I have a Python version and a Cython version of \\( f\\) in the file thread_demo.pyx
