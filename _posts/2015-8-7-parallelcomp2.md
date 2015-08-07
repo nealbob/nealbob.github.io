@@ -11,14 +11,14 @@ One of the cool things about [Cython]({% post_url 2014-10-30-cython1 %}) is that
 
 While Python allows for message passing (i.e., multiple processes) shared memory (i.e., multi-threading) is not possible due to the [Global Interpreter Lock](https://en.wikipedia.org/wiki/Global_Interpreter_Lock) (see this [earlier post]({% post_url 2014-12-5-parallelcomp %})). 
  
-Relative to message passing, multi-threading is fast (and has lower memory requirements). The catch is that you can run into concurrency problems: where the different threads need to access the same memory locations at the same time.  As such, multi-threading is best suited to performing large numbers of simple calculations: where the order in which the calculations are executed doesn't matter.  
+Relative to message passing, multi-threading is fast (and has lower memory requirements). The catch is that you can run into concurrency problems: where the different threads need to access the same memory locations at the same time.  As such, multi-threading is best suited to performing large numbers of simple calculations. In particular, where the order in which the calculations are executed doesn't matter.  
 
 # A simple Cython example
 
-The perfect use case is applying a function element wise over a large array. Consider function \\( f\\)
+The perfect use case is applying a function element wise over a large array. Lets say we want to apply the function \\( f\\) below to some array \\( X\\) 
 
 
-<div>$$  f(x) = \begin{cases} e^x if & \mbox{if } x > 0.5 \\
+<div>$$  f(x) = \begin{cases} e^x if &\mbox{if } x > 0.5 \\
          0 & \mbox{if } otherwise \end{cases} $$</div>
 
 Below I have a Python version and a Cython version of \\( f\\) in the file thread_demo.pyx
