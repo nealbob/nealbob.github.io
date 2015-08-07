@@ -142,9 +142,9 @@ def c_array_f_multi(double[:] X):
 
 `prange()` takes a few other arguments including `num_threads`: which will default to the number of cores on your system and `schedule`: which has to do with load balancing. The simplest option here is 'static' which just breaks the loop into equal chunks. This is fine if all steps compute in around the same time. If not, one thread may finish before the others leaving resources idle. In this case, you might try 'dynamic' (see the [docs](http://docs.cython.org/src/userguide/parallelism.html) for detail).
 
-The other key issue is memory management, in particular working out which variables should be shared between threads and which should be private or 'thread local'. With multi-threading this can very quickly get complex . The good thing with Cython is that all of this detail is - in true Python style - magically inferred from your code.  The basic idea is that variables that are only read from are shared, while variables assigned to are private. 
+The other key issue is memory management, that is working out which variables should be shared between threads and which should be private or 'thread local'. With multi-threading this can very quickly get complex . The good thing with Cython is that all of this detail is - in true Python style - magically inferred from your code.  
 
-An important special case are 'reduction' variables. `cython.parallel` will take any variable with an in-place operator (i.e., `+=') as a reduction, which means that the thread local values are combined after all threads have completed to give you a final value. This is useful if you need to compute a sum:
+The basic idea is that variables that are only read from are shared, while variables assigned to are private. An important special case are 'reduction' variables. `cython.parallel` will take any variable with an in-place operator (i.e., `+=') as a reduction, which means that the thread local values are combined after all threads have completed to give you a final value. This is useful if you need to compute a sum:
 
 {% highlight cython %}
  def c_array_f_multi_sum(double[:] X):
