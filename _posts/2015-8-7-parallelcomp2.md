@@ -9,7 +9,7 @@ comments: true
 
 One of the cool things about [Cython]{% post_url 2014-10-30-cython1 %} is that it supports multi-threaded code, via the C library [OpenMP](https://en.wikipedia.org/wiki/OpenMP). 
 
-While Python allows for message passing (multiple processes) shared memory (multi-threading) is not possible due to the [Global Interpreter Lock]{% https://en.wikipedia.org/wiki/Global_Interpreter_Lock %}(refer back to this [earlier post]{% post_url 2014-12-5-parallelcomp %}). 
+While Python allows for message passing (multiple processes) shared memory (multi-threading) is not possible due to the [Global Interpreter Lock](https://en.wikipedia.org/wiki/Global_Interpreter_Lock), refer back to this [earlier post]{% post_url 2014-12-5-parallelcomp %}. 
  
 Relative to message passing, shared memory multi-processing is fast (and has lower memory requirements). The catch is that you can run into concurrency problems, where the threads need to access the same memory locations at the same time.  As such, multi-threading is best suited to performing large numbers of simple calculations, as opposed to message passing which is suited to smaller numbers of complex calculations.
 
@@ -120,7 +120,7 @@ So with four cores we get just under a 4 times speed up.
 
 # A few more details
 
-Now so far I've glossed over many important details. Here are some basic things to consider (for a full explanation see the [documentation]{% http://docs.cython.org/src/userguide/parallelism.html})
+Now so far I've glossed over many important details. Here are some basic things to consider (for a full explanation see the [documentation](http://docs.cython.org/src/userguide/parallelism.html)
 
 Firstly, notice the `nogil` argument in `prange(N, nogil=True)`. In order to run multi-threaded code we need to turn off the GIL. This means that you can't have Python code inside your multi-threaded loop, or compilation will fail. It also means that any functions called inside the loop need to be defined nogil, for example:
 
@@ -142,7 +142,7 @@ def c_array_f_multi(double[:] X):
     return Y
 {% endhighlight %}
 
-`prange()` takes a few other arguments including `num_threads`, which will default to the number of cores on your system. Then there is the `schedule` argument which has to do with load balancing. The simplest option here is 'static' which just breaks the loop into equal chunks. This is fine if all steps in the loop compute in around the same time, if not one thread may finish before the others leaving resources idle. In this case, you might try 'dynamic' (see the [docs]{http://docs.cython.org/src/userguide/parallelism.html} for detail).
+`prange()` takes a few other arguments including `num_threads`, which will default to the number of cores on your system. Then there is the `schedule` argument which has to do with load balancing. The simplest option here is 'static' which just breaks the loop into equal chunks. This is fine if all steps in the loop compute in around the same time, if not one thread may finish before the others leaving resources idle. In this case, you might try 'dynamic' (see the [docs](http://docs.cython.org/src/userguide/parallelism.html) for detail).
 
 The other key issue is how your variables are handled in memory: that is, which variables are shared between threads and which are private or local. With multi-threading this can very quickly get complex. The good thing with Cython is that all of this detail is - in true Python style - magically inferred from your code. 
 
