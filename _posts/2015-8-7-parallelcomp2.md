@@ -2,8 +2,8 @@
 layout: post
 title: Parallel computing in Cython - threads
 excerpt: "How to run multiple threads in Cython"
-modified: 2014-10-24
-tags: [Python, multiprocessing]
+modified: 2015-8-7
+tags: [Cython, Python, prange, thread, OpenMP]
 comments: true
 ---
 
