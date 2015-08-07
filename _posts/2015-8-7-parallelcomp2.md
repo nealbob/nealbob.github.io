@@ -181,7 +181,7 @@ Note that if we instead put `Ysum = Ysum + f(X[i])` we would have got a compiler
 
 # Radial Basis Function (RBF) example 
 
-Recall the problem of evaluating a RBF approximation scheme from this [post]({% post_url 2014-10-30-cython1 %}). Below is a multi-threaded version:
+Recall the problem of evaluating a RBF approximation scheme from this [post]({% post_url 2014-10-30-cython1 %}). Below we try out a multi-threaded version:
 
 {% highlight cython %}
 def rbf_network_multithread(double[:, :] X,  double[:] beta, double theta):
