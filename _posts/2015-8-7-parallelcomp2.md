@@ -7,9 +7,7 @@ tags: [Cython, Python, prange, thread, OpenMP]
 comments: true
 ---
 
-One of the cool things about [Cython]({% post_url 2014-10-30-cython1 %}) is that it supports multi-threaded code, via the C library [OpenMP](https://en.wikipedia.org/wiki/OpenMP). 
-
-While Python allows for message passing (i.e., multiple processes) shared memory (i.e., multi-threading) is not possible due to the [Global Interpreter Lock](https://en.wikipedia.org/wiki/Global_Interpreter_Lock) (see this [earlier post]({% post_url 2014-12-5-parallelcomp %})). 
+One of the cool things about [Cython]({% post_url 2014-10-30-cython1 %}) is that it supports multi-threaded code, via the C library [OpenMP](https://en.wikipedia.org/wiki/OpenMP). While Python allows for message passing (i.e., multiple processes) shared memory (i.e., multi-threading) is not possible due to the [Global Interpreter Lock](https://en.wikipedia.org/wiki/Global_Interpreter_Lock) (see this [earlier post]({% post_url 2014-12-5-parallelcomp %})). 
  
 Relative to message passing, multi-threading is fast (and has lower memory requirements). The catch is that you can run into concurrency problems: where the different threads need to access the same memory locations at the same time.  As such, multi-threading is best suited to performing large numbers of simple calculations. In particular, where the order in which the calculations are executed doesn't matter.  
 
@@ -43,10 +41,10 @@ def c_array_f(double[:] X):
     cdef int i
 
     for i in range(N):
-            if X[i,j] > 0.5:
-                Y[i,j] = c_exp(X[i,j])
-            else:
-                Y[i,j] = 0
+        if X[i] > 0.5:
+            Y[i] = c_exp(X[i])
+        else:
+            Y[i] = 0
 
     return Y
 {% endhighlight %}
@@ -85,7 +83,7 @@ def c_array_f_multi(double[:] X):
     return Y
 {% endhighlight %}
 
-Too easy. This tells the compiler to run the loop across multiple CPU cores. In this case, we have no concurrency problems: the order in which the loop is executed doesn't matter. Now we just need to make a few changes to our `setup.py` file, in order to compile our code with the OpemMP:
+Too easy. This tells the compiler to run the loop across multiple CPU cores. In this case, we have no concurrency problems: the order in which the loop is executed doesn't matter. Now we just need to make a few changes to our `setup.py` file, in order to compile our code with the OpenMP:
 
 {% highlight python %}
 from distutils.core import setup
@@ -120,9 +118,9 @@ So with four cores we get just under a 4 times speed up.
 
 # A few more details
 
-So far I've glossed over many important details. Here are some basic things to consider (for more detail see the [documentation](http://docs.cython.org/src/userguide/parallelism.html)).
+So far I've glossed over a few important details. Here are some basic things to consider (for more see the [documentation](http://docs.cython.org/src/userguide/parallelism.html)).
 
-Firstly, notice the `nogil` argument in `prange(N, nogil=True)`. In order to run multi-threaded code we need to turn off the GIL. This means that you can't have Python code inside your multi-threaded loop or compilation will fail. It also means that any functions called inside the loop need to be defined nogil, for example:
+Firstly, notice the `nogil` argument in `prange(N, nogil=True)`. In order to run multi-threaded code we need to turn off the GIL. This means that you can't have Python code inside your multi-threaded loop or compilation will fail. It also means that any functions called inside the loop need to be defined `nogil`, for example:
 
 {% highlight cython %}
 cdef inline double f(double x) nogil:
@@ -144,9 +142,7 @@ def c_array_f_multi(double[:] X):
 
 `prange()` takes a few other arguments including `num_threads`: which will default to the number of cores on your system and `schedule`: which has to do with load balancing. The simplest option here is 'static' which just breaks the loop into equal chunks. This is fine if all steps compute in around the same time. If not, one thread may finish before the others leaving resources idle. In this case, you might try 'dynamic' (see the [docs](http://docs.cython.org/src/userguide/parallelism.html) for detail).
 
-The other key issue is memory management: that is, which variables are shared between all threads and which are private or 'thread local'. With multi-threading this can quickly get rather complex . The good thing with Cython is that all of this detail is - in true Python style - magically inferred from your code. 
-
-The basic idea is that variables that are only read from are shared, while variables assigned to are private. 
+The other key issue is memory management: that is, which variables are shared between all threads and which are private or 'thread local'. With multi-threading this can very quickly get complex . The good thing with Cython is that all of this detail is - in true Python style - magically inferred from your code.  The basic idea is that variables that are only read from are shared, while variables assigned to are private. 
 
 An important special case are 'reduction' variables. `cython.parallel` will take any variable with an in-place operator (i.e., `+=') as a reduction, which means that the thread local values are combined after all threads have completed to give you a final value. This is useful if you need to compute a sum:
 
@@ -185,7 +181,7 @@ Note that if we instead put `Ysum = Ysum + f(X[i])` we would have got a compiler
 
 # Radial Basis Function (RBF) example 
 
-Recall the problem of evaluating a RBF approximation scheme from this [post]({% post_url 2014-10-30-cython1 %}), well here is a multi-threaded version:
+Recall the problem of evaluating a RBF approximation scheme from this [post]({% post_url 2014-10-30-cython1 %}). Below is a multi-threaded version:
 
 {% highlight cython %}
 def rbf_network_multithread(double[:, :] X,  double[:] beta, double theta):
@@ -223,4 +219,4 @@ For some reason this achieves a better than 4 times speed up!
 
 # Bottom line
 
-Of course, the real challenge is in identifying / producing code segments that are suited to multi-threading. In many cases, blindly running a loop in parallel will either fail or lead to a decrease in performance if the threads get in each others way.  But for simple applications at least, running multiple threads in Cython is as simple as adding `prange()` to your loops.  
+Of course, the real challenge is in identifying / producing code segments that are suited to multi-threading. In many cases, blindly running a loop in parallel will either fail or lead to a decrease in performance if the threads get in each others way.  But for simple applications at least, running multiple threads in Cython is as easy as adding `prange()` to your loops.  
