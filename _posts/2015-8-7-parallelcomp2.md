@@ -144,7 +144,7 @@ def c_array_f_multi(double[:] X):
 
 The other key issue is memory management, that is working out which variables should be shared between threads and which should be private or 'thread local'. With multi-threading this can very quickly get complex . The good thing with Cython is that all of this detail is - in true Python style - magically inferred from your code.  
 
-The basic idea is that variables that are only read from are shared, while variables assigned to are private. An important special case are 'reduction' variables.  Any variable with an in-place operator (i.e., `+=') is automatically taken to be a reduction variable, which means that the thread local values are combined after all threads have completed to give you a final value. This is useful if you need to compute a sum:
+The basic idea is that variables that are only read from are shared, while variables assigned to are private. An important special case are 'reduction' variables.  Any variable with an in-place operator (i.e., `+=') is automatically taken to be a reduction variable, which means that the thread local values are combined after all threads have completed. This is useful if you need to compute a sum:
 
 {% highlight cython %}
  def c_array_f_multi_sum(double[:] X):
