@@ -142,11 +142,11 @@ def c_array_f_multi(double[:] X):
     return Y
 {% endhighlight %}
 
-`prange()` takes a few other arguments including `num_threads` - which will default to the number of cores on your system - and `schedule` - which has to do with load balancing. The simplest option here is 'static' which just breaks the loop into equal chunks. This is fine if all steps in the loop compute in around the same time, if not one thread may finish before the others leaving resources idle. In this case, you might try 'dynamic' (see the [docs](http://docs.cython.org/src/userguide/parallelism.html) for detail).
+`prange()` takes a few other arguments including `num_threads`: which will default to the number of cores on your system and `schedule`: which has to do with load balancing. The simplest option here is 'static' which just breaks the loop into equal chunks. This is fine if all steps compute in around the same time. If not, one thread may finish before the others leaving resources idle. In this case, you might try 'dynamic' (see the [docs](http://docs.cython.org/src/userguide/parallelism.html) for detail).
 
-The other key issue is how your variables are handled in memory: that is, which variables are shared between threads and which are private or local. With multi-threading this can very quickly get complex. The good thing with Cython is that all of this detail is - in true Python style - magically inferred from your code. 
+The other key issue is memory management: that is, which variables are shared between all threads and which are private or 'thread local'. With multi-threading this can quickly get rather complex . The good thing with Cython is that all of this detail is - in true Python style - magically inferred from your code. 
 
-The basic idea is that variables that are only read from are shared, while variables assigned to are thread private. 
+The basic idea is that variables that are only read from are shared, while variables assigned to are private. 
 
 An important special case are 'reduction' variables. `cython.parallel` will take any variable with an in-place operator (i.e., `+=') as a reduction, which means that the thread local values are combined after all threads have completed to give you a final value. This is useful if you need to compute a sum:
 
