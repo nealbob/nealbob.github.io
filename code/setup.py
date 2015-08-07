@@ -11,12 +11,27 @@ ext_modules=[
     Extension("fastloop",
               ["fastloop.pyx"],
               libraries=["m"],
-              extra_compile_args = ["-O3", "-ffast-math", "-march=native" ],
-              ) # Unix-like specific
+              extra_compile_args = ["-O3", "-ffast-math", "-march=native"],
+              ) 
 ]
 
 setup(
   name = "fastloop",
+  cmdclass = {"build_ext": build_ext},
+  ext_modules = ext_modules
+)
+
+ext_modules=[
+    Extension("thread_demo",
+              ["thread_demo.pyx"],
+              libraries=["m"],
+              extra_compile_args = ["-O3", "-ffast-math", "-march=native", "-fopenmp" ],
+              extra_link_args=['-fopenmp']
+              ) 
+]
+
+setup(
+  name = "thread_demo",
   cmdclass = {"build_ext": build_ext},
   ext_modules = ext_modules
 )

@@ -7,3 +7,12 @@ Gemfile.lock
 codekit-config.json
 node_modules
 _asset_bundler_cache
+/code/*.c
+/code/*.so
+/code/*.pyc
+/code/*.swp
+/code/*.o
+
+/code/.idea/*.*
+/code/build/*.*
+.*
