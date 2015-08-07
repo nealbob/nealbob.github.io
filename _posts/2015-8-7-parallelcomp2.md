@@ -52,7 +52,7 @@ def c_array_f(double[:] X):
     return Y
 {% endhighlight %}
 
-Next we compile this file with a standard `setup.py` (like we did [here]{% 2014-10-30-cython1 %}). Now lets test these functions in IPython:
+Next we compile this file with a standard `setup.py` (like we did [here]{% post_url 2014-10-30-cython1 %}). Now lets test these functions in IPython:
 
 {% highlight python %}
 from thread_demo import *
