@@ -7,7 +7,7 @@ tags: [Cython, Python, prange, thread, OpenMP]
 comments: true
 ---
 
-One of the cool things about [Cython](({% post_url 2014-10-30-cython1 %})) is that it supports multi-threaded code, via the C library [OpenMP](https://en.wikipedia.org/wiki/OpenMP). 
+One of the cool things about [Cython]({% post_url 2014-10-30-cython1 %}) is that it supports multi-threaded code, via the C library [OpenMP](https://en.wikipedia.org/wiki/OpenMP). 
 
 While Python allows for message passing (multiple processes) shared memory (multi-threading) is not possible due to the [Global Interpreter Lock](https://en.wikipedia.org/wiki/Global_Interpreter_Lock), refer back to this [earlier post]({% post_url 2014-12-5-parallelcomp %}). 
  
