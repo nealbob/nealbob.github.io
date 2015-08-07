@@ -15,7 +15,7 @@ Relative to message passing, multi-threading is fast (and has lower memory requi
 
 # A simple Cython example
 
-The perfect use case is applying a function element wise over a large array. Lets say we want to apply the function \\( f\\) below to some array \\( X\\) 
+The perfect use case is applying a function element wise over a large array. Lets say we want to apply the function \\( f\\) to some array \\( X\\) 
 
 
 <div>$$  f(x) = \begin{cases} e^x & \mbox{if } x > 0.5 \\
@@ -55,6 +55,7 @@ Next we compile this file with a standard `setup.py` (like we did [here]({% post
 
 {% highlight python %}
 from thread_demo import *
+import numpy as np
 X = -1 + 2*np.random.rand(10000000) 
 %timeit array_f(X)
 1 loops, best of 3: 222 ms per loop
@@ -64,7 +65,7 @@ X = -1 + 2*np.random.rand(10000000)
 
 In this case, the Cython version is not dramatically faster than Python, because our function is simple enough to 'vectorise' via `numpy`. 
 
-Now to create a multi-threaded version of `c_array_f` we just need to replace `range()` in the loop with the multi-treaded version `prange()` from `cython.parallel`:
+Now to create a multi-threaded version of `c_array_f` we just need to replace `range()` in the first loop with the multi-treaded version `prange()` from `cython.parallel`:
 
 {% highlight cython %}
 from cython.parallel import prange
@@ -119,14 +120,14 @@ So with four cores we get just under a 4 times speed up.
 
 # A few more details
 
-Now so far I've glossed over many important details. Here are some basic things to consider (for a full explanation see the [documentation](http://docs.cython.org/src/userguide/parallelism.html)
+So far I've glossed over many important details. Here are some basic things to consider (for more detail see the [documentation](http://docs.cython.org/src/userguide/parallelism.html)).
 
-Firstly, notice the `nogil` argument in `prange(N, nogil=True)`. In order to run multi-threaded code we need to turn off the GIL. This means that you can't have Python code inside your multi-threaded loop, or compilation will fail. It also means that any functions called inside the loop need to be defined nogil, for example:
+Firstly, notice the `nogil` argument in `prange(N, nogil=True)`. In order to run multi-threaded code we need to turn off the GIL. This means that you can't have Python code inside your multi-threaded loop or compilation will fail. It also means that any functions called inside the loop need to be defined nogil, for example:
 
 {% highlight cython %}
-cdef inline double f(double X) nogil:
-    if X > 0.5:
-        return c_exp(X)
+cdef inline double f(double x) nogil:
+    if x > 0.5:
+        return c_exp(x)
     else:
         return 0
 
@@ -141,11 +142,13 @@ def c_array_f_multi(double[:] X):
     return Y
 {% endhighlight %}
 
-`prange()` takes a few other arguments including `num_threads`, which will default to the number of cores on your system. Then there is the `schedule` argument which has to do with load balancing. The simplest option here is 'static' which just breaks the loop into equal chunks. This is fine if all steps in the loop compute in around the same time, if not one thread may finish before the others leaving resources idle. In this case, you might try 'dynamic' (see the [docs](http://docs.cython.org/src/userguide/parallelism.html) for detail).
+`prange()` takes a few other arguments including `num_threads`, which will default to the number of cores on your system and `schedule` argument which has to do with load balancing. The simplest option here is 'static' which just breaks the loop into equal chunks. This is fine if all steps in the loop compute in around the same time, if not one thread may finish before the others leaving resources idle. In this case, you might try 'dynamic' (see the [docs](http://docs.cython.org/src/userguide/parallelism.html) for detail).
 
 The other key issue is how your variables are handled in memory: that is, which variables are shared between threads and which are private or local. With multi-threading this can very quickly get complex. The good thing with Cython is that all of this detail is - in true Python style - magically inferred from your code. 
 
-The basic idea is that variables that are only read are shared, while variables assigned to are thread private. An important special case are 'reduction' variables. `cython.parallel` will take any variable with an in-place operator (i.e., `+=') as a reduction, which means that the thread local values are combined after all threads have completed to give you a final value. This is useful if you need to compute a sum:
+The basic idea is that variables that are only read from are shared, while variables assigned to are thread private. 
+
+An important special case are 'reduction' variables. `cython.parallel` will take any variable with an in-place operator (i.e., `+=') as a reduction, which means that the thread local values are combined after all threads have completed to give you a final value. This is useful if you need to compute a sum:
 
 {% highlight cython %}
  def c_array_f_multi_sum(double[:] X):
@@ -178,7 +181,7 @@ c_array_f_multi_sum(X)
 5349424.689154312
 {% endhighlight %}
 
-This gives us the correct answer. Note that if we instead put `Ysum = Ysum + f(X[i])` we would have got a compiler error.
+Note that if we instead put `Ysum = Ysum + f(X[i])` we would have got a compiler error.
 
 # Radial Basis Function (RBF) example 
 
