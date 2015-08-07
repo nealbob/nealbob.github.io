@@ -142,7 +142,7 @@ def c_array_f_multi(double[:] X):
     return Y
 {% endhighlight %}
 
-`prange()` takes a few other arguments including `num_threads`, which will default to the number of cores on your system and `schedule` argument which has to do with load balancing. The simplest option here is 'static' which just breaks the loop into equal chunks. This is fine if all steps in the loop compute in around the same time, if not one thread may finish before the others leaving resources idle. In this case, you might try 'dynamic' (see the [docs](http://docs.cython.org/src/userguide/parallelism.html) for detail).
+`prange()` takes a few other arguments including `num_threads` - which will default to the number of cores on your system - and `schedule` - which has to do with load balancing. The simplest option here is 'static' which just breaks the loop into equal chunks. This is fine if all steps in the loop compute in around the same time, if not one thread may finish before the others leaving resources idle. In this case, you might try 'dynamic' (see the [docs](http://docs.cython.org/src/userguide/parallelism.html) for detail).
 
 The other key issue is how your variables are handled in memory: that is, which variables are shared between threads and which are private or local. With multi-threading this can very quickly get complex. The good thing with Cython is that all of this detail is - in true Python style - magically inferred from your code. 
 
