@@ -7,7 +7,7 @@ tags: [Cython, Python, prange, thread, OpenMP]
 comments: true
 ---
 
-One of the cool things about [Cython]{% 2014-10-30-cython1 %} is that it supports multi-threaded code, via the C library [OpenMP](https://en.wikipedia.org/wiki/OpenMP). 
+One of the cool things about [Cython]{% post_url 2014-10-30-cython1 %} is that it supports multi-threaded code, via the C library [OpenMP](https://en.wikipedia.org/wiki/OpenMP). 
 
 While Python allows for message passing (multiple processes) shared memory (multi-threading) is not possible due to the [Global Interpreter Lock]{% https://en.wikipedia.org/wiki/Global_Interpreter_Lock %}(refer back to this [earlier post]{% post_url 2014-12-5-parallelcomp %}). 
  
@@ -183,7 +183,7 @@ This gives us the correct answer. Note that if we instead put `Ysum = Ysum + f(X
 
 # Radial Basis Function (RBF) example 
 
-Recall the problem of evaluating a RBF approximation scheme from this [post]{% 2014-10-30-cython1 %}, well here is a multi-threaded version:
+Recall the problem of evaluating a RBF approximation scheme from this [post]{% post_url 2014-10-30-cython1 %}, well here is a multi-threaded version:
 
 {% highlight cython %}
 def rbf_network_multithread(double[:, :] X,  double[:] beta, double theta):
