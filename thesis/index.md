@@ -1,15 +1,23 @@
 ---
 layout: page
-title: Water property rights in regulated rivers
+title: Thesis
 tags: [thesis]
 modified: 2014-08-08T20:53:07.573882-04:00
 comments: false
 ---
 
+Water property rights in rivers with large dams
+-----------------------------------------------
+
+- [Full pdf](../images/Thesis_main.pdf)
+
+
 Code
 ----
 
 - [regrivermod](https://github.com/nealbob/regrivermod)
+
+- [econlearn](https://github.com/nealbob/econlearn)
 
 Results
 -------
@@ -20,6 +28,8 @@ Results
 
 Related posts
 -------------
+- [Parallel computing in Cython - threads]({% post_url 2015-8-7-parallelcomp2 %})
+
 - [Parallel computing in Python - processes]({% post_url 2014-12-5-parallelcomp %})
 
 - [Fast python loops with Cython]({% post_url 2014-10-30-cython1 %})
