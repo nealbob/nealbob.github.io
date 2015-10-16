@@ -6,10 +6,10 @@ modified: 2014-08-08T20:53:07.573882-04:00
 comments: false
 ---
 
-Water property rights in rivers with large dams
------------------------------------------------
+Pdf
+---
 
-- [Full pdf](../images/Thesis_main.pdf)
+- [Water property rights in rivers with large dams](../images/Thesis_main.pdf)
 
 
 Code
