@@ -7,10 +7,9 @@ comments: true
 image:
 ---
 
-I'm an economist working at [ABARES](http://www.daff.gov.au/abares) and completing a Phd at the [ANU](https://crawford.anu.edu.au/people/phd/neal-hughes) with the aid a [Sir Roland Wilson scholarship](http://srwfoundation.anu.edu.au/phd-scholarships/).
+I'm an economist working at [ABARES](http://www.daff.gov.au/abares). I recently completed a Phd at the [ANU](https://crawford.anu.edu.au/people/phd/neal-hughes) with the aid a [Sir Roland Wilson scholarship](http://srwfoundation.anu.edu.au/phd-scholarships/).
 
-A lot of my [research](../research) has focused on water, particularly water property rights and markets in the context of storage (i.e., large dams). Here is my [CV](../images/cv_7.pdf).   
-
+A lot of my [research](../research) has focused on water, particularly water property rights and markets in the context of storage (i.e., large dams). Here is my [CV](../images/cv_7.pdf).   More recently I have been investigating the effects of climate variability and change on Australian farms. 
 
 I live in Canberra, Australia with my wife Kylie and daughter Elizabeth.
 
