@@ -90,7 +90,7 @@ $$\epsilon \sim N(0, 0.1)$$
 
 $$X \sim U(0, 1)$$
 
-But lets assume that we don't know the true model. (Remember that we are typically dealing with higher dimensional problems where it is not possible or practical for a human to eye-ball the data and determine the relationships). 
+But lets assume that we don't know the true model (Remember that we are typically dealing with higher dimensional problems where it is not possible or practical for a human to eye-ball the data and determine the relationships). 
 
 # OLS
 
