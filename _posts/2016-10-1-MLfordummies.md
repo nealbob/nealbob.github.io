@@ -52,7 +52,7 @@ In econometrics we typically begin by inventing a parametric statistical model, 
 
 $$Y_t = \beta_0 + \beta_1 X_{1t} + \beta_2 X_{2t} + ... + \beta_n X_{nt} + e_t$$
 
-$$e_t \simN(0, \sigma^2)$$
+$$e_t \sim N(0, \sigma^2)$$
 
 Once we have a model we can estimate the parameters by optimisation (e.g., Ordinary Least Squares regression). 
 
