@@ -17,8 +17,8 @@ So what does all this have to do with economics? Well ML is also closely related
 
 ML evolved from the broader field of Artificial Intelligence (AI). However, the focus of ML is on more narrow sub-problems, in particular:
 
-- Supervised learning: (non-parametric regression) $y=f(X)$
-- Unsupervised learning: (clustering, dimensionality reduction) $X$ data only, typically a 'pre-processing' step to Supervised or Reinforcement learning
+- Supervised learning: (non-parametric regression) \\y=f(X)\\
+- Unsupervised learning: (clustering, dimensionality reduction) \\X\\ data only, typically a 'pre-processing' step to Supervised or Reinforcement learning
 - Reinforcement learning: (Approximate dynamic programming) solving Markov Decision Processes, with unknown transition and payoff functions
 
 ML is often conflated with Data mining. While Data mining is related to ML, the focus is more on unstructured / exploratory data analysis. Similar to unsupervised learning, data mining is more of a pre-processing step. 
