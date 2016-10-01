@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Machine learning for ~~dummies~~ economists
-excerpt: "A simplistic introduction to machine learning"
+title: Machine learning for <del>dummies</del> economists
+excerpt: "An introduction to machine learning"
 modified: 2014-10-24
 tags: [Machine learning, econometrics]
 comments: true
