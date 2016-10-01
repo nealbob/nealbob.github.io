@@ -35,7 +35,7 @@ A good example of ML is computer vision and a good example of computer vision is
     <img src="http://nealbob.github.io/images/gswan.jpg">
 </figure>
 
-So how do you get a computer to see images. While the algorithm is rather complicated, the basic idea is simple: its just a big regression problem. You start with a very large database of images each with descriptive labels (provided by a human). This is called the training data: an $X$ matrix containing photo data (pixel by pixel) and a vector $y$ containing the labels. With ML you use the training data to fit a function $f$ mapping from $X$ to $y$. Once you $f$ you can then use it to predict the contents of other unlabeled images.
+So how do you get a computer to see images. While the algorithm is rather complicated, the basic idea is simple: its just a big regression problem. You start with a very large database of images each with descriptive labels (provided by a human). This is called the training data: an \\(X\\) matrix containing photo data (pixel by pixel) and a vector \\(y\\) containing the labels. With ML you use the training data to fit a function \\(f\\) mapping from \\(X\\) to \\(y\\). Once you \\(f\\) you can then use it to predict the contents of other unlabeled images.
 
 <figure>
 <figcaption>Learning to classify images</figcaption>
@@ -58,19 +58,19 @@ $$e_t \simN(0, \sigma^2)$$
 
 Once we have a model we can estimate the parameters by optimisation (e.g., Ordinary Least Squares regression). 
 
-Of course the problem is how do you pick the right model?. While economic theory can provide us with some idea of which variables will be related and in what direction, it generally can't provide an exact parametric form. As such, econometricians tend to just 'make it up'.  Invariably the model will be wrong: its just a matter of how much. Often, a range of competing models will be invented. Model selection is then performed largely on the basis of in-sample fit (using measures like $R^2$, or the *AIC* for example).
+Of course the problem is how do you pick the right model?. While economic theory can provide us with some idea of which variables will be related and in what direction, it generally can't provide an exact parametric form. As such, econometricians tend to just 'make it up'.  Invariably the model will be wrong: its just a matter of how much. Often, a range of competing models will be invented. Model selection is then performed largely on the basis of in-sample fit (using measures like \\(R^2\\), or the *AIC* for example).
 
 With econometrics the focus is on *inference*: what evidence does the data provide to support our theoretical model, what are the signs of our estimated parameters and are they 'statistically significant'.
 
 ## Supervised learning
 
-With supervised learning we start only with a general prediction problem: we want some function $f$ which can predict variable $y$ given some vector of variables $X$. 
+With supervised learning we start only with a general prediction problem: we want some function \\(f\\) which can predict variable \\(y\\) given some vector of variables \\(X\\). 
 
 $$y = f(X)$$
 
-With supervised learning we assume no knowledge of the form of $f$. Instead, we employ 'non-parametric' regression methods to develop an estimate for $f$. However, the differences between ML and econometrics are larger than parametric vs non-parametric regression methods.
+With supervised learning we assume no knowledge of the form of \\(f\\). Instead, we employ 'non-parametric' regression methods to develop an estimate for \\(f\\). However, the differences between ML and econometrics are larger than parametric vs non-parametric regression methods.
 
-With supervised learning the focus is on *prediction*. What we care about is can our model $f$ can provide accurate **out-of-sample** predictions for $y$ (for $X$ data outside of our 'training set'). Here there is limited interest in the effect of specific $X$ variables on $y$. Depending on the method employed our $f$ function may remain something of a 'black-box'. 
+With supervised learning the focus is on *prediction*. What we care about is can our model \\(f\\) can provide accurate **out-of-sample** predictions for \\(y\\) (for \\(X\\) data outside of our 'training set'). Here there is limited interest in the effect of specific \\(X\\) variables on \\(y\\). Depending on the method employed our \\(f\\) function may remain something of a 'black-box'. 
 
 Unlike econometrics, model selection is typically performed using out-of sample testing - also known as 'Cross-Validation'. Here the model is fit to a subsample of the data (the training set) and its performance assessed on the withheld (test set) data.
 
@@ -78,7 +78,7 @@ While the focus is very different, there are many economic problems readily amen
 
 # A simple example
 
-Imagine you have a regression problem with a single $X$ and single $y$ variable and your data looks something like this:
+Imagine you have a regression problem with a single \\(X\\) and single \\(y\\) variable and your data looks something like this:
 
 <figure>
 <figcaption>Some random data</figcaption>
@@ -104,13 +104,13 @@ If we assume instead that we have a linear model, and fit it by OLS, we get mode
     <img src="http://nealbob.github.io/images/linear.png">
 </figure>
 
-Now in terms of prediction this model performs poorly, giving correct predictions at only two points and over or underestimating everywhere else. The model is not useless, it tells us that $X$ generally has a positive relationship with $y$, but it fails to explain that there is no-relationship for $X < 0.5$.
+Now in terms of prediction this model performs poorly, giving correct predictions at only two points and over or underestimating everywhere else. The model is not useless, it tells us that \\(X\\) generally has a positive relationship with \\(y\\), but it fails to explain that there is no-relationship for \\(X < 0.5\\).
 
 Of course if we knew the true model, we could fit that by OLS. In this case OLS would be unbeatable (i.e., BLUE - Best Linear Unbiased Estimator). 
 
 # Non-parametric
 
-But what if we don't know the model. Well we could try a very simple non-parametric regression method known as a 'regress-o-gram': just divide the $X$ space into bins and average the $y$ located in each. (of course actual ML algorithms are much more sophisticated than this, but I'll leave that for another post)
+But what if we don't know the model. Well we could try a very simple non-parametric regression method known as a 'regress-o-gram': just divide the \\(X\\) space into bins and average the \\(y\\) located in each. (of course actual ML algorithms are much more sophisticated than this, but I'll leave that for another post)
 
 <figure>
 <figcaption>A non-parametric model, with too much *bias*</figcaption>
@@ -126,14 +126,14 @@ OK, so this model is still fairly poor. The function is way too 'chunky' (i.e., 
 
 mmmm, not much better. Now the bins are too small and the function is bouncing around all over the place. In this case there are not enough data points within each bin so the resulting model has too much *noise*.
 
-OK, so lets think about this more carefully. What if we try a range of bin widths and find our what works best. Below are the results for 1 to 30 bins. In each, case we record the in-sample fit $R^2$ and given we know the true DGP we can also measure the out-of-sample fit.
+OK, so lets think about this more carefully. What if we try a range of bin widths and find our what works best. Below are the results for 1 to 30 bins. In each, case we record the in-sample fit \\(R^2\\) and given we know the true DGP we can also measure the out-of-sample fit.
 
 <figure>
 <figcaption>Model performance for different bin widths</figcaption>
     <img src="http://nealbob.github.io/images/maxperformance.png">
 </figure>
 
-It turns out the optimal number of bins is around 9. This example demonstrates a fundamental concept in ML (and in statistics for that matter) the *noise-bias* trade-off. As we increase the number of bins our in-sample fit always improves. Eventually we will have as a single bin for each data point and an $R^2$ of 1. 
+It turns out the optimal number of bins is around 9. This example demonstrates a fundamental concept in ML (and in statistics for that matter) the *noise-bias* trade-off. As we increase the number of bins our in-sample fit always improves. Eventually we will have as a single bin for each data point and an \\(R^2\\) of 1. 
 
 However, as we do this we start getting further away from the true model, a problem known as *overfitting* the data. The optimal model involves a 'Goldilocks' level of generalization (i.e., bin width) which strikes a balance between noise and bias.
 
@@ -166,8 +166,8 @@ Here we see that our non-parametric (Tilecoding) approach outperforms linear OLS
 
 The basic suggestion then is to use ML only when you have lots of data. In practice, the best option will depend on a range of factors including the type of the data available and the research objectives. Here are a few thoughts:
 
-- No doubt, ML is suited to applications with larger data sets. But what constitutes large depends on the problem, including the number of $X$'s and the amount of noise involved. Further, with sophisticated ML algorithms the level of 'generalization' will adapt (or at least can be manually tuned) to suit the data (i.e., ML may still work with smaller data sets, just with higher generalization) 
-- If interest resides in measuring the marginal effect of specific $X$'s traditional methods may be a better idea. Although, in many cases marginal response information can still be extracted from ML methods if required.
+- No doubt, ML is suited to applications with larger data sets. But what constitutes large depends on the problem, including the number of \\(X\\)'s and the amount of noise involved. Further, with sophisticated ML algorithms the level of 'generalization' will adapt (or at least can be manually tuned) to suit the data (i.e., ML may still work with smaller data sets, just with higher generalization) 
+- If interest resides in measuring the marginal effect of specific \\(X\\)'s traditional methods may be a better idea. Although, in many cases marginal response information can still be extracted from ML methods if required.
 - If the focus is on prediction then ML may be more appropriate. As Varian points out there are many applications in economics which can be cast as prediction problems (besides forecasting) including program evaluation. In my experience the field of productivity measurement is also suited to ML methods: predicting and ranking firm performance is the main focus (in fact non-parametric methods - like [DEA](https://www.google.com.au/webhp?sourceid=chrome-instant&rlz=1C1DIMA_enAU704AU704&ion=1&espv=2&ie=UTF-8#safe=off&q=data+envelopment+analysis) - have a history in this area). 
 - In many cases, both types of analysis may be applied. In some cases ML and econometrics can even be complimentary. For example, you might use ML to identify the key explanatory variables from a large set (aka feature selection), then estimate marginal responses using econometrics.
 
