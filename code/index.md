@@ -5,8 +5,6 @@ tags: [about]
 modified: 2014-08-08T20:53:07.573882-04:00
 comments: false
 ---
-As an economist I'm a bit of a frustrated engineer and computer programmer. 
-
 For my thesis I learnt to code in Python. [John Stachurski](http://johnstachurski.net/) and Thomas Sargent's [quant-econ](http://quant-econ.net/) site provides a great introduction to Python for economists. Python is a joy to use, but it's a bit slow. Here I rely on [Cython](http://cython.org/) which is basically a Python to C translator, see [this post]({% post_url 2014-10-30-cython1 %}).
 
 Recently I've been working on adapting some machine learning methods to economic problems...
