@@ -34,7 +34,7 @@ A good example of ML is computer vision and a good example of computer vision is
     <img src="http://nealbob.github.io/images/gswan.jpg">
 </figure>
 
-So how do you get a computer to see images. While the algorithm is rather complicated, the basic idea is simple: its just a big regression problem. You start with a very large database of images each with descriptive labels (provided by a human). This is called the training data: an \\(X\\) matrix containing photo data (pixel by pixel) and a vector \\(y\\) containing the labels. With ML you use the training data to fit a function \\(f\\) mapping from \\(X\\) to \\(y\\). Once you \\(f\\) you can then use it to predict the contents of other unlabeled images.
+So how do you get a computer to see images. While the algorithm is rather complicated, the basic idea is simple: its just a big regression problem. You start with a very large database of images each with descriptive labels (provided by a human). This is called the training data: an \\(X\\) matrix containing photo data (pixel by pixel) and a vector \\(y\\) containing the labels. With ML you use the training data to fit a function \\(f\\) mapping from \\(X\\) to \\(y\\). Once you have \\(f\\) you can then use it to predict the contents of other unlabeled images.
 
 <figure>
     <img src="http://nealbob.github.io/images/glearn.jpg">
@@ -68,7 +68,7 @@ $$y = f(X)$$
 
 With supervised learning we assume no knowledge of the form of \\(f\\). Instead, we employ 'non-parametric' regression methods to develop an estimate for \\(f\\). However, the differences between ML and econometrics are larger than parametric vs non-parametric regression methods.
 
-With supervised learning the focus is on *prediction*. What we care about is can our model \\(f\\) can provide accurate **out-of-sample** predictions for \\(y\\) (for \\(X\\) data outside of our 'training set'). Here there is limited interest in the effect of specific \\(X\\) variables on \\(y\\). Depending on the method employed our \\(f\\) function may remain something of a 'black-box'. 
+With supervised learning the focus is on *prediction*. What we care about is can our model \\(f\\) can provide accurate **out-of-sample** predictions for \\(y\\) (given \\(X\\) data outside of our 'training set'). Here there is limited interest in the effect of specific \\(X\\) variables on \\(y\\). Depending on the method employed our \\(f\\) function may remain something of a 'black-box'. 
 
 Unlike econometrics, model selection is typically performed using out-of sample testing - also known as 'Cross-Validation'. Here the model is fit to a subsample of the data (the training set) and its performance assessed on the withheld (test set) data.
 
@@ -106,7 +106,7 @@ Of course if we knew the true model, we could fit that by OLS. In this case OLS 
 
 # Non-parametric
 
-But what if we don't know the model. Well we could try a very simple non-parametric regression method known as a 'regress-o-gram': just divide the \\(X\\) space into bins and average the \\(y\\) located in each. (of course actual ML algorithms are much more sophisticated than this, but I'll leave that for another post)
+But what if we don't know the model. Well we could try a very simple non-parametric regression method known as a 'regress-o-gram': just divide the \\(X\\) space into bins and average the \\(y\\) points located in each. (of course actual ML algorithms are much more sophisticated than this, but I'll leave that for another post)
 
 <figure>
     <img src="http://nealbob.github.io/images/bias.png">
@@ -136,7 +136,7 @@ Now a model with 9 bins provides a better prediction.
     <img src="http://nealbob.github.io/images/good.png">
 </figure>
 
-Of course, we can do a lot better in practice. What if we fit lots of 9 bin models but vary the position of the bins. Then we can combine the different step functions and take an average. This is known as an 'ensemble approach' (more specifically it is an example of Tile codeing).
+Of course, we can do a lot better in practice. What if we fit lots of 9 bin models but vary the position of the bins. Then we can combine the different step functions and take an average. This is known as an 'ensemble approach' (more specifically it is an example of Tile Coding).
 
 <figure>
     <img src="http://nealbob.github.io/images/good.png">
@@ -167,14 +167,11 @@ There have been no shortage of researchers, willing to point out problems with a
 
 I think a key issue is the perception of 'academic rigour'. In some circles, econometrics will be seen as more 'rigorous' than ML, simply because it involves more formal math. But complex models and statistical tests are only useful if the assumptions they are built on are reasonable. In many ways ML with its focus on out-of-sample prediction and minimal reliance on theory could easily be seen as more 'rigorous' or at least more 'scientific'.
 
-
-
-
 ## Whats wrong with ML
 
 In short plenty. ML is a young field. The goal is a set of general purpose algorithms that require minimal human effort. The reality is a massive array of complex algorithms each suited to specific problem types, and often requiring human expertise in 'tuning' meta-parameters (to get an idea go check out [sci-kit learn](http://scikit-learn.org/stable/)). There's certainly been progress: ensemble methods (like Breiman's Random Forest) are more general and easier to use than earlier methods like Neural Networks - but there's still a way to go.  
 
-Varian points out that ML is laking in time series and panel data methods and there's no doubt econometrics is a fair way in front there. Varian also makes a big issue about causation: basically that ML is good for correlation and prediction, but can't establish causality. I agree, only I don't think econometrics has much to offer in this regard either. When it comes to causation some degree of theory and introspection is required regardless of the method used. This is one area, where humans still have an advantage over machines.
+Varian points out that ML is lacking in time series and panel data methods and there's no doubt econometrics is a fair way in front there. Varian also makes a big issue about causation: basically that ML is good for correlation and prediction, but can't establish causality. I agree, only I don't think econometrics has much to offer in this regard either. When it comes to causation some degree of theory and introspection is required regardless of the method used. This is one area, where humans still have an advantage over machines.
 
 
 

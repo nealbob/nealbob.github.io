@@ -11,6 +11,14 @@ One of the cool things about [Cython]({% post_url 2014-10-30-cython1 %}) is that
  
 Relative to message passing, multi-threading is fast (and has lower memory requirements). The catch is that you can run into concurrency problems: where different threads need to access the same memory locations at the same time.  As such, multi-threading is best suited to performing large numbers of simple calculations: where the order in which the calculations are executed doesn't matter.  
 
+Recently, this post received some some discussion on [stackoverflow](http://stackoverflow.com/questions/33193851/cython-prange-slower-for-4-threads-then-with-range). The main thing to remember is to place this line at the top of your Cython code as per this earlier [post]({% post_url 2014-10-30-cython1 %}). 
+
+{% highlight cython %}
+#cython: boundscheck=False, wraparound=False, nonecheck=False
+{% endhighlight%}
+
+The stackoverflow discussion also demonstrates how performance can improve with different load scheduling options. From my experience it is hard to predict which load scheduling method will achieve best performance and the differences often aren't that great. However, in the below example it does make a difference, so it is probably a good idea to experiment with this in practice.
+
 # A simple Cython example
 
 The perfect use case is applying a function element wise over a large array. Lets say we want to apply the function \\( f\\) to some array \\( X\\) 
