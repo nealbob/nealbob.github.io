@@ -3,6 +3,9 @@ layout: page
 title: Research
 modified: 2014-08-08T20:53:07.573882-04:00
 ---
+
+- N. Hughes, M. Gupta, K. Rathakumar (2015) ‘[Lessons from the water market: the southern Murray-Darling Basin water allocation market 2000-01 to 2015-16](http://data.daff.gov.au/data/warehouse/9aaw/2016/smdwm_d9aawr20161202/smdbWaterAllocMarket_v1.0.0.pdf)’, Australian Bureau of Agricultural and Resource Economics, Research Report
+
 - N. Hughes (2015) ‘[Water property rights in rivers with large environmental water holders](EWH_article.pdf)’, ANU Phd Seminar, Canberra.
 
 - N. Hughes (2014) ‘[Applying reinforcement learning to economic problems](RL_article.pdf)’, ANU Crawford Phd Conference, Canberra.
