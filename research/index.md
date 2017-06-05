@@ -3,8 +3,9 @@ layout: page
 title: Research
 modified: 2014-08-08T20:53:07.573882-04:00
 ---
+- N. Hughes, K. Lawson, H. Valle (2017) ‘[Farm performance and climate: climate adjusted productivity for broadacre cropping farms'](http://www.agriculture.gov.au/abares/research-topics/climate/farm-performance-climate)’, Australian Bureau of Agricultural and Resource Economics, Research Report
 
-- N. Hughes, M. Gupta, K. Rathakumar (2015) ‘[Lessons from the water market: the southern Murray-Darling Basin water allocation market 2000-01 to 2015-16](http://data.daff.gov.au/data/warehouse/9aaw/2016/smdwm_d9aawr20161202/smdbWaterAllocMarket_v1.0.0.pdf)’, Australian Bureau of Agricultural and Resource Economics, Research Report
+- N. Hughes, M. Gupta, K. Rathakumar (2016) ‘[Lessons from the water market: the southern Murray-Darling Basin water allocation market 2000-01 to 2015-16](http://data.daff.gov.au/data/warehouse/9aaw/2016/smdwm_d9aawr20161202/smdbWaterAllocMarket_v1.0.0.pdf)’, Australian Bureau of Agricultural and Resource Economics, Research Report
 
 - N. Hughes (2015) ‘[Water property rights in rivers with large environmental water holders](EWH_article.pdf)’, ANU Phd Seminar, Canberra.
 
@@ -29,4 +30,9 @@ modified: 2014-08-08T20:53:07.573882-04:00
 - N. Hughes and T Goesch, (2009) ‘[Capacity sharing in the St George and Macintyre Brook irrigation schemes in southern Queensland](http://data.daff.gov.au/data/warehouse/9aaw_001/9aawe2009/sqicsd9aawe001200906/RR09.12CapSharStGrgAndMcIntrBrkIrrigSchmSthQld_v1.0.0.pdf)’, Australian Bureau of Agricultural and Resource Economics Research Report
 
 - N. Hughes, D. Mackinnon and D. Ashton (2009) ‘[Irrigation in the Murray-Darling Basin: Input costs, receipts and net returns in 2006-07](http://data.daff.gov.au/data/warehouse/bfarr_9aab_001/r2009d9ab__zrr/crawur9abpw001/RR09.20_CostsReturnsWaterUse_v1.2.pdf)’, Australian Bureau of Agricultural and Resource Economics Research Report
+
+Phd thesis
+----------
+
+- N. Hughes (2015) '[Water property rights in rivers with large dams](../images/Thesis_main.pdf)', Australian National University
 
