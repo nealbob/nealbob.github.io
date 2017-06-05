@@ -27,7 +27,7 @@ kramdown:
 # Site owner
 owner:
   name: Neal Hughes
-  avatar:
+  avatar: test.jpg
   bio: ""
   email: neal.hughes@anu.edu.au
   disqus-shortname: 
