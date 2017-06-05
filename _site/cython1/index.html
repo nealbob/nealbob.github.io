@@ -1,0 +1,457 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Fast Python loops with Cython &#8211; Neal Hughes</title>
+<meta name="description" content="My take on the basics of using Cython">
+<meta name="keywords" content="Python, Cython, Machine Learning">
+
+
+
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="Fast Python loops with Cython">
+<meta name="twitter:description" content="My take on the basics of using Cython">
+
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://localhost:4000/images/default-thumb.png">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fast Python loops with Cython">
+<meta property="og:description" content="My take on the basics of using Cython">
+<meta property="og:url" content="http://localhost:4000/cython1/">
+<meta property="og:site_name" content="Neal Hughes">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/cython1/">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Neal Hughes Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+	<script src="http://localhost:4000/assets/js/vendor/html5shiv.min.js"></script>
+	<script src="http://localhost:4000/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+<link href='//fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700%7CPT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+<script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+
+<body class="post">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="http://localhost:4000">Neal Hughes</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" id="site-nav" class="nav">
+		    <ul>
+		        
+					    
+					        
+					    
+					    <li><a href="http://localhost:4000/about/" >About</a></li>
+					  
+					    
+					        
+					    
+					    <li><a href="http://localhost:4000/posts/" >Posts</a></li>
+					  
+					    
+					        
+					    
+					    <li><a href="http://localhost:4000/research/" >Research</a></li>
+					  
+					    
+					        
+					    
+					    <li><a href="http://localhost:4000/code/" >Code</a></li>
+					  
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    
+
+
+
+	<img src="http://localhost:4000/images/bio-photo.jpg" class="bio-photo" alt="Neal Hughes bio photo">
+
+<h3>Neal Hughes</h3>
+<p>Economist.<br> <s>Public</s> Toddler servant.</p>
+<a href="mailto:neal.hughes@anu.edu.au" class="author-social" target="_blank"><i class="fa fa-envelope-square"></i> Email</a>
+
+<a href="http://facebook.com/neal.hughes.370" class="author-social" target="_blank"><i class="fa fa-facebook-square"></i> Facebook</a>
+
+
+
+
+<a href="http://github.com/nealbob" class="author-social" target="_blank"><i class="fa fa-github"></i> Github</a>
+<a href="http://stackoverflow.com/users/2910587/neal-hughes" class="author-social" target="_blank"><i class="fa fa-stack-overflow"></i> Stackoverflow</a>
+
+
+
+
+
+<a href="http://www.strava.com/athletes/nealbob" class="author-social" target="_blank"><i class="fa fa-globe"></i> Strava</a>
+
+  </div>
+  <article>
+    <div class="headline-wrap">
+      
+        <h1><a href="http://localhost:4000/cython1/" rel="bookmark" title="Fast Python loops with Cython">Fast Python loops with Cython</a></h1>
+      
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap">
+      <p><a href="http://cython.org">Cython</a> is essentially a Python to C translator.  Cython allows you to use syntax similar to Python, while achieving speeds near that of C. <br /><br /> This post describes how to use Cython to speed up a single Python function involving ‘tight loops’. I’ll leave more complicated applications - with many functions and classes - for a later post.  </p>
+
+<h1 id="should-i-use-cython">Should I use Cython?</h1>
+
+<p>If you’re using Python and need performance there are a variety of options, see <a href="http://quant-econ.net/py/need_for_speed.html">quantecon</a> for a detailed comparison. And of course you could always choose a different language like Julia, or be brave and learn C itself.   </p>
+
+<p>While the static compilation approach of Cython may not be cutting edge, Cython is mature, well documented and capable of handling large complicated projects. Cython code lies behind many of the big Python scientific libraries including <code>scikit-learn</code> and <code>pandas</code>.</p>
+
+<h1 id="the-example">The example</h1>
+
+<p>Our example function evaluates a <a href="http://en.wikipedia.org/wiki/Radial_basis_function">Radial Basis Function</a> (RBF) approximation scheme. We assume each data point is a ‘center’ and use Gaussian type RBFs</p>
+
+<div>$$  \hat Y_i = \sum_{j=1}^N\beta_j e^{(-(\theta||X_i - X_j||)^2)} $$</div>
+
+<p>so our function takes an input data array \( X\) of shape (N, D), a parameter array \( \beta\) of length N and a ‘bandwidth’ parameter \(\theta\) and return an array of fitted values \(  \hat Y \) of length N. </p>
+
+<h1 id="python-loops">Python loops</h1>
+
+<p>Here’s the naive Python implementation</p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">rbf_network</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">theta</span><span class="p">):</span>
+
+    <span class="n">N</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">D</span><span class="p">):</span>
+                <span class="n">r</span> <span class="o">+=</span> <span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">d</span><span class="p">]</span> <span class="o">-</span> <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">d</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">r</span><span class="o">**</span><span class="mf">0.5</span>
+            <span class="n">Y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">beta</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">r</span> <span class="o">*</span> <span class="n">theta</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">Y</span></code></pre></div>
+
+<p>Let’s make up some data</p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="n">D</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">D</span><span class="p">)])</span><span class="o">.</span><span class="n">T</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="mi">10</span></code></pre></div>
+
+<p>Timing this in <code>IPython</code> we get </p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">%</span><span class="n">timeit</span> <span class="n">rbf_network</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
+<span class="mi">1</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mf">11.5</span> <span class="n">s</span> <span class="n">per</span> <span class="n">loop</span></code></pre></div>
+
+<p>Dam those Python loops are slow!</p>
+
+<h1 id="scipyinterpolaterbf">scipy.interpolate.Rbf</h1>
+
+<p>So in this case we’re lucky and there’s an external <code>numpy</code> based implementation</p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">Rbf</span>
+<span class="n">rbf</span> <span class="o">=</span> <span class="n">Rbf</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">3</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
+<span class="n">Xtuple</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">([</span><span class="n">X</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">D</span><span class="p">)])</span>
+
+<span class="o">%</span><span class="n">timeit</span> <span class="n">rbf</span><span class="p">(</span><span class="n">Xtuple</span><span class="p">)</span>
+<span class="mi">1</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">637</span> <span class="n">ms</span> <span class="n">per</span> <span class="n">loop</span></code></pre></div>
+
+<p>Much better. But what if we want to go faster or we don’t have a library we can use. </p>
+
+<h1 id="cython">Cython</h1>
+
+<p>A Cython version - implemented in the file <code>fastloop.pyx</code> - looks something like this</p>
+
+<div class="highlight"><pre><code class="language-cython" data-lang="cython"><span class="k">from</span> <span class="nn">math</span> <span class="k">import</span> <span class="n">exp</span>
+<span class="k">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">rbf_network</span><span class="p">(</span><span class="n">double</span><span class="p">[:,</span> <span class="p">:]</span> <span class="n">X</span><span class="p">,</span>  <span class="n">double</span><span class="p">[:]</span> <span class="n">beta</span><span class="p">,</span> <span class="n">double</span> <span class="n">theta</span><span class="p">):</span>
+
+    <span class="k">cdef</span> <span class="kt">int</span> <span class="nf">N</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span>
+    <span class="k">cdef</span> <span class="kt">int</span> <span class="nf">D</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span>
+    <span class="k">cdef</span> <span class="kt">double</span>[<span class="p">:]</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    <span class="k">cdef</span> <span class="kt">int</span> <span class="nf">i</span><span class="p">,</span> <span class="nf">j</span><span class="p">,</span> <span class="nf">d</span>
+    <span class="k">cdef</span> <span class="kt">double</span> <span class="nf">r</span> <span class="o">=</span> <span class="mf">0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="mf">0</span>
+            <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">D</span><span class="p">):</span>
+                <span class="n">r</span> <span class="o">+=</span> <span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">d</span><span class="p">]</span> <span class="o">-</span> <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">d</span><span class="p">])</span> <span class="o">**</span> <span class="mf">2</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">r</span><span class="o">**</span><span class="mf">0.5</span>
+            <span class="n">Y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">beta</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">r</span> <span class="o">*</span> <span class="n">theta</span><span class="p">)</span><span class="o">**</span><span class="mf">2</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">Y</span></code></pre></div>
+
+<p>So far all we’ve done is add some type declarations. For local variables we use the <code>cdef</code> keyword. For arrays we use <a href="http://docs.cython.org/src/userguide/memoryviews.html">‘memoryviews’</a> which can accept numpy arrays as input.  </p>
+
+<p>Note that you don’t have to add type declarations in a <code>*.pyx</code> file. Any lines which use untyped variables will just remain in Python rather than being translated to C.</p>
+
+<p>To compile we need a <code>setup.py</code> script, that looks something like this</p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">distutils.core</span> <span class="kn">import</span> <span class="n">setup</span>
+<span class="kn">from</span> <span class="nn">Cython.Build</span> <span class="kn">import</span> <span class="n">cythonize</span>
+
+<span class="n">setup</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;fastloop&quot;</span><span class="p">,</span> <span class="n">ext_modules</span><span class="o">=</span><span class="n">cythonize</span><span class="p">(</span><span class="s">&#39;fastloop.pyx&#39;</span><span class="p">),)</span></code></pre></div>
+
+<p>then we compile from the terminal with</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">python setup.py build_ext --inplace</code></pre></div>
+
+<p>which generates a C code file <code>fastloop.c</code> and a compiled Python extension <code>fastloop.so</code>. </p>
+
+<p>Lets test it out</p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">fastloop</span> <span class="kn">import</span> <span class="n">rbf_network</span>
+<span class="o">%</span><span class="n">timeit</span> <span class="n">rbf_network</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
+<span class="mi">10</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">209</span> <span class="n">ms</span> <span class="n">per</span> <span class="n">loop</span></code></pre></div>
+
+<p>OK, but we can do a better. With Cython there are a few ‘tricks’ involved in achieving good performance. Here’s the first one, if we type this in the terminal </p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">cython fastloop.pyx -a</code></pre></div>
+
+<p>we generate a <code>fastloop.html</code> file which we can open in a browser</p>
+
+<figure>
+	<img src="http://nealbob.github.io/images/html.jpg" />
+</figure>
+
+<p>Lines highlighted yellow are still using Python and are slowing our code down. Our goal is get rid of yellow lines, especially any inside of loops.</p>
+
+<p>Out first problem is that we’re still using the Python exponential function. We need to replace this with the C version. The main functions from <code>math.h</code> are included in the Cython <code>libc</code> library, so we just replace <code>from math import exp</code> with</p>
+
+<div class="highlight"><pre><code class="language-cython" data-lang="cython"><span class="k">from</span> <span class="nn">libc.math</span> <span class="k">cimport</span> <span class="n">exp</span></code></pre></div>
+
+<p>Next we need to add some <a href="http://docs.cython.org/src/reference/compilation.html#compiler-directives">compiler directives</a>, the easiest way is to add this line to the top of the file </p>
+
+<div class="highlight"><pre><code class="language-cython" data-lang="cython"><span class="c">#cython: boundscheck=False, wraparound=False, nonecheck=False</span></code></pre></div>
+
+<p>Note that with these checks turned off you can get segmentation faults rather than nice error messages, so its best to debug your code before putting this line in. </p>
+
+<p>Next we can consider playing with compiler flags (these are C tricks rather than Cython tricks as such). When using <code>gcc</code> the most important option seems to be <code>-ffast-math</code>.  From my limited experience, this can improve speeds a lot, with no noticeable loss of reliability. To implement these changes  we need to modify our <code>setup.py</code> file </p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">distutils.core</span> <span class="kn">import</span> <span class="n">setup</span>
+<span class="kn">from</span> <span class="nn">distutils.extension</span> <span class="kn">import</span> <span class="n">Extension</span>
+<span class="kn">from</span> <span class="nn">Cython.Distutils</span> <span class="kn">import</span> <span class="n">build_ext</span>
+
+<span class="n">ext_modules</span><span class="o">=</span><span class="p">[</span> <span class="n">Extension</span><span class="p">(</span><span class="s">&quot;fastloop&quot;</span><span class="p">,</span>
+              <span class="p">[</span><span class="s">&quot;fastloop.pyx&quot;</span><span class="p">],</span>
+              <span class="n">libraries</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;m&quot;</span><span class="p">],</span>
+              <span class="n">extra_compile_args</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;-ffast-math&quot;</span><span class="p">])]</span>
+
+<span class="n">setup</span><span class="p">(</span>
+  <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;fastloop&quot;</span><span class="p">,</span>
+  <span class="n">cmdclass</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;build_ext&quot;</span><span class="p">:</span> <span class="n">build_ext</span><span class="p">},</span>
+  <span class="n">ext_modules</span> <span class="o">=</span> <span class="n">ext_modules</span><span class="p">)</span></code></pre></div>
+
+<p>Now if we run <code>cython fastloop.pyx -a</code> again we will see the loops are now free of Python </p>
+
+<figure>
+	<img src="http://nealbob.github.io/images/html2.jpg" />
+</figure>
+
+<p>The yellow outside the loops is irrelevant here (but would matter if we needed to call this function many times within another loop). </p>
+
+<p>Now if we recompile and test it out we get</p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">fastloop</span> <span class="kn">import</span> <span class="n">rbf_network</span>
+<span class="o">%</span><span class="n">timeit</span> <span class="n">rbf_network</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
+<span class="mi">10</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mf">42.2</span> <span class="n">ms</span> <span class="n">per</span> <span class="n">loop</span></code></pre></div>
+
+<p>OK, now we’re getting there. </p>
+
+<h1 id="calling-c-functions">Calling C functions</h1>
+
+<p>So what else can we do? Well it turns out the exponential function is a bit of a bottleneck here, even the C version. One option is to use a <a href="http://www.schraudolph.org/pubs/Schraudolph99.pdf">fast approximation to the exponential function</a></p>
+
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;math.h&gt;</span>
+
+<span class="k">static</span> <span class="k">union</span>
+<span class="p">{</span>
+    <span class="kt">double</span> <span class="n">d</span><span class="p">;</span>
+    <span class="k">struct</span>
+    <span class="p">{</span>
+
+<span class="cp">#ifdef LITTLE_ENDIAN</span>
+    <span class="kt">int</span> <span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">;</span>
+<span class="cp">#else</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
+<span class="cp">#endif</span>
+    <span class="p">}</span> <span class="n">n</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">_eco</span><span class="p">;</span>
+
+<span class="cp">#define EXP_A (1048576/M_LN2) </span><span class="cm">/* use 1512775 for integer version */</span><span class="cp"></span>
+<span class="cp">#define EXP_C 60801            </span><span class="cm">/* see text for choice of c values */</span><span class="cp"></span>
+<span class="cp">#define EXP(y) (_eco.n.i = EXP_A*(y) + (1072693248 - EXP_C), _eco.d)</span></code></pre></div>
+
+<p>From Cython its easy to call C code. Put the above code in <code>vfastexp.h</code>, then just add the following to our <code>fastloop.pyx</code> file</p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">cdef</span> <span class="n">extern</span> <span class="kn">from</span> <span class="s">&quot;vfastexp.h&quot;</span><span class="p">:</span>
+    <span class="n">double</span> <span class="n">exp_approx</span> <span class="s">&quot;EXP&quot;</span> <span class="p">(</span><span class="n">double</span><span class="p">)</span></code></pre></div>
+
+<p>So now we can just  use <code>exp_approx()</code> in place of <code>exp()</code>. This gives us </p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">fastloop</span> <span class="kn">import</span> <span class="n">rbf_network</span>
+<span class="o">%</span><span class="n">timeit</span> <span class="n">rbf_network</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
+<span class="mi">100</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mf">15.3</span> <span class="n">ms</span> <span class="n">per</span> <span class="n">loop</span></code></pre></div>
+
+<h1 id="the-wash-up">The Wash-up</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>Time (ms)</th>
+      <th>Speed up</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Python loops</td>
+      <td>11500</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code>scipy.interpolate.Rbf</code></td>
+      <td>637</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td>Cython</td>
+      <td>42</td>
+      <td>272</td>
+    </tr>
+    <tr>
+      <td>Cython with approximation</td>
+      <td>15</td>
+      <td>751</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>So there are a few tricks to learn, but once your on top of them Cython is fast and easy to use. Maybe not as easy as Python, but certainly much better than learning C.</p>
+
+      <hr />
+      <footer role="contentinfo">
+        <div class="article-author-bottom">
+          
+
+
+
+	<img src="http://localhost:4000/images/bio-photo.jpg" class="bio-photo" alt="Neal Hughes bio photo">
+
+<h3>Neal Hughes</h3>
+<p>Economist.<br> <s>Public</s> Toddler servant.</p>
+<a href="mailto:neal.hughes@anu.edu.au" class="author-social" target="_blank"><i class="fa fa-envelope-square"></i> Email</a>
+
+<a href="http://facebook.com/neal.hughes.370" class="author-social" target="_blank"><i class="fa fa-facebook-square"></i> Facebook</a>
+
+
+
+
+<a href="http://github.com/nealbob" class="author-social" target="_blank"><i class="fa fa-github"></i> Github</a>
+<a href="http://stackoverflow.com/users/2910587/neal-hughes" class="author-social" target="_blank"><i class="fa fa-stack-overflow"></i> Stackoverflow</a>
+
+
+
+
+
+<a href="http://www.strava.com/athletes/nealbob" class="author-social" target="_blank"><i class="fa fa-globe"></i> Strava</a>
+
+        </div>
+        <p class="byline"><strong>Fast Python loops with Cython</strong> was published on <time datetime="2014-10-30T00:00:00+11:00">October 30, 2014</time> and last modified on <time datetime="2014-10-30">October 30, 2014</time>.</p>
+      </footer>
+    </div><!-- /.article-wrap -->
+  
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <div class="related-articles">
+  <h4>You might also enjoy <small class="pull-right">(<a href="http://localhost:4000/posts/">View all posts</a>)</small></h4>
+    <ul>
+    
+      <li><a href="http://localhost:4000/parallelcomp/" title="Parallel computing in Python - processes">Parallel computing in Python - processes</a></li>
+    
+      <li><a href="http://localhost:4000/usingtheNCI/" title="How to use the ANU supercomputer">How to use the ANU supercomputer</a></li>
+    
+    </ul>
+    <hr />
+  </div><!-- /.related-articles -->
+  <footer>
+    
+
+<span>&copy; 2015 Neal Hughes. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+
+
+  
+	        
+
+</body>
+</html>

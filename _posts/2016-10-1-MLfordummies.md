@@ -21,7 +21,7 @@ ML evolved from the broader field of Artificial Intelligence (AI). However, the 
 - Unsupervised learning: (clustering, dimensionality reduction) \\(X\\) data only, typically a 'pre-processing' step to Supervised or Reinforcement learning
 - Reinforcement learning: (Approximate dynamic programming) solving Markov Decision Processes, with unknown transition and payoff functions
 
-ML is often conflated with Data mining. While Data mining is related to ML, the focus is more on unstructured / exploratory data analysis. Similar to unsupervised learning, data mining is more of a pre-processing step. 
+ML is often conflated with data mining. While Data mining is related to ML, the focus is more on unstructured / exploratory data analysis. Similar to unsupervised learning, data mining is more of a pre-processing step. 
 
 # Machine learning in action
 
@@ -139,7 +139,7 @@ Now a model with 9 bins provides a better prediction.
 Of course, we can do a lot better in practice. What if we fit lots of 9 bin models but vary the position of the bins. Then we can combine the different step functions and take an average. This is known as an 'ensemble approach' (more specifically it is an example of Tile Coding).
 
 <figure>
-    <img src="http://nealbob.github.io/images/good.png">
+    <img src="http://nealbob.github.io/images/ensemble.png">
 </figure>
 
 ## More data

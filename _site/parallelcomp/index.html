@@ -1,0 +1,407 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Parallel computing in Python - processes &#8211; Neal Hughes</title>
+<meta name="description" content="How to run multiple processes in Python">
+<meta name="keywords" content="Python, multiprocessing">
+
+
+
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="Parallel computing in Python - processes">
+<meta name="twitter:description" content="How to run multiple processes in Python">
+
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://localhost:4000/images/default-thumb.png">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Parallel computing in Python - processes">
+<meta property="og:description" content="How to run multiple processes in Python">
+<meta property="og:url" content="http://localhost:4000/parallelcomp/">
+<meta property="og:site_name" content="Neal Hughes">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/parallelcomp/">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Neal Hughes Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+	<script src="http://localhost:4000/assets/js/vendor/html5shiv.min.js"></script>
+	<script src="http://localhost:4000/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+<link href='//fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700%7CPT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+<script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+
+<body class="post">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="http://localhost:4000">Neal Hughes</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" id="site-nav" class="nav">
+		    <ul>
+		        
+					    
+					        
+					    
+					    <li><a href="http://localhost:4000/about/" >About</a></li>
+					  
+					    
+					        
+					    
+					    <li><a href="http://localhost:4000/posts/" >Posts</a></li>
+					  
+					    
+					        
+					    
+					    <li><a href="http://localhost:4000/research/" >Research</a></li>
+					  
+					    
+					        
+					    
+					    <li><a href="http://localhost:4000/code/" >Code</a></li>
+					  
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    
+
+
+
+	<img src="http://localhost:4000/images/bio-photo.jpg" class="bio-photo" alt="Neal Hughes bio photo">
+
+<h3>Neal Hughes</h3>
+<p>Economist.<br> <s>Public</s> Toddler servant.</p>
+<a href="mailto:neal.hughes@anu.edu.au" class="author-social" target="_blank"><i class="fa fa-envelope-square"></i> Email</a>
+
+<a href="http://facebook.com/neal.hughes.370" class="author-social" target="_blank"><i class="fa fa-facebook-square"></i> Facebook</a>
+
+
+
+
+<a href="http://github.com/nealbob" class="author-social" target="_blank"><i class="fa fa-github"></i> Github</a>
+<a href="http://stackoverflow.com/users/2910587/neal-hughes" class="author-social" target="_blank"><i class="fa fa-stack-overflow"></i> Stackoverflow</a>
+
+
+
+
+
+<a href="http://www.strava.com/athletes/nealbob" class="author-social" target="_blank"><i class="fa fa-globe"></i> Strava</a>
+
+  </div>
+  <article>
+    <div class="headline-wrap">
+      
+        <h1><a href="http://localhost:4000/parallelcomp/" rel="bookmark" title="Parallel computing in Python - processes">Parallel computing in Python - processes</a></h1>
+      
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap">
+      <p>These days CPUs are not getting any faster: computers just have more of them. The average desktop has 4 CPU cores, but by default most code running in Python (or Matlab etc.) will only be using one. More importantly, high performance computing now relies on massive supercomputers, like the <a href="/usingtheNCI/">ANU NCI</a> with around 60,000 cores. Taking advantage of these multi-core systems usually requires some additional programming effort. </p>
+
+<h1 id="processes-and-threads">Processes and threads</h1>
+
+<p>There are two forms of parallel computing: shared memory (i.e., threads) and message passing (i.e., processes). With threading, multiple CPU cores operate on shared input data. With processes, each CPU core runs an essentially independent task, requiring its own copy of the input data. </p>
+
+<p>Message passing involves performance overheads - as such it is more suited to large complicated computing jobs. Shared memory is fast but is limited by concurrency problems (where different threads try to access the same data at the same time) - as such it is suited to running large numbers of very simple jobs (i.e., running a loop in parallel).   </p>
+
+<p>Within Python, multiple processes can be managed by the <code>multiprocessing</code> module.  Python doesn’t allow for threading based parallelization, due to the Global Interpreter Lock (GIL). However, multi-threading can be achieved with Cython via OpenMP (a threading platform for C). Here, we look at processes. Threads are discussed in this post.</p>
+
+<h1 id="a-simulation-model">A simulation model</h1>
+
+<p>Simulation models are a good candidate for process based parallelization. Monte carlo simulation is so called ‘embarrassingly parallel’: a large Monte carlo run can simply be divided into ‘chunks’ and run on separate cores, with the results being combined at the end.</p>
+
+<p>Here is a simple example. Suppose we want to simulate the storage levels of a reservoir, which follows the rule</p>
+
+<div>$$  S_{t+1} = min\{S_t + I_{t+1} - W_t, K\}$$ </div>
+<div>$$  I_{t+1} \sim \max \{N(\mu, \sigma^2) , 0\}$$ </div>
+<div>$$  W_{t} = min \{ S_t, \bar S\}$$ </div>
+<div>$$  0 &lt; S_t, W_t, \bar S &lt; K $$ </div>
+
+<p>where \(S_t\) is the storage volume at time \(t\), \(I_{t+1}\) the stochastic inflow and  \(W_t\) the storage release (i.e., withdrawal).</p>
+
+<p>Below is a pure python implementation in the file <code>multicore_storage_sim.py</code> (of course this would run much faster if implemented in <a href="/cython1/">Cython</a>):</p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">simulate</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sig</span><span class="p">,</span> <span class="n">Sbar</span><span class="p">,</span> <span class="n">T</span><span class="p">):</span>
+    
+    <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">K</span>
+
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+        <span class="n">W</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">t</span><span class="p">],</span> <span class="n">Sbar</span><span class="p">)</span>    
+        <span class="n">I</span><span class="p">[</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sig</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">S</span><span class="p">[</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">-</span> <span class="n">W</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">+</span> <span class="n">I</span><span class="p">[</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">K</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">S</span></code></pre></div>
+
+<p>Lets make sure it works</p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">multicore_storage_sim</span> <span class="kn">import</span> <span class="n">simulate</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">simulate</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">S</span><span class="p">)</span></code></pre></div>
+
+<figure>
+	<img src="../images/fig1.jpg" />
+</figure>
+
+<p>Now lets time it in <code>IPython</code></p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">%</span><span class="n">timeit</span> <span class="n">simulate</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">1000000</span><span class="p">)</span>
+<span class="mi">1</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mf">5.04</span> <span class="n">s</span> <span class="n">per</span> <span class="n">loop</span></code></pre></div>
+
+<h1 id="using-multiprocessing">Using multiprocessing</h1>
+
+<p>To run this in parallel we need to use the <a href="https://docs.python.org/2/library/multiprocessing.html">multiprocessing</a> module. Here we have two options for passing messages between processes: <code>Queues</code> and <code>Pipes</code> (see the <a href="https://docs.python.org/2/library/multiprocessing.html">docs</a>). We use <code>Queues</code> because they tend to be more stable (<code>Pipes</code> are faster but less reliable).</p>
+
+<p>First, we modify our function so that it can return its output via a <code>Queue</code> instance:</p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">simulate</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sig</span><span class="p">,</span> <span class="n">Sbar</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">multi</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">que</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    
+    <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">K</span>
+
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+        <span class="n">W</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">t</span><span class="p">],</span> <span class="n">Sbar</span><span class="p">)</span>    
+        <span class="n">I</span><span class="p">[</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sig</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">S</span><span class="p">[</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">-</span> <span class="n">W</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">+</span> <span class="n">I</span><span class="p">[</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">K</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">multi</span><span class="p">:</span>
+        <span class="n">que</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">S</span></code></pre></div>
+
+<p>The code for generating multiple processes then looks like this</p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Process</span>
+<span class="kn">from</span> <span class="nn">multiprocessing.queues</span> <span class="kn">import</span> <span class="n">Queue</span>
+
+<span class="k">def</span> <span class="nf">multi_sim</span><span class="p">(</span><span class="n">CORES</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">ques</span> <span class="o">=</span> <span class="p">[</span><span class="n">Queue</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">CORES</span><span class="p">)]</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="n">CORES</span><span class="p">),</span> <span class="bp">True</span><span class="p">,</span> <span class="n">ques</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">CORES</span><span class="p">)]</span>
+    <span class="n">jobs</span> <span class="o">=</span> <span class="p">[</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">simulate</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">jobs</span><span class="p">:</span> <span class="n">j</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">ques</span><span class="p">:</span> <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">jobs</span><span class="p">:</span> <span class="n">j</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">S</span></code></pre></div>
+
+<p>For each process we create both a: <code>Queue</code> object (to receive the outputs) and an argument tuple. To create a process we call <code>multiprocessing.Process</code>,  passing the target function <code>simulate</code> and the arguments.</p>
+
+<p>We execute processes by calling the <code>start()</code> method. Note this is non-blocking: the interpreter won’t wait for a process to complete before executing the next instruction. To force the interpreter to pause until a process finishes we call the <code>join()</code> method. We collect the results from the <code>Queues</code> with the <code>get()</code> method. Finally, we stack the results into a single array. </p>
+
+<p>Note that the target needs to be a Python function. Cython code can run in multiple processes, but only  within a Python ‘wrapper’ function. Be aware though, that converting large Python numpy arrays into Cython memoryviews can involve additional overhead. Where this becomes a problem, you have two options: don’t use memoryviews (adopt the older <a href="http://docs.cython.org/0.14/src/tutorial/numpy.html">Cython numpy array syntax</a>) or try threads (see here).</p>
+
+<p>Anyway, lets time it in <code>IPython</code></p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">multicore_storage_sim</span> <span class="kn">import</span> <span class="n">multi_sim</span>
+<span class="o">%</span><span class="n">timeit</span> <span class="n">multi_sim</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1000000</span><span class="p">)</span>
+<span class="mi">1</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mf">2.63</span> <span class="n">s</span> <span class="n">per</span> <span class="n">loop</span></code></pre></div>
+
+<p>OK, so on my old 2-core laptop we have just under a 2 times speed up. The message passing overhead is essentially a fixed cost, so the relative speed up gradually declines as we increase the number of jobs.</p>
+
+<p>In practice, messaging passing under <code>multiprocessing</code> can lead to stability problems, even with <code>Queues</code>. Below is a useful wrapper for <code>Queue</code> objects that handles exceptions. I’ve found this code all but eliminates message passing errors.</p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">retry_on_eintr</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">IOError</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>            
+            <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">errno</span> <span class="o">==</span> <span class="n">errno</span><span class="o">.</span><span class="n">EINTR</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span>    
+
+<span class="k">class</span> <span class="nc">RetryQueue</span><span class="p">(</span><span class="n">Queue</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">retry_on_eintr</span><span class="p">(</span><span class="n">Queue</span><span class="o">.</span><span class="n">get</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">block</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span></code></pre></div>
+
+<p>Now we can just use the <code>RetryQueue</code> class in place of <code>Queue</code></p>
+
+<p>Cool so all done? Not quite. If we look at the results from the two processes, we’ll see a problem </p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">S</span> <span class="o">=</span> <span class="n">multi_sim</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">101</span><span class="p">],</span> <span class="n">S</span><span class="p">[</span><span class="mi">101</span><span class="p">:</span><span class="mi">202</span><span class="p">])</span></code></pre></div>
+
+<figure>
+	<img src="../images/fig2.jpg" />
+</figure>
+<p>Uh oh, the two series are identical. The problem is that each process gives the same ‘seed’ to the random number generator. So both have the same inflow shock series, and given the same initial state the same path for storage levels. To fix this we need to set the seed within each process using <code>np.random.seed()</code>. </p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">simulate</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sig</span><span class="p">,</span> <span class="n">Sbar</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">multi</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">que</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">jobno</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">jobno</span><span class="p">)</span>
+
+    <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">T</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">K</span>
+
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+        <span class="n">W</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">t</span><span class="p">],</span> <span class="n">Sbar</span><span class="p">)</span>    
+        <span class="n">I</span><span class="p">[</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sig</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">S</span><span class="p">[</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">-</span> <span class="n">W</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">+</span> <span class="n">I</span><span class="p">[</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">K</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">multi</span><span class="p">:</span>
+        <span class="n">que</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">S</span>
+
+<span class="k">def</span> <span class="nf">multi_sim</span><span class="p">(</span><span class="n">CORES</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">ques</span> <span class="o">=</span> <span class="p">[</span><span class="n">RetryQueue</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">CORES</span><span class="p">)]</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="n">CORES</span><span class="p">),</span> <span class="bp">True</span><span class="p">,</span> <span class="n">ques</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">CORES</span><span class="p">)]</span>
+    <span class="n">jobs</span> <span class="o">=</span> <span class="p">[</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">simulate</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">jobs</span><span class="p">:</span> <span class="n">j</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">ques</span><span class="p">:</span> <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">jobs</span><span class="p">:</span> <span class="n">j</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">S</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">multicore_storage_sim</span> <span class="kn">import</span> <span class="n">multi_sim</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">multi_sim</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">101</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="mi">101</span><span class="p">:</span><span class="mi">202</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">S</span><span class="p">)</span></code></pre></div>
+
+<figure>
+	<img src="../images/fig3.jpg" />
+</figure>
+
+<figure>
+	<img src="../images/fig4.jpg" />
+</figure>
+
+<p>Much better, now we have 200 unique samples.</p>
+
+
+      <hr />
+      <footer role="contentinfo">
+        <div class="article-author-bottom">
+          
+
+
+
+	<img src="http://localhost:4000/images/bio-photo.jpg" class="bio-photo" alt="Neal Hughes bio photo">
+
+<h3>Neal Hughes</h3>
+<p>Economist.<br> <s>Public</s> Toddler servant.</p>
+<a href="mailto:neal.hughes@anu.edu.au" class="author-social" target="_blank"><i class="fa fa-envelope-square"></i> Email</a>
+
+<a href="http://facebook.com/neal.hughes.370" class="author-social" target="_blank"><i class="fa fa-facebook-square"></i> Facebook</a>
+
+
+
+
+<a href="http://github.com/nealbob" class="author-social" target="_blank"><i class="fa fa-github"></i> Github</a>
+<a href="http://stackoverflow.com/users/2910587/neal-hughes" class="author-social" target="_blank"><i class="fa fa-stack-overflow"></i> Stackoverflow</a>
+
+
+
+
+
+<a href="http://www.strava.com/athletes/nealbob" class="author-social" target="_blank"><i class="fa fa-globe"></i> Strava</a>
+
+        </div>
+        <p class="byline"><strong>Parallel computing in Python - processes</strong> was published on <time datetime="2014-12-05T00:00:00+11:00">December 05, 2014</time> and last modified on <time datetime="2014-10-24">October 24, 2014</time>.</p>
+      </footer>
+    </div><!-- /.article-wrap -->
+  
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <div class="related-articles">
+  <h4>You might also enjoy <small class="pull-right">(<a href="http://localhost:4000/posts/">View all posts</a>)</small></h4>
+    <ul>
+    
+      <li><a href="http://localhost:4000/cython1/" title="Fast Python loops with Cython">Fast Python loops with Cython</a></li>
+    
+      <li><a href="http://localhost:4000/usingtheNCI/" title="How to use the ANU supercomputer">How to use the ANU supercomputer</a></li>
+    
+    </ul>
+    <hr />
+  </div><!-- /.related-articles -->
+  <footer>
+    
+
+<span>&copy; 2015 Neal Hughes. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+
+
+  
+	        
+
+</body>
+</html>

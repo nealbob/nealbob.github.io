@@ -1,0 +1,482 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>How to use the ANU supercomputer &#8211; Neal Hughes</title>
+<meta name="description" content="Everything I've learnt so far about using the NCI">
+<meta name="keywords" content="NCI, ANU, Python">
+
+
+
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="How to use the ANU supercomputer">
+<meta name="twitter:description" content="Everything I've learnt so far about using the NCI">
+
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://localhost:4000/images/default-thumb.png">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to use the ANU supercomputer">
+<meta property="og:description" content="Everything I've learnt so far about using the NCI">
+<meta property="og:url" content="http://localhost:4000/usingtheNCI/">
+<meta property="og:site_name" content="Neal Hughes">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/usingtheNCI/">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Neal Hughes Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+	<script src="http://localhost:4000/assets/js/vendor/html5shiv.min.js"></script>
+	<script src="http://localhost:4000/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+<link href='//fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700%7CPT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+<script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+
+<body class="post">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="http://localhost:4000">Neal Hughes</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" id="site-nav" class="nav">
+		    <ul>
+		        
+					    
+					        
+					    
+					    <li><a href="http://localhost:4000/about/" >About</a></li>
+					  
+					    
+					        
+					    
+					    <li><a href="http://localhost:4000/posts/" >Posts</a></li>
+					  
+					    
+					        
+					    
+					    <li><a href="http://localhost:4000/research/" >Research</a></li>
+					  
+					    
+					        
+					    
+					    <li><a href="http://localhost:4000/code/" >Code</a></li>
+					  
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    
+
+
+
+	<img src="http://localhost:4000/images/bio-photo.jpg" class="bio-photo" alt="Neal Hughes bio photo">
+
+<h3>Neal Hughes</h3>
+<p>Economist.<br> <s>Public</s> Toddler servant.</p>
+<a href="mailto:neal.hughes@anu.edu.au" class="author-social" target="_blank"><i class="fa fa-envelope-square"></i> Email</a>
+
+<a href="http://facebook.com/neal.hughes.370" class="author-social" target="_blank"><i class="fa fa-facebook-square"></i> Facebook</a>
+
+
+
+
+<a href="http://github.com/nealbob" class="author-social" target="_blank"><i class="fa fa-github"></i> Github</a>
+<a href="http://stackoverflow.com/users/2910587/neal-hughes" class="author-social" target="_blank"><i class="fa fa-stack-overflow"></i> Stackoverflow</a>
+
+
+
+
+
+<a href="http://www.strava.com/athletes/nealbob" class="author-social" target="_blank"><i class="fa fa-globe"></i> Strava</a>
+
+  </div>
+  <article>
+    <div class="headline-wrap">
+      
+        <h1><a href="http://localhost:4000/usingtheNCI/" rel="bookmark" title="How to use the ANU supercomputer">How to use the ANU supercomputer</a></h1>
+      
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap">
+      <p>Here’s what I’ve learnt so far trying to get my code running on ANU’s <a href="http://nci.org.au">National Computational Infrastructure</a>. The NCI website provides a lot information on all of this (see the <a href="http://nci.org.au/services-support/getting-help/raijin-user-guide/">raijin user guide</a>), but I’ve found it can be a bit opaque. Luckily the help desk staff are very responsive if you ever get stuck (help@nf.nci.org.au).</p>
+
+<h1 id="what-is-the-nci">What is the NCI?</h1>
+
+<p>The NCI houses raijin a 60,000 CPU core supercomputer - the largest in the Southern Hemisphere - and its located at the ANU next to South oval. </p>
+
+<figure>
+	<img src="http://nealbob.github.io/images/nci.jpg" />
+</figure>
+
+<h1 id="applying-for-time-on-raijin">Applying for time on raijin</h1>
+
+<p>For ANU Phd students the first step is to apply for a startup grant. This is a small allocation of time (1000 core hours) to do initial testing: learn how to use the system and give you an idea of how many core hours you will need for your main application. <br /><br /> To apply go <a href="http://nci.org.au/access/user-registration/application-form-resource/">here</a>, fill in the form and get your supervisor to sign (technically the application comes from them not you) then email it to the help desk (or just walk it over its not that far!). The application process was a bit confusing at times, but a few emails to the help desk got it done. <br /><br /> Full applications open in November for computing time the next year. The minimum request on raijin is 20,000 core hours, which is fairly large: equivalent to about 4000 hours or 20 weeks time on an i7 desktop or around $5000 worth on a commercial service like <a href="http://www.multyvac.com/">multyvac</a>. </p>
+
+<h1 id="logging-in">Logging in</h1>
+
+<p>Once you’re approved you’ll receive a username and project code via email and a temporary password via sms.</p>
+
+<p>You login online via ssh (if your on windows or mac you will need an ssh client, see the <a href="http://nci.org.au/services-support/getting-help/raijin-user-guide/">user guide</a>), on linux just open the terminal and type </p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">ssh -l username raijin.nci.org.au</code></pre></div>
+
+<p>You’ll get a warning about connecting for the first time, just type yes, then enter your password and your in.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">###############################################################################</span>
+<span class="c">#                            NCI National Facility                            #</span>
+<span class="c">#      This service is for authorised clients only. It is a criminal          #</span>
+<span class="c">#      offence to:                                                            #</span>
+<span class="c">#                - Obtain access to data without permission                   #</span>
+<span class="c">#                - Damage, delete, alter or insert data without permission    #</span>
+<span class="c">#      Use of this system requires acceptance of the Conditions of Use        #</span>
+<span class="c">#      published at http://nci.org.au/conditions/                             #</span>
+<span class="c">###############################################################################</span>
+<span class="p">|</span>                  Welcome to the NCI National Facility!                      <span class="p">|</span>
+<span class="p">|</span>        raijin.nci.org.au - <span class="m">57472</span> processor InfiniBand x86_64 cluster        <span class="p">|</span>
+<span class="p">|</span>     Assistance: <span class="nb">help</span>@nci.org.au     Information: http://nci.org.au          <span class="p">|</span>
+<span class="o">===============================================================================</span></code></pre></div>
+
+<h1 id="first-steps">First steps</h1>
+
+<p>So now you are in a command line linux environment on a single raijin node (with 16 cores). You should have a prompt that looks like this</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>username@raijin4 ~<span class="o">]</span><span class="err">$</span></code></pre></div>
+
+<p>First lets reset our password</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>username@raijin4 ~<span class="o">]</span><span class="nv">$ </span>passwd</code></pre></div>
+
+<p>We begin in our home folder, which is on the filesystem at /home/unigrp/username (where unigrp is the last three digits of your username). Here you can install all your code and any dependencies. Any changes you make will be saved when you log out. Your home folder has a capacity of 2 Gb. You can check how much you have used with <code>lquota</code>.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>username@raijin4 ~<span class="o">]</span><span class="nv">$ </span>lquota
+--------------------------------------------------------------
+          fs  Usage  Quota  Limit   iUsage    iQuota   iLimit
+--------------------------------------------------------------
+ndh401  home  383MB 2000MB 2000MB     <span class="m">5449</span>         <span class="m">0</span>    <span class="m">88000</span> 
+   fr3 short   28kB 72.0GB  144GB        <span class="m">7</span>    <span class="m">164000</span>   <span class="m">328000</span> 
+--------------------------------------------------------------</code></pre></div>
+
+<p>Next we can check our account status</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>username@raijin4 ~<span class="o">]</span><span class="nv">$ </span>nci_account
+
+Usage Report: <span class="nv">Project</span><span class="o">=</span>projectcode Compute <span class="nv">Period</span><span class="o">=</span>2014.q4 <span class="o">(</span>01/10/2014-31/12/2014<span class="o">)</span>
+<span class="o">========================================================================</span>
+
+Total Grant: 1000.00 SU
+Total Used:   0.00 SU
+Total Avail: 1000.00 SU
+Bonus Used:   0.00 SU
+
+-------------------------------------------------------------------------------------------------------------
+System      Queue  Charge         Usage         Usage       SU used   Reserved SU    Pending SU      Total SU
+                   Weight     <span class="o">(</span>CPU Hrs<span class="o">)</span>    <span class="o">(</span>Walltime<span class="o">)</span>                   <span class="o">(</span>Running<span class="o">)</span>      <span class="o">(</span>Queued<span class="o">)</span>     Committed
+raijin      copyq     1.0          0.00          0.00          0.00          0.00          0.00          0.00
+raijin    express     3.0          0.00          0.00          0.00          0.00          0.00          0.00
+raijin    hugemem     1.0          0.00          0.00          0.00          0.00          0.00          0.00
+raijin     normal     1.0          0.00          0.00          0.00          0.00          0.00          0.00
+-------------------------------------------------------------------------------------------------------------
+Overall                            0.00          0.00          0.00          0.00          0.00          0.00
+
+
+Usage Report: <span class="nv">Project</span><span class="o">=</span>projectcode Storage <span class="nv">Period</span><span class="o">=</span>2014.10 <span class="o">(</span>01/10/2014-31/12/2014<span class="o">)</span>
+<span class="o">========================================================================</span>
+-------------------------------------------------------------------------------------------------
+System    StoragePt             Grant       Usage       Avail      iGrant      iUsage      iAvail
+-------------------------------------------------------------------------------------------------
+dmf       massdata            20.00GB      0.00GB     20.00GB     100.00K       0.00K     100.00K
+raijin    short               72.00GB      0.00GB     72.00GB     164.00K       0.01K     163.99K
+-------------------------------------------------------------------------------------------------
+Total                         92.00GB      0.00GB     92.00GB     264.00K       0.01K     263.99K</code></pre></div>
+
+<p>You should see your 1000 hour allocation. Note that these interactive sessions don’t count towards your quota. </p>
+
+<h1 id="installing-software">Installing software</h1>
+
+<p>raijin has just about all the software you might need already installed (see the <a href="http://nci.org.au/nci-systems/national-facility/peak-system/raijin/application-software/">list</a>). You just need to make it available to your profile with the <code>module</code> command. To view the list of all software type</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>username@raijin4 ~<span class="o">]</span> module avail</code></pre></div>
+
+<p>To load Python (with <code>numpy</code>, <code>scipy</code> and <code>matplotlib</code>) you type</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>username@raijin4 ~<span class="o">]</span> module load python/2.7.3
+<span class="o">[</span>username@raijin4 ~<span class="o">]</span> module load python/2.7.3-matplotlib</code></pre></div>
+
+<p>To use Cython I also needed to replace the default intel C compiler with gcc</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>username@raijin4 ~<span class="o">]</span> module unload intel-cc
+<span class="o">[</span>username@raijin4 ~<span class="o">]</span> module load gcc/4.9.0</code></pre></div>
+
+<p>You can then add these commands to your <code>.profile</code> file, to make sure they are executed on login. I used vim to edit these text files</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>username@raijin4 ~<span class="o">]</span> vim .profile</code></pre></div>
+
+<h1 id="installing-your-code-and-dependencies">Installing your code and dependencies</h1>
+
+<p>An easy way to load your code is via <a href="https://github.com">github</a> (which is like dropbox for code). Once you’ve learnt github, and have your code in a github repository <a href="https://github.com/nealbob/regrivermod">like this</a>, you can clone it directly onto your profile.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>username@raijin4 ~<span class="o">]</span> git clone git://github.com/nealbob/regrivermod.git ~/Model</code></pre></div>
+
+<p>Too easy. I also needed to compile my code, which once I loaded <code>gcc</code> worked just like it does on my local machine. </p>
+
+<p>Next I needed to install a number of other Python packages not included on raijin by default (<code>cython</code>, <code>pandas</code>, <code>scikit-learn</code>). First create a folder to hold them</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>username@raijin4 ~<span class="o">]</span> mkdir packages</code></pre></div>
+
+<p>To install python packages I can use <code>easy_install</code>. You just need to tell <code>easy_install</code> to install locally, for example</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>username@raijin4 ~<span class="o">]</span> easy_install --install-dir<span class="o">=</span>~/packages pandas</code></pre></div>
+
+<p>Next you need to add ~/packages to your PYTHONPATH environment variable so Python can find it</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>username@raijin4 ~<span class="o">]</span> <span class="nb">export </span><span class="nv">PYTHONPATH</span><span class="o">=</span>~/packages:<span class="nv">$PYTHONPATH</span></code></pre></div>
+
+<p>Its best to make this change permanent by adding it to your <code>.bashrc</code> file.</p>
+
+<h1 id="data-storage">Data storage</h1>
+
+<p>The first place to store large data files is in your ‘short’ folder, located at /short/projectcode/username. As we saw from the <code>nci_account</code> output, you get 72 Gb on short and 20 on massdata. <br /> <br /> To transfer data files between raijin and your local computer you can use <code>rsync</code>. For example, to transfer a file from your short folder to you local machine, navigate to the local folder you want to hold the file then type</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>username@raijin4 ~<span class="o">]</span> rsync  -e <span class="s2">&quot;ssh -c arcfour&quot;</span> username@r-dm.nci.org.au:/short/projectcode/username/filename</code></pre></div>
+
+<p>For longer term storage, the user guide recommends massdata because it’s backed up.</p>
+
+<h1 id="running-jobs">Running jobs</h1>
+
+<p>Just to check that it works I can run my code interactively </p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>username@raijin4 ~<span class="o">]</span><span class="nv">$ </span><span class="nb">cd </span>Model
+<span class="o">[</span>username@raijin4 Model<span class="o">]</span><span class="nv">$ </span>python test.py
+
+ --- Main parameters --- 
+
+Inflow to capacity: 0.708747484611
+Coefficient of variation: 0.7
+Proportion of high demand: 0.234622818122
+Target water price: 10.0
+Transaction cost: 55.0
+High user inflow share: 0.469245636245
+Land: 4833.896933
+High Land: 0.0655588606907
+
+Decentralised storage model with <span class="m">100</span> users. 
+
+Solving the planner<span class="err">&#39;</span>s problem...
+PI Iteration: 1, Error: 100.0, PE Iterations: 68
+PI Iteration: 2, Error: 0.0102, PE Iterations: 11
+PI Iteration: 3, Error: 0.0014, PE Iterations: 2
+PI Iteration: 4, Error: 0.001, PE Iterations: 1
+Solve <span class="nb">time</span>: 11.7644062042
+Running simulation <span class="k">for</span> <span class="m">500000</span> periods...
+Simulation <span class="nb">time</span>: 5.42
+Summary stats <span class="nb">time </span>1.61270594597
+Data stacking <span class="nb">time</span>: 1.63947796822
+Storage mean: 698008.184127
+Inflow mean: 694593.226731
+Withdrawal mean: 520950.115529
+Welfare mean: 186576969.954</code></pre></div>
+
+<p>Horah it works! To run larger jobs across multiple nodes we need to use the <a href="http://nci.org.au/services-support/getting-help/pbspro-commands/">PBS job scheduling system</a>. To run the above job using PBS we type</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>username@raijin1 Model<span class="o">]</span><span class="nv">$ </span>qsub jobscript</code></pre></div>
+
+<p>where jobscript is a text file that contains the following</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash</span>
+<span class="c">#PBS -P projectcode </span>
+<span class="c">#PBS -q express</span>
+<span class="c">#PBS -l walltime=60</span>
+<span class="c">#PBS -l mem=500MB</span>
+<span class="c">#PBS -l ncpus=8</span>
+<span class="c">#PBS -l wd</span>
+module load python/2.7.3
+module load python/2.7.3-matplotlib
+python test.py</code></pre></div>
+
+<p>All of the lines beginning with <code>#PBS</code> are job scheduling options. <code>-P projectcode</code> just tells the system which project to charge the time against. <code>-q express</code> sets the type of ‘queue’ to join, either <code>express</code> (for testing), <code>normal</code>, or <code>copyq</code> (for data intensive jobs) - see the <a href="http://nci.org.au/services-support/getting-help/raijin-user-guide/">user guide</a>. <code>-l wd</code> just tells the system to start the job from the current directory. </p>
+
+<p><code>-l walltime=60</code> is the expected running time of the job in seconds (best to allow slightly longer than you expect).  For large jobs you can specify the time in hours:minutes:seconds format.   <code>-l ncpus=8</code> sets the number of cpus the job requires, if greater than 16 (one node) this needs to be in multiples of 16. <code>-l mem=500Mb</code> is the amount of memory required for the job - your job won’t run if you don’t allow enough memory.</p>
+
+<p>Next we need to repeat our <code>module load</code> statements. While all the changes we’ve made to our home folder  will be available to the job, anything we’ve added to <code>.profile</code> needs to be repeated. Finally, we add our job command. </p>
+
+<p>So after submitting we get the uninspiring response</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">jobid.r-man2</code></pre></div>
+
+<p>where <code>jobid</code> is some number. We can query the status of the job with </p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>username@raijin1 Model<span class="o">]</span><span class="nv">$ </span>qstat -s jobid
+qstat: 7516166.r-man2 Job has finished, use -x or -H to obtain historical job information
+<span class="o">[</span>username@raijin1 Model<span class="o">]</span><span class="nv">$ </span>qstat -s jobid -x
+
+r-man2: 
+                                                            Req<span class="s1">&#39;d  Req&#39;</span>d   Elap
+Job ID          Username Queue    Jobname    SessID NDS TSK Memory Time  S Time
+--------------- -------- -------- ---------- ------ --- --- ------ ----- - -----
+jobid.r-man2   username express- jobscript   <span class="m">27544</span>  --   <span class="m">8</span>  500mb 00:01 F 00:00
+   Job run at Tue Oct <span class="m">28</span> at 08:58 on <span class="o">(</span>r102:jobfs_local<span class="o">=</span>102400kb:mem<span class="o">=</span>512000...</code></pre></div>
+
+<p>Now if the job worked as planned we should find a <code>jobscript.ojobid</code> text file has been created with all of the output (if not you might find a <code>jobscript.ejobid</code> file with an error message). To view any of these files use the <code>cat</code> command</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>username@raijin1 Model<span class="o">]</span><span class="nv">$ </span>cat jobscript.ojobid
+
+ --- Main parameters --- 
+
+Inflow to capacity: 0.708747484611
+Coefficient of variation: 0.7
+Proportion of high demand: 0.234622818122
+Target water price: 10.0
+Transaction cost: 55.0
+High user inflow share: 0.469245636245
+Land: 4833.896933
+High Land: 0.0655588606907
+
+Decentralised storage model with <span class="m">100</span> users. 
+
+Solving the planner<span class="err">&#39;</span>s problem...
+PI Iteration: 1, Error: 100.0, PE Iterations: 68
+PI Iteration: 2, Error: 0.0102, PE Iterations: 11
+PI Iteration: 3, Error: 0.0014, PE Iterations: 2
+PI Iteration: 4, Error: 0.001, PE Iterations: 1
+Solve <span class="nb">time</span>: 3.24676513672
+Running simulation <span class="k">for</span> <span class="m">500000</span> periods...
+Simulation <span class="nb">time</span>: 0.89
+Summary stats <span class="nb">time </span>1.6745159626
+Data stacking <span class="nb">time</span>: 1.70569396019
+Storage mean: 697642.617942
+Inflow mean: 693752.110128
+Withdrawal mean: 520867.804524
+Welfare mean: 186632658.338
+<span class="o">======================================================================================</span>
+			Resource Usage on 2014-10-28 08:59:26.639311:
+	JobId:  jobid.r-man2  
+	Project: projectcode 
+	Exit Status: <span class="m">0</span> <span class="o">(</span>Linux Signal 0<span class="o">)</span>
+	Service Units: 0.04
+	NCPUs Requested: 8				NCPUs Used: 8
+							CPU Time Used: 00:00:36
+	Memory Requested: 500mb 			Memory Used: 56mb
+							Vmem Used: 531mb
+	Walltime requested: 00:01:00 			Walltime Used: 00:00:20
+	jobfs request: 100mb				jobfs used: <span class="nv">1mb</span>
+<span class="o">======================================================================================</span></code></pre></div>
+
+<p>Great so it worked, and we have this resource usage info at the end, which is a good way to work out the CPU / memory requirements of your jobs.</p>
+
+
+      <hr />
+      <footer role="contentinfo">
+        <div class="article-author-bottom">
+          
+
+
+
+	<img src="http://localhost:4000/images/bio-photo.jpg" class="bio-photo" alt="Neal Hughes bio photo">
+
+<h3>Neal Hughes</h3>
+<p>Economist.<br> <s>Public</s> Toddler servant.</p>
+<a href="mailto:neal.hughes@anu.edu.au" class="author-social" target="_blank"><i class="fa fa-envelope-square"></i> Email</a>
+
+<a href="http://facebook.com/neal.hughes.370" class="author-social" target="_blank"><i class="fa fa-facebook-square"></i> Facebook</a>
+
+
+
+
+<a href="http://github.com/nealbob" class="author-social" target="_blank"><i class="fa fa-github"></i> Github</a>
+<a href="http://stackoverflow.com/users/2910587/neal-hughes" class="author-social" target="_blank"><i class="fa fa-stack-overflow"></i> Stackoverflow</a>
+
+
+
+
+
+<a href="http://www.strava.com/athletes/nealbob" class="author-social" target="_blank"><i class="fa fa-globe"></i> Strava</a>
+
+        </div>
+        <p class="byline"><strong>How to use the ANU supercomputer</strong> was published on <time datetime="2014-10-24T00:00:00+11:00">October 24, 2014</time> and last modified on <time datetime="2014-10-24">October 24, 2014</time>.</p>
+      </footer>
+    </div><!-- /.article-wrap -->
+  
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <div class="related-articles">
+  <h4>You might also enjoy <small class="pull-right">(<a href="http://localhost:4000/posts/">View all posts</a>)</small></h4>
+    <ul>
+    
+      <li><a href="http://localhost:4000/parallelcomp/" title="Parallel computing in Python - processes">Parallel computing in Python - processes</a></li>
+    
+      <li><a href="http://localhost:4000/cython1/" title="Fast Python loops with Cython">Fast Python loops with Cython</a></li>
+    
+    </ul>
+    <hr />
+  </div><!-- /.related-articles -->
+  <footer>
+    
+
+<span>&copy; 2015 Neal Hughes. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+
+
+  
+	        
+
+</body>
+</html>
