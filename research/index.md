@@ -3,7 +3,7 @@ layout: page
 title: Research
 modified: 2014-08-08T20:53:07.573882-04:00
 ---
-- N. Hughes, K. Lawson, H. Valle (2017) ‘[Farm performance and climate: climate adjusted productivity for broadacre cropping farms'](http://www.agriculture.gov.au/abares/research-topics/climate/farm-performance-climate)’, Australian Bureau of Agricultural and Resource Economics, Research Report
+- N. Hughes, K. Lawson, H. Valle (2017) ‘[Farm performance and climate: climate adjusted productivity for broadacre cropping farms](http://www.agriculture.gov.au/abares/research-topics/climate/farm-performance-climate)’, Australian Bureau of Agricultural and Resource Economics, Research Report
 
 - N. Hughes, M. Gupta, K. Rathakumar (2016) ‘[Lessons from the water market: the southern Murray-Darling Basin water allocation market 2000-01 to 2015-16](http://data.daff.gov.au/data/warehouse/9aaw/2016/smdwm_d9aawr20161202/smdbWaterAllocMarket_v1.0.0.pdf)’, Australian Bureau of Agricultural and Resource Economics, Research Report
 
