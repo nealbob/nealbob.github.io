@@ -7,8 +7,6 @@ tags: [Climate change, ABARES, productivity]
 comments: true
 ---
  
-<h1>Australian farmers are adapting to climate change</h1>
-
   <figure>
     <img src="https://cdn.theconversation.com/files/169427/width754/file-20170516-11920-a9yps1.jpg" alt="File 20170516 11920 a9yps1" />
       <figcaption>
