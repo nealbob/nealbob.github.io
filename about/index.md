@@ -9,7 +9,7 @@ image:
 
 I'm an economist currently working at [ABARES](http://www.agriculture.gov.au/abares). I have a [Phd](../images/Thesis_main.pdf) in economics from the [ANU](http://www.anu.edu.au) and currently hold a Visiting Fellow position in the [ANU Crawford School](https://crawford.anu.edu.au/people/visitors/neal-hughes).
 
-A lot of my [research](../research) has focused on water, climate and agricultural issues. ABARES recent water and climate research can be accessed [here](http://www.agriculture.gov.au/abares/water-and-climate).
+A lot of my [research](../research) has focused on water, climate and agricultural issues. ABARES recent water research can be accessed [here](http://www.agriculture.gov.au/abares/research-topics/water) while recent climate research can be found [here](http://www.agriculture.gov.au/abares/research-topics/climate).
 
 I live in Canberra, Australia with my wife Kylie and daughter Elizabeth.
 
