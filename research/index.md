@@ -20,8 +20,6 @@ http://data.daff.gov.au/data/warehouse/9aaw/2018/AModelOfWaterTradeAndIrrigation
 
 - N. Hughes (2014) ‘[Water storage rights: decentralising reservoir operation](storagerights.pdf)’, International Atlantic Economic Society Conference, Madrid.
 
-- N. Hughes (2013) ‘[The water storage problem](http://www.globalwaterforum.org/2013/12/09/the-water-storage-problem/)’, Global Water Forum
-
 - N. Hughes, C. Gibbs, A. Dahl, D. Tregeagle and O. Sanders (2013) ‘[Storage rights and water allocation arrangements in the Murray-Darling Basin](http://data.daff.gov.au/data/warehouse/9aan/9aanw/2013/StrgRtsWtrAllocMDB/StrgRtsWtrAllocMDB20131212_v1.0.0.pdf)’
 
 - N. Hughes, K. Lawson, A. Davidson, T. Jackson and Y. Sheng (2011) ‘[Productivity pathways: Climate adjusted production frontiers for the Australian broadacre cropping industry](http://data.daff.gov.au/data/warehouse/pe_abares99001781/CP11.05_Broadacre_crop.pdf)’, Australian Bureau of Agricultural and Resource Economics Research Report
