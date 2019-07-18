@@ -13,18 +13,6 @@ comments: true
 
 <p>Inevitably, whenever an important good becomes more expensive – be it housing, electricity or water – there is a rush to identify potential causes and culprits. In the past few years high water prices have been blamed on <a href="https://www.abc.net.au/news/rural/2019-03-25/foreign-owned-water-entitlement-register-reveals-key-countries/10923384">foreign investors</a>, <a href="https://www.theguardian.com/australia-news/2019/may/29/water-investment-companies-score-bumper-year-as-farmers-hit-by-drought">corporate speculators</a>, <a href="https://www.abc.net.au/news/rural/2019-03-09/irrigators-signal-electoral-challenge-in-safe-liberal-farrer/10852828">state government water-sharing rules</a>, <a href="https://www.afr.com/real-estate/commercial/development/murraydarling-water-scarcity-bites-almond-citrus-grape-growers-20190301-h1bw1n">new almond plantings</a> and the <a href="https://amp.abc.net.au/article/10931366">Murray-Darling Basin Plan</a>.</p>
 
-<hr>
-<p>
-  <em>
-    <strong>
-      Read more:
-      <a href="http://theconversation.com/the-murray-darling-basin-scandal-economists-have-seen-it-coming-for-decades-119989">The Murray-Darling Basin scandal: economists have seen it coming for decades</a>
-    </strong>
-  </em>
-</p>
-<hr>
-
-
 <p>While some of these factors have had an effect on the market, they are in many ways a distraction from the simpler truth: that high water prices have mostly been caused by a lack of rain.</p>
 
 <h2>Supply drives the market</h2>
@@ -81,18 +69,6 @@ comments: true
 
 <p>Lower rainfall and higher temperatures also make crops thirstier, increasing demand for irrigation water. This was evident in January, when temperatures <a href="https://www.weeklytimesnow.com.au/news/national/irrigation-demand-lower-murray-river-nearly-parched/news-story/4e1368e376e270c57ac58e09f4bc5c3a">exceeded 35℃ for 14 days</a> and irrigators’ demand for water spiked from about 4.5 gigalitres to 7 gigalitres a day.</p>
 
-<hr>
-<p>
-  <em>
-    <strong>
-      Read more:
-      <a href="http://theconversation.com/droughts-extreme-weather-and-empowered-consumers-mean-tough-choices-for-farmers-112857">Droughts, extreme weather and empowered consumers mean tough choices for farmers</a>
-    </strong>
-  </em>
-</p>
-<hr>
-
-
 <h2>The basin plan in perspective</h2>
 
 <p>The Murray-Darling Basin Plan seeks to improve the environmental health of the river system by recovering water rights from irrigation farmers. To date, more than <a href="http://www.agriculture.gov.au/water/mdb/progress-recovery/progress-of-water-recovery">1,700 gigalitres </a> of water rights – about 20% of annual water supply – have been recovered in the southern basin. </p>
@@ -112,18 +88,6 @@ comments: true
 <hr>
 
 <p>Measuring the precise effect of water recovery on prices is difficult. Water buybacks are straightforward and have been modelled by <a href="http://data.daff.gov.au/data/warehouse/9aaw/2016/smdwm_d9aawr20161202/smdbWaterAllocMarket_v1.1.0.pdf">ABARES</a> and <a href="http://www.agriculture.gov.au/water/markets/supply-side-drivers">others</a>. But the effects of infrastructure programs – where farmers return a portion of their water rights in exchange for funding to upgrade infrastructure – <a href="http://data.daff.gov.au/data/warehouse/9aaw/2016/smdwm_d9aawr20161202/smdbWaterAllocMarket_v1.1.0.pdf">are harder to estimate</a>.</p>
-
-<hr>
-<p>
-  <em>
-    <strong>
-      Read more:
-      <a href="http://theconversation.com/billions-spent-on-murray-darling-water-infrastructure-heres-the-result-119985">Billions spent on Murray-Darling water infrastructure: here's the result</a>
-    </strong>
-  </em>
-</p>
-<hr>
-
 
 <h2>‘Carryover’ rule changes</h2>
 
