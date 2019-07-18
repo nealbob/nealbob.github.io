@@ -1,8 +1,8 @@
----
+--
 layout: post
 title: Drought and climate change are driving high water prices in the Murray-Darling Basin
 excerpt: "Another article I wrote for the conversation"
-modified: 2014-10-24
+modified: 2019-07-17
 tags: [Climate change, ABARES, water]
 comments: true
 ---
