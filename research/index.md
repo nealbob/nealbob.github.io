@@ -4,6 +4,12 @@ title: Research
 modified: 2014-08-08T20:53:07.573882-04:00
 ---
 
+- Hughes, N., Galeano, D. and Hattfield-Dodds  (2019) ‘[The effects of drought and climate
+variability on Australian farms](https://www.agriculture.gov.au/sites/default/files/documents/EffectsOfDroughtAndClimateVariabilityOnAustralianFarms_v1.0.0.pdf)’, Australian Bureau of Agricultural and Resource Economics, Research report
+
+- Hughes, N., Soh, W. Boult, C., Lawson, K., Donoghoe, M., Valle, H. and Chancellor, W. (2019) ‘[farmpredict: A micro-simulation
+model of Australian farms](https://www.agriculture.gov.au/abares/research-topics/working-papers/farmpredict)’, Australian Bureau of Agricultural and Resource Economics, Working paper 
+
 - M. Gupta, N. Hughes (2018) ‘[Future scenarios for the southern Murray-Darling Basin](
 http://www.agriculture.gov.au/abares/research-topics/water/future-scenarios-smdb)’, Australian Bureau of Agricultural and Resource Economics, Research report
 
