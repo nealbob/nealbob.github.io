@@ -40,7 +40,6 @@ http://data.daff.gov.au/data/warehouse/9aaw/2018/AModelOfWaterTradeAndIrrigation
 
 - N. Hughes and T Goesch, (2009) ‘[Capacity sharing in the St George and Macintyre Brook irrigation schemes in southern Queensland](http://data.daff.gov.au/data/warehouse/9aaw_001/9aawe2009/sqicsd9aawe001200906/RR09.12CapSharStGrgAndMcIntrBrkIrrigSchmSthQld_v1.0.0.pdf)’, Australian Bureau of Agricultural and Resource Economics Research Report
 
-- N. Hughes, D. Mackinnon and D. Ashton (2009) ‘[Irrigation in the Murray-Darling Basin: Input costs, receipts and net returns in 2006-07](http://data.daff.gov.au/data/warehouse/bfarr_9aab_001/r2009d9ab__zrr/crawur9abpw001/RR09.20_CostsReturnsWaterUse_v1.2.pdf)’, Australian Bureau of Agricultural and Resource Economics Research Report
 
 Phd thesis
 ----------
