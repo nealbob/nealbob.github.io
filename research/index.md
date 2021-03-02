@@ -1,8 +1,14 @@
 ---
 layout: page
 title: Research
-modified: 2014-08-08T20:53:07.573882-04:00
+modified: 2021-08-08T20:53:07.573882-04:00
 ---
+
+- Hughes, N., Gupta, M., Whittle, L., Boult, C., Westwood, T. (2021) ‘[A model of spatial and inter-temporal water trade in the southern Murray-Darling Basin](https://www.agriculture.gov.au/abares/research-topics/working-papers/model-spatial-inter-temporal-water-trade-southern-mdb)’, Australian Bureau of Agricultural and Resource Economics, Working paper
+
+- Hughes, N., Gupta, M., Soh, W., Boult, C., Lawson, K., Lu, Michael., Westwood, T. (2020) ‘[The Agricultural Data Integration Project](https://www.agriculture.gov.au/abares/research-topics/climate/agricultural-data-integration-project)’, Australian Bureau of Agricultural and Resource Economics, Research report
+
+- Hughes, N., Soh, W., Boult, C., Lawson, K. (2020) ‘[Defining drought from the perspective of Australian farmers](https://www.agriculture.gov.au/abares/research-topics/working-papers/defining-drought)’, Australian Bureau of Agricultural and Resource Economics, Working paper
 
 - Hughes, N., Galeano, D. and Hattfield-Dodds  (2019) ‘[The effects of drought and climate
 variability on Australian farms](https://www.agriculture.gov.au/sites/default/files/documents/EffectsOfDroughtAndClimateVariabilityOnAustralianFarms_v1.0.0.pdf)’, Australian Bureau of Agricultural and Resource Economics, Research report
