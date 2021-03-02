@@ -4,27 +4,27 @@ title: Research
 modified: 2021-08-08T20:53:07.573882-04:00
 ---
 
-- Hughes, N., Gupta, M., Whittle, L., Boult, C., Westwood, T. (2021) ‘[A model of spatial and inter-temporal water trade in the southern Murray-Darling Basin](https://www.agriculture.gov.au/abares/research-topics/working-papers/model-spatial-inter-temporal-water-trade-southern-mdb)’, Australian Bureau of Agricultural and Resource Economics, Working paper
+- Hughes, N., Gupta, M., Whittle, L., Boult, C., Westwood, T. (2021) ‘[A model of spatial and inter-temporal water trade in the southern Murray-Darling Basin](https://www.agriculture.gov.au/abares/research-topics/working-papers/model-spatial-inter-temporal-water-trade-southern-mdb)’, Australian Bureau of Agricultural and Resource Economics and Sciences, Working paper
 
-- Hughes, N., Gupta, M., Soh, W., Boult, C., Lawson, K., Lu, Michael., Westwood, T. (2020) ‘[The Agricultural Data Integration Project](https://www.agriculture.gov.au/abares/research-topics/climate/agricultural-data-integration-project)’, Australian Bureau of Agricultural and Resource Economics, Research report
+- Hughes, N., Gupta, M., Soh, W., Boult, C., Lawson, K., Lu, Michael., Westwood, T. (2020) ‘[The Agricultural Data Integration Project](https://www.agriculture.gov.au/abares/research-topics/climate/agricultural-data-integration-project)’, Australian Bureau of Agricultural and Resource Economics and Sciences, Research report
 
-- Hughes, N., Soh, W., Boult, C., Lawson, K. (2020) ‘[Defining drought from the perspective of Australian farmers](https://www.agriculture.gov.au/abares/research-topics/working-papers/defining-drought)’, Australian Bureau of Agricultural and Resource Economics, Working paper
+- Hughes, N., Soh, W., Boult, C., Lawson, K. (2020) ‘[Defining drought from the perspective of Australian farmers](https://www.agriculture.gov.au/abares/research-topics/working-papers/defining-drought)’, Australian Bureau of Agricultural and Resource Economics and Sciences, Working paper
 
 - Hughes, N., Galeano, D. and Hattfield-Dodds  (2019) ‘[The effects of drought and climate
-variability on Australian farms](https://www.agriculture.gov.au/sites/default/files/documents/EffectsOfDroughtAndClimateVariabilityOnAustralianFarms_v1.0.0.pdf)’, Australian Bureau of Agricultural and Resource Economics, Research report
+variability on Australian farms](https://www.agriculture.gov.au/sites/default/files/documents/EffectsOfDroughtAndClimateVariabilityOnAustralianFarms_v1.0.0.pdf)’, Australian Bureau of Agricultural and Resource Economics and Sciences, Research report
 
 - Hughes, N., Soh, W. Boult, C., Lawson, K., Donoghoe, M., Valle, H. and Chancellor, W. (2019) ‘[farmpredict: A micro-simulation
-model of Australian farms](https://www.agriculture.gov.au/abares/research-topics/working-papers/farmpredict)’, Australian Bureau of Agricultural and Resource Economics, Working paper 
+model of Australian farms](https://www.agriculture.gov.au/abares/research-topics/working-papers/farmpredict)’, Australian Bureau of Agricultural and Resource Economics and Sciences, Working paper 
 
 - M. Gupta, N. Hughes (2018) ‘[Future scenarios for the southern Murray-Darling Basin](
-http://www.agriculture.gov.au/abares/research-topics/water/future-scenarios-smdb)’, Australian Bureau of Agricultural and Resource Economics, Research report
+http://www.agriculture.gov.au/abares/research-topics/water/future-scenarios-smdb)’, Australian Bureau of Agricultural and Resource Economics and Sciences, Research report
 
 - M. Gupta, N. Hughes, K. Wakerman-Powell (2018) ‘[A model of water trade and irrigation activity in the southern Murray-Darling Basin](
-http://data.daff.gov.au/data/warehouse/9aaw/2018/AModelOfWaterTradeAndIrrigation_20180207/AModelOfWaterTradeAndIrrigation_20180207_v1.0.0.pdf)’, Australian Bureau of Agricultural and Resource Economics, Conference paper
+http://data.daff.gov.au/data/warehouse/9aaw/2018/AModelOfWaterTradeAndIrrigation_20180207/AModelOfWaterTradeAndIrrigation_20180207_v1.0.0.pdf)’, Australian Bureau of Agricultural and Resource Economics and Sciences, Conference paper
 
-- N. Hughes, K. Lawson, H. Valle (2017) ‘[Farm performance and climate: climate adjusted productivity for broadacre cropping farms](http://www.agriculture.gov.au/abares/research-topics/climate/farm-performance-climate)’, Australian Bureau of Agricultural and Resource Economics, Research Report
+- N. Hughes, K. Lawson, H. Valle (2017) ‘[Farm performance and climate: climate adjusted productivity for broadacre cropping farms](http://www.agriculture.gov.au/abares/research-topics/climate/farm-performance-climate)’, Australian Bureau of Agricultural and Resource Economics and Sciences, Research Report
 
-- N. Hughes, M. Gupta, K. Rathakumar (2016) ‘[Lessons from the water market: the southern Murray-Darling Basin water allocation market 2000-01 to 2015-16](http://data.daff.gov.au/data/warehouse/9aaw/2016/smdwm_d9aawr20161202/smdbWaterAllocMarket_v1.0.0.pdf)’, Australian Bureau of Agricultural and Resource Economics, Research Report
+- N. Hughes, M. Gupta, K. Rathakumar (2016) ‘[Lessons from the water market: the southern Murray-Darling Basin water allocation market 2000-01 to 2015-16](http://data.daff.gov.au/data/warehouse/9aaw/2016/smdwm_d9aawr20161202/smdbWaterAllocMarket_v1.0.0.pdf)’, Australian Bureau of Agricultural and Resource Economics and Sciences, Research Report
 
 - N. Hughes (2015) ‘[Water property rights in rivers with large environmental water holders](EWH_article.pdf)’, ANU Phd Seminar, Canberra.
 
