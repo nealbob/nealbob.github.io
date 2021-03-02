@@ -6,19 +6,6 @@ modified: 2021-03-01
 tags: [ABARES, water]
 comments: true
 ---
-
-<h1 class="legacy">Water markets are not perfect, but vital to the future of the Murray-Darling Basin</h1>
-
-  <figure>
-    <img src="https://images.theconversation.com/files/386822/original/file-20210227-13-1jrvbwx.jpg?ixlib=rb-1.1.0&rect=155%2C257%2C3838%2C2281&q=45&auto=format&w=754&fit=clip" />
-      <figcaption>
-        
-        <span class="attribution"><span class="source">kaman985shu/Shutterstock</span></span>
-      </figcaption>
-  </figure>
-
-<span><a href="https://theconversation.com/profiles/neal-hughes-360453">Neal Hughes</a>, <em><a href="https://theconversation.com/institutions/australian-bureau-of-agricultural-and-resource-economics-and-sciences-abares-3697">Australian Bureau of Agricultural and Resource Economics and Sciences (ABARES)</a></em></span>
-
 <p>Water markets have come in for some bad press lately, fuelled in part by the severe drought of 2019 and resulting <a href="https://theconversation.com/drought-and-climate-change-are-driving-high-water-prices-in-the-murray-darling-basin-119993">high water prices</a>.</p>
 
 <p>They have also been the subject of an Australian Competition and Consumer Commission inquiry, whose <a href="https://www.accc.gov.au/focus-areas/inquiries-ongoing/murray-darling-basin-water-markets-inquiry/interim-report">interim report</a> released last year documented a range of problems with the way water markets work in the Murray-Darling Basin. The final report was handed to the treasurer last week.</p>
