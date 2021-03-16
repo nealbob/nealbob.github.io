@@ -57,3 +57,5 @@ exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.
 
 remote_theme: THEME-NAME
 #theme: jekyll-theme-minimal
+
+theme: jekyll-theme-minimal
