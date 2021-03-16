@@ -1,5 +1,5 @@
 ---
-layout: post-index
-title: All Posts
+layout: home
+title: Posts
 excerpt: "A List of Posts"
 ---
