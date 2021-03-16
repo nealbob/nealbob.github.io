@@ -7,7 +7,7 @@ image:
   credit: rswilliams
   creditlink: http://www.rswilliamsports.com
 ---
-
+ 
 <figure>
 	<img src="http://nealbob.github.io/images/Burr_spill.jpg">
 </figure>
