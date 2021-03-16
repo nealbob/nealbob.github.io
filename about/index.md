@@ -6,7 +6,7 @@ modified: 2014-08-08T20:53:07.573882-04:00
 comments: true
 image:
 ---
-
+  
 I'm an economist currently working at [ABARES](http://www.agriculture.gov.au/abares). 
 
 A lot of my [research](../research) has focused on water, climate and agricultural issues. I also have an interest in applying [machine learning]({% post_url 2016-10-1-MLfordummies %}) techniques to economics.
