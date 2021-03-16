@@ -7,7 +7,7 @@ tags: [ABARES, water]
 comments: true
 ---
 <p>Water markets have come in for some bad press lately, fuelled in part by the severe drought of 2019 and resulting <a href="https://theconversation.com/drought-and-climate-change-are-driving-high-water-prices-in-the-murray-darling-basin-119993">high water prices</a>.</p>
-
+ 
 <p>They have also been the subject of an Australian Competition and Consumer Commission inquiry, whose <a href="https://www.accc.gov.au/focus-areas/inquiries-ongoing/murray-darling-basin-water-markets-inquiry/interim-report">interim report</a> released last year documented a range of problems with the way water markets work in the Murray-Darling Basin. The final report was handed to the treasurer last week.</p>
 
 <p>While water markets are far from perfect, new <a href="https://www.agriculture.gov.au/abares/research-topics/working-papers/model-spatial-inter-temporal-water-trade-southern-mdb">research</a> from the Australian Bureau of Agricultural and Resource Economics and Sciences (ABARES) has found they are vital in helping the region cope with drought and climate change, producing benefits in the order of A$117 million per year. </p>
