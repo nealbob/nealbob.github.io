@@ -7,6 +7,10 @@ tags: [Python, multiprocessing]
 comments: true
 ---
 
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
 These days CPUs are not getting any faster: computers just have more of them. The average desktop has 4 CPU cores, but by default most code running in Python (or Matlab etc.) will only be using one. More importantly, high performance computing now relies on massive supercomputers, like the [ANU NCI]({% post_url 2014-10-24-usingtheNCI %}) with around 60,000 cores. Taking advantage of these multi-core systems usually requires some additional programming effort. 
 
 # Processes and threads
