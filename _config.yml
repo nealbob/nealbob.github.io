@@ -32,8 +32,6 @@ kramdown:
 # Site owner
 author:
   name: Neal Hughes
-  avatar: test.jpg
-  bio: ""
   email: hughes.neal@gmail.com
   
 minima:
