@@ -7,6 +7,10 @@ tags: [Cython, Python, prange, thread, OpenMP]
 comments: true
 ---
 
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
 One of the cool things about [Cython]({% post_url 2014-10-30-cython1 %}) is that it supports multi-threaded code, via [OpenMP](https://en.wikipedia.org/wiki/OpenMP). While Python allows for message passing (i.e., multiple processes) shared memory (i.e., multi-threading) is not possible due to the [Global Interpreter Lock](https://en.wikipedia.org/wiki/Global_Interpreter_Lock) (see this [earlier post]({% post_url 2014-12-5-parallelcomp %})). 
  
 Relative to message passing, multi-threading is fast (and has lower memory requirements). The catch is that you can run into concurrency problems: where different threads need to access the same memory locations at the same time.  As such, multi-threading is best suited to performing large numbers of simple calculations: where the order in which the calculations are executed doesn't matter.  
