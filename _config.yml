@@ -17,6 +17,10 @@ sass:
 gems:
   - jekyll-sitemap
 
+header_pages:
+  - research/index.md
+  - about/index.md
+  
 kramdown:
   auto_ids: true
   footnote_nr: 1
