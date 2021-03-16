@@ -15,10 +15,6 @@ show_downloads: false
 
 permalink:   /:categories/:title/
 markdown:    kramdown
-highlighter: rouge
-sass:
-  sass_dir: _sass
-  style: compressed
 gems:
   - jekyll-sitemap
 
