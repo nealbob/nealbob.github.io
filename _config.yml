@@ -31,8 +31,9 @@ kramdown:
 
 
 # Site owner
+
 author:
-  name: Neal Hughes
+  name: "Neal Hughes"
   email: hughes.neal@gmail.com
   
 minima:
