@@ -1,11 +1,15 @@
 ---
 layout: post
-title: Machine learning for <del>dummies</del> economists
+title: Machine learning for economists
 excerpt: "An introduction to machine learning"
 modified: 2014-10-24
 tags: [Machine learning, econometrics]
 comments: true
 ---
+ 
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
  
 Recently, Hal Varian had this to say about machine learning:
 
