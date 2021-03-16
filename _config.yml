@@ -1,6 +1,12 @@
-# Site wide configuration
-
-title:            Neal Hughes
+title: Neal Hughes
+author:
+  name: Neal Hughes
+  email: hughes.neal@gmail.com
+description: > # this means to ignore newlines until "show_excerpts:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+  
 locale:           en_US
 url:              http://nealhughes.net
 
@@ -30,11 +36,7 @@ kramdown:
   use_coderay: false
 
 
-# Site owner
 
-author:
-  name: "Neal Hughes"
-  email: hughes.neal@gmail.com
   
 twitter_username: hughesneal1
 github_username: nealbob
