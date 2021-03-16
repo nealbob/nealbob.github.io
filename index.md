@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: default
 excerpt: "Home page of Neal Hughes"
 tags: [Neal Hughes, economics, water, python, machine learning, climate, ABARES]
 image:
