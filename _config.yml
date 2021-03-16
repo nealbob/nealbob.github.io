@@ -38,34 +38,7 @@ author:
 minima:
   social_links:
     twitter: hughesneal1
-    github: nealbob
-    stackoverflow: #username
-    dribbble: #username
-    facebook: #username
-    flickr: #username
-    instagram: #username
-    linkedin: #username
-    pinterest: #username
-    telegram: jekyll
-    microdotblog: #username
-    keybase: #username
-
-    mastodon:
-     - username: #username
-       instance: example.com
-     - username: #username
-       instance: example.com
-
-    gitlab:
-     - username: #username
-       instance: example.com
-     - username: #username
-       instance: example.com
-
-    youtube: #username
-    youtube_channel: #username
-    youtube_channel_name: #username
-    
+    github: nealbob   
 
 include: [".htaccess"]
 exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md"]
