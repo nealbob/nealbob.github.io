@@ -6,6 +6,8 @@ modified: 2021-08-08T20:53:07.573882-04:00
   
 - Hughes, N., Gupta, M., Whittle, L., Boult, C., Westwood, T. (2021) ‘[A model of spatial and inter-temporal water trade in the southern Murray-Darling Basin](https://www.agriculture.gov.au/abares/research-topics/working-papers/model-spatial-inter-temporal-water-trade-southern-mdb)’, Australian Bureau of Agricultural and Resource Economics and Sciences, Working paper
 
+- Hughes, N., Donoghoe, M., Whittle, L. (2020) '[Farm Level Effects of On-Farm Irrigation Infrastructure Programs in the Southern Murray–Darling Basin'](https://onlinelibrary.wiley.com/doi/10.1111/1467-8462.12396)', Australian Economic Review
+
 - Hughes, N., Gupta, M., Soh, W., Boult, C., Lawson, K., Lu, Michael., Westwood, T. (2020) ‘[The Agricultural Data Integration Project](https://www.agriculture.gov.au/abares/research-topics/climate/agricultural-data-integration-project)’, Australian Bureau of Agricultural and Resource Economics and Sciences, Research  report
 
 - Hughes, N., Soh, W., Boult, C., Lawson, K. (2020) ‘[Defining drought from the perspective of Australian farmers](https://www.agriculture.gov.au/abares/research-topics/working-papers/defining-drought)’, Australian Bureau of Agricultural and Resource Economics and Sciences, Working paper
