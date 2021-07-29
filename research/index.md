@@ -3,6 +3,7 @@ layout: page
 title: Research
 modified: 2021-08-08T20:53:07.573882-04:00
 ---
+- Hughes, N., Lu, M., Soh, W., Lawson, K. (2021) ‘[Simulating the effects of climate change on the profitability of Australian farms](https://www.agriculture.gov.au/sites/default/files/documents/abares-climate-change-working-paper.pdf)’, Australian Bureau of Agricultural and Resource Economics and Sciences, Working paper   
   
 - Hughes, N., Gupta, M., Whittle, L., Boult, C., Westwood, T. (2021) ‘[A model of spatial and inter-temporal water trade in the southern Murray-Darling Basin](https://www.agriculture.gov.au/abares/research-topics/working-papers/model-spatial-inter-temporal-water-trade-southern-mdb)’, Australian Bureau of Agricultural and Resource Economics and Sciences, Working paper
 
