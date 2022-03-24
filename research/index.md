@@ -3,18 +3,22 @@ layout: page
 title: Research
 modified: 2021-08-08T20:53:07.573882-04:00
 --- 
-  
+
+ - Hughes, N., Soh, W., Boult, C., Lawson, K. (2022) '[Defining drought from the perspective of Australian farmers](https://www.sciencedirect.com/science/article/pii/S2212096322000274), Climate Risk Management, Vol. 35
+
  - Hughes, N., Lu, M., Soh, W., Lawson, K. (2021) ‘[Simulating the effects of climate change on the profitability of Australian farms](https://www.agriculture.gov.au/sites/default/files/documents/abares-climate-change-working-paper.pdf)’, Australian Bureau of Agricultural and Resource Economics and Sciences, Working paper   
 
 - Chancellor, W., Hughes, N., Zhao, S., Soh, W., Valle, H., Boult., C. (2021) ‘[Controlling for the effects of climate on total factor productivity: A case study of Australian farms](https://www.sciencedirect.com/science/article/pii/S0306919221000701)’, Food policy, 53
  
 - Hughes, N., Gupta, M., Whittle, L., Boult, C., Westwood, T. (2021) ‘[A model of spatial and inter-temporal water trade in the southern Murray-Darling Basin](https://www.agriculture.gov.au/abares/research-topics/working-papers/model-spatial-inter-temporal-water-trade-southern-mdb)’, Australian Bureau of Agricultural and Resource Economics and Sciences, Working paper
 
+- Hughes, N. and Gooday, P. (2021) '[Climate change impacts and adaptation on Australian farms](https://www.awe.gov.au/abares/products/insights/climate-change-impacts-and-adaptation)', ABARES report 
+
 - Hughes, N., Donoghoe, M., Whittle, L. (2020) '[Farm Level Effects of On-Farm Irrigation Infrastructure Programs in the Southern Murray–Darling Basin](https://onlinelibrary.wiley.com/doi/10.1111/1467-8462.12396)', Australian Economic Review
 
 - Hughes, N., Gupta, M., Soh, W., Boult, C., Lawson, K., Lu, Michael., Westwood, T. (2020) ‘[The Agricultural Data Integration Project](https://www.agriculture.gov.au/abares/research-topics/climate/agricultural-data-integration-project)’, Australian Bureau of Agricultural and Resource Economics and Sciences, Research  report
 
-- Hughes, N., Soh, W., Boult, C., Lawson, K. (2020) ‘[Defining drought from the perspective of Australian farmers](https://www.agriculture.gov.au/abares/research-topics/working-papers/defining-drought)’, Australian Bureau of Agricultural and Resource Economics and Sciences, Working paper
+- Whittle, L., Galeano, D., Hughes, N., Gupta, M., Legg, P., Westwood, T., Jackson, T., Hatfield-Dodds, S. (2020) '[Economic effects of water recovery in the Murray-Darling Basin](https://www.awe.gov.au/abares/products/insights/economic-effects-of-water-recovery-in-murray-darling-basin), ABARES report
 
 - Hughes, N., Galeano, D. and Hattfield-Dodds  (2019) ‘[The effects of drought and climate
 variability on Australian farms](https://www.agriculture.gov.au/sites/default/files/documents/EffectsOfDroughtAndClimateVariabilityOnAustralianFarms_v1.0.0.pdf)’, Australian Bureau of Agricultural and Resource Economics and Sciences, Research report
@@ -27,6 +31,8 @@ http://www.agriculture.gov.au/abares/research-topics/water/future-scenarios-smdb
 
 - M. Gupta, N. Hughes, K. Wakerman-Powell (2018) ‘[A model of water trade and irrigation activity in the southern Murray-Darling Basin](
 http://data.daff.gov.au/data/warehouse/9aaw/2018/AModelOfWaterTradeAndIrrigation_20180207/AModelOfWaterTradeAndIrrigation_20180207_v1.0.0.pdf)’, Australian Bureau of Agricultural and Resource Economics and Sciences, Conference paper
+
+ - Dinh, H., Donoghoe, M., Hughes, N., Goesch, T. (2018) '[A micro-simulation model of irrigation farms in the southern Murray-Darling Basin](https://www.awe.gov.au/sites/default/files/sitecollectiondocuments/abares/ABARES_irrig_microsimulation_model_WORKING_PAPER_V3.pdf)', ABARES working paper
 
 - N. Hughes, K. Lawson, H. Valle (2017) ‘[Farm performance and climate: climate adjusted productivity for broadacre cropping farms](http://www.agriculture.gov.au/abares/research-topics/climate/farm-performance-climate)’, Australian Bureau of Agricultural and Resource Economics and Sciences, Research Report
 
