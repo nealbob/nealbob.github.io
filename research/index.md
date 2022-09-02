@@ -3,10 +3,11 @@ layout: page
 title: Research
 modified: 2021-08-08T20:53:07.573882-04:00
 --- 
+ - Hughes, N., Soh, W., Lawson, K., Lu, M. (2022) '[Improving the performance of micro-simulation models with machine learning: The case of Australian farms](https://www.sciencedirect.com/science/article/pii/S0264999322002036), Economic Modeling, Vol. 115
 
- - Hughes, N., Soh, W., Boult, C., Lawson, K. (2022) '[Defining drought from the perspective of Australian farmers](https://www.sciencedirect.com/science/article/pii/S2212096322000274), Climate Risk Management, Vol. 35
+ - Hughes, N., Lu, M., Soh, W., Lawson, K. (2022) '[Modelling the effects of climate change on the profitability of Australian farms](https://www.sciencedirect.com/science/article/pii/S2212096322000274), Climatic Change, Vol. 172
 
- - Hughes, N., Lu, M., Soh, W., Lawson, K. (2021) ‘[Simulating the effects of climate change on the profitability of Australian farms](https://www.agriculture.gov.au/sites/default/files/documents/abares-climate-change-working-paper.pdf)’, Australian Bureau of Agricultural and Resource Economics and Sciences, Working paper   
+- Hughes, N., Soh, W., Boult, C., Lawson, K. (2022) '[Defining drought from the perspective of Australian farmers](https://www.sciencedirect.com/science/article/pii/S2212096322000274), Climate Risk Management, Vol. 35
 
 - Chancellor, W., Hughes, N., Zhao, S., Soh, W., Valle, H., Boult., C. (2021) ‘[Controlling for the effects of climate on total factor productivity: A case study of Australian farms](https://www.sciencedirect.com/science/article/pii/S0306919221000701)’, Food policy, 53
  
@@ -22,9 +23,6 @@ modified: 2021-08-08T20:53:07.573882-04:00
 
 - Hughes, N., Galeano, D. and Hattfield-Dodds  (2019) ‘[The effects of drought and climate
 variability on Australian farms](https://www.agriculture.gov.au/sites/default/files/documents/EffectsOfDroughtAndClimateVariabilityOnAustralianFarms_v1.0.0.pdf)’, Australian Bureau of Agricultural and Resource Economics and Sciences, Research report
-
-- Hughes, N., Soh, W. Boult, C., Lawson, K., Donoghoe, M., Valle, H. and Chancellor, W. (2019) ‘[farmpredict: A micro-simulation
-model of Australian farms](https://www.agriculture.gov.au/abares/research-topics/working-papers/farmpredict)’, Australian Bureau of Agricultural and Resource Economics and Sciences, Working paper 
 
 - M. Gupta, N. Hughes (2018) ‘[Future scenarios for the southern Murray-Darling Basin](
 http://www.agriculture.gov.au/abares/research-topics/water/future-scenarios-smdb)’, Australian Bureau of Agricultural and Resource Economics and Sciences, Research report
