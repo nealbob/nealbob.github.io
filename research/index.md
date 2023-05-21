@@ -3,6 +3,8 @@ layout: page
 title: Research
 modified: 2021-08-08T20:53:07.573882-04:00
 --- 
+ - Hughes, N., Gupta, M., Whittle, L. and Westwood, T. (2023) '[An economic model of spatial and temporal water trade in the southern Murray-Darling Basin'](https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2022WR032559), Water Resources Research 
+ 
  - Hughes, N., Soh, W., Lawson, K., Lu, M. (2022) '[Improving the performance of micro-simulation models with machine learning: The case of Australian farms](https://www.sciencedirect.com/science/article/pii/S0264999322002036), Economic Modeling, Vol. 115
 
  - Hughes, N., Lu, M., Soh, W., Lawson, K. (2022) '[Modelling the effects of climate change on the profitability of Australian farms](https://www.sciencedirect.com/science/article/pii/S2212096322000274), Climatic Change, Vol. 172
