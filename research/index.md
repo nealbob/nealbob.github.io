@@ -12,8 +12,6 @@ modified: 2021-08-08T20:53:07.573882-04:00
 - Hughes, N., Soh, W., Boult, C., Lawson, K. (2022) '[Defining drought from the perspective of Australian farmers](https://www.sciencedirect.com/science/article/pii/S2212096322000274), Climate Risk Management, Vol. 35
 
 - Chancellor, W., Hughes, N., Zhao, S., Soh, W., Valle, H., Boult., C. (2021) ‘[Controlling for the effects of climate on total factor productivity: A case study of Australian farms](https://www.sciencedirect.com/science/article/pii/S0306919221000701)’, Food policy, 53
- 
-- Hughes, N., Gupta, M., Whittle, L., Boult, C., Westwood, T. (2021) ‘[A model of spatial and inter-temporal water trade in the southern Murray-Darling Basin](https://www.agriculture.gov.au/abares/research-topics/working-papers/model-spatial-inter-temporal-water-trade-southern-mdb)’, Australian Bureau of Agricultural and Resource Economics and Sciences, Working paper
 
 - Hughes, N. and Gooday, P. (2021) '[Climate change impacts and adaptation on Australian farms](https://www.awe.gov.au/abares/products/insights/climate-change-impacts-and-adaptation)', ABARES report 
 
