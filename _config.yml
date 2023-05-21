@@ -18,8 +18,6 @@ gems:
 
 header_pages:
   - research/index.md
-  - about/index.md
-  
   
 kramdown:
   auto_ids: true
