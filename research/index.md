@@ -3,7 +3,7 @@ layout: page
 title: Research
 modified: 2021-08-08T20:53:07.573882-04:00
 --- 
- - Hughes, N., Gaydon, D., Gupta, M., Schepen, A., Tan, P., Brent, G., Turner, A., Bellew, S., Soh, W. Y., Sharman, C., Taylor, P., Carter, J., Bruget, D., Hochman, Z., Searle, R., Song, Y., Horan, H., Mitchell, P., Beletse, Y., Holzworth, D., Guillory, L., Brodie, C., McComb, J., and Singh, R. (2024): '[Monitoring agricultural and economic drought: the Australian Agricultural Drought Indicators (AADI)]'(https://egusphere.copernicus.org/preprints/2024/egusphere-2024-3731/), EGUsphere [preprint], 
+ - Hughes, N., Gaydon, D., Gupta, M., Schepen, A., Tan, P., Brent, G., Turner, A., Bellew, S., Soh, W. Y., Sharman, C., Taylor, P., Carter, J., Bruget, D., Hochman, Z., Searle, R., Song, Y., Horan, H., Mitchell, P., Beletse, Y., Holzworth, D., Guillory, L., Brodie, C., McComb, J., and Singh, R. (2024): ['Monitoring agricultural and economic drought: the Australian Agricultural Drought Indicators (AADI)'](https://egusphere.copernicus.org/preprints/2024/egusphere-2024-3731/), EGUsphere [preprint], 
 
  - Hughes, N., Gupta, M., Whittle, L. and Westwood, T. (2023) '[An economic model of spatial and temporal water trade in the southern Murray-Darling Basin'](https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2022WR032559), Water Resources Research 
  
