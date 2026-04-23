@@ -3,7 +3,13 @@ layout: default
 ---
 
 <style>
-/* Pivotal token colours — scoped so they don't touch Rouge-highlighted blocks */
+/* Pivotal code block — background and base text to match solarized-dark */
+.language-pivotal .highlight,
+.language-pivotal pre.highlight {
+  background: #002b36;
+  color: #839496;
+}
+/* Token colours — scoped so they don't touch Rouge-highlighted blocks */
 .language-pivotal .token.keyword  { color: #859900; }
 .language-pivotal .token.function { color: #268bd2; }
 .language-pivotal .token.string   { color: #2aa198; }
