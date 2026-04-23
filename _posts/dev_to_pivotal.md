@@ -139,7 +139,9 @@ There are of course alternatives. Polars offers better performance and has no in
 The one thing all these options suffer from is trying to embed a data processing grammar within a general purpose language. This leads to annoyances like having to wrap column names in quotations and explicitly reference dataframes at all times, for example:
 
 ```python
+
 mydata.loc[mydata.columnA > 0, "columnC"] = mydata["columnB"] / mydata["columnA"]
+
 ```
 
 compared with:
