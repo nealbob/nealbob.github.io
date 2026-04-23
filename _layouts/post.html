@@ -3,10 +3,12 @@ layout: default
 ---
 
 <style>
-/* Pivotal code block — background and base text to match solarized-dark */
+/* Pivotal code block — override minima's default light background */
+.language-pivotal,
 .language-pivotal .highlight,
-.language-pivotal pre.highlight {
-  background: #002b36;
+.language-pivotal pre.highlight,
+.language-pivotal pre.highlight code {
+  background: #002b36 !important;
   color: #839496;
 }
 /* Token colours — scoped so they don't touch Rouge-highlighted blocks */
