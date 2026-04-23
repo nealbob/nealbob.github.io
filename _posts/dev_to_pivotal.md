@@ -1,7 +1,7 @@
 ---
 title: "Pivotal: A better syntax for data analysis in Python"
 published: false
-description: "Pandas syntax is annoying. Pivotal borrows from R and SQL to offer a new syntax for data analysis in Python"
+description: "Pandas syntax is not great. Pivotal borrows from R and SQL to offer a new syntax for data analysis in Python"
 tags: python, datascience, programming, opensource
 canonical_url: https://nealhughes.net/pivotal/
 ---
@@ -22,8 +22,8 @@ Pivotal has a declarative syntax similar to SQL while incorporating aspects of P
 import pivotal
 ```
 
-```sql
-%%pivotal
+```
+%%sql
 load "invoices.csv" as invoices
 load "customers.csv" as customers
 
@@ -78,44 +78,6 @@ invoices.to_csv("~/projects/output/invoices.csv", index=False)
 summary.to_csv("~/projects/output/my_analysis.csv", index=False)
 ```
 
-### Python (Polars)
-
-```python
-import polars as pl
-
-invoices = pl.read_csv("invoices.csv")
-customers = pl.read_csv("customers.csv")
-
-invoices = (
-    invoices
-    .filter(pl.col("invoice_date") >= "1970-01-16")
-    .with_columns([
-        pl.lit(0.8).alias("transaction_fees"),
-        (pl.col("total") - 0.8).alias("income")
-    ])
-    .filter(pl.col("income") > 1)
-)
-
-summary = (
-    invoices
-    .group_by("customer_id")
-    .agg([
-        pl.col("total").mean().alias("mean_total"),
-        pl.col("income").sum().alias("sum_income"),
-        pl.col("total").count().alias("ct")
-    ])
-    .sort("sum_income", descending=True)
-    .join(customers, on="customer_id", how="left")
-    .with_columns(
-        (pl.col("last_name") + ", " + pl.col("first_name")).alias("name")
-    )
-    .select(["customer_id", "name", "sum_income"])
-)
-
-invoices.write_csv("~/projects/output/invoices.csv")
-summary.write_csv("~/projects/output/my_analysis.csv")
-```
-
 ---
 
 Pivotal has been designed to be easy-to-type, with minimal use of punctuation, symbols or brackets, in order to support fast interactive data work. Pivotal's syntax is also more human readable which is important for collaboration amongst other things.
@@ -139,13 +101,13 @@ Because Pivotal compiles to Python it's easy to access Python objects and functi
 load "daily_climate.csv" as climate
 load "crop_data.csv" as crops
 
-python grow_min = 8; grow_max = 32; crop_season = [4, 10]   # In-line python
+python grow_min = 8; grow_max = 32; crop_season = [4, 10]   -- In-line python
 
-with climate as climate_features                    # Feature engineering
-    year = year(date)                               # Built-in date functions
+with climate as climate_features                    -- Feature engineering
+    year = year(date)                               -- Built-in date functions
     month = month(date)
-    filter month between :crop_season               # Reference Python list
-    grow_degrees = (max_temp + min_temp) / 2 - :grow_min    # Conditional assignment
+    filter month between :crop_season               -- Reference Python list
+    grow_degrees = (max_temp + min_temp) / 2 - :grow_min    -- Conditional assignment
         where max_temp < :grow_max and min_temp >= :grow_min
         else 0
     group by year, region
@@ -155,84 +117,16 @@ with crops as training_data
     inner merge climate_features on year, region
     select year, area, yield, gdd, grow_rain, region
 
-python                                              # Python analysis block
+python                                              -- Python analysis block
     from sklearn.linear_model import LinearRegression
     X = training_data[["year", "area", "gdd", "grow_rain"]]
     training_data["yield_hat"] = LinearRegression().fit(X, training_data["yield"]).predict(X)
 end
 
 with training_data
-    pivot plot line nat_pred_vs_actual              # Aggregate and plot in one
+    pivot plot line nat_pred_vs_actual              -- Aggregate and plot in one
         x year "Year"
         y wmean yield area, wmean yield_hat area "Wheat yield (t/ha)"
-```
-
-### Python (Pandas)
-
-```python
-import pandas as pd
-from sklearn.linear_model import LinearRegression
-
-grow_min = 8; grow_max = 32; crop_season = [4, 10]
-
-climate = pd.read_csv("daily_climate.csv")
-crops = pd.read_csv("crop_data.csv")
-
-climate_features = climate.copy()
-climate_features["year"] = pd.to_datetime(climate_features["date"]).dt.year
-climate_features["month"] = pd.to_datetime(climate_features["date"]).dt.month
-climate_features = climate_features[
-    climate_features["month"].between(crop_season[0], crop_season[1])
-].copy()
-
-climate_features["grow_degrees"] = 0.0
-mask = (
-    (climate_features["max_temp"] < grow_max)
-    & (climate_features["min_temp"] >= grow_min)
-)
-climate_features.loc[mask, "grow_degrees"] = (
-    (climate_features.loc[mask, "max_temp"] + climate_features.loc[mask, "min_temp"]) / 2
-    - grow_min
-)
-
-climate_features = (
-    climate_features
-    .groupby(["year", "region"], as_index=False)
-    .agg(
-        gdd=("grow_degrees", "sum"),
-        grow_rain=("rain", "sum"),
-    )
-)
-
-training_data = crops.copy()
-training_data = training_data[
-    (training_data["crop_type"] == "wheat") & (training_data["area"] > 0)
-].copy()
-training_data["yield"] = training_data["production"] / training_data["area"]
-
-training_data = (
-    training_data
-    .merge(climate_features, on=["year", "region"], how="inner")
-    [["year", "area", "yield", "gdd", "grow_rain", "region"]]
-    .copy()
-)
-
-X = training_data[["year", "area", "gdd", "grow_rain"]]
-training_data["yield_hat"] = LinearRegression().fit(X, training_data["yield"]).predict(X)
-
-plot_data = (
-    training_data
-    .groupby("year", as_index=False)
-    .apply(
-        lambda g: pd.Series({
-            "yield": (g["yield"] * g["area"]).sum() / g["area"].sum(),
-            "yield_hat": (g["yield_hat"] * g["area"]).sum() / g["area"].sum(),
-        })
-    )
-    .reset_index(drop=True)
-)
-
-plot_data.plot(x="year", y=["yield", "yield_hat"], kind="line", xlabel="Year", ylabel="Wheat yield (t/ha)")
 ```
 
 ---
