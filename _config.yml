@@ -15,6 +15,7 @@ permalink:   /:categories/:title/
 markdown:    kramdown
 gems:
   - jekyll-sitemap
+  - jekyll-remote-theme
 
 header_pages:
   - research/index.md
@@ -42,4 +43,4 @@ minima:
 include: [".htaccess"]
 exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md"]
 
-theme: minima
+remote_theme: jekyll/minima
