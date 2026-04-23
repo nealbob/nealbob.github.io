@@ -22,8 +22,7 @@ Pivotal has a declarative syntax similar to SQL while incorporating aspects of P
 import pivotal
 ```
 
-```
-%%sql
+```sql
 load "invoices.csv" as invoices
 load "customers.csv" as customers
 
