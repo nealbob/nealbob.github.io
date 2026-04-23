@@ -1,0 +1,7 @@
+with mydata
+    group by year
+        agg mean columnA, columnB, columnC
+    columnC = columnB / columnA
+        where columnA > 0
+
+
