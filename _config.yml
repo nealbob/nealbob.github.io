@@ -13,6 +13,7 @@ show_downloads: false
 
 permalink:   /:categories/:title/
 markdown:    kramdown
+highlighter: rouge
 gems:
   - jekyll-sitemap
 
