@@ -2,7 +2,7 @@ title: Neal Hughes
 author: Neal Hughes
 email: hughes.neal@gmail.com
 description: > # this means to ignore newlines until "show_excerpts:"
-  Website of Neal Hughes (Australian economist, not the Canadian former pro-footballer or the artist from New Jersey).  
+  Website of Neal Hughes.  
   
 locale:           en_US
 url:              http://nealhughes.net
@@ -13,7 +13,6 @@ show_downloads: false
 
 permalink:   /:categories/:title/
 markdown:    kramdown
-highlighter: rouge
 gems:
   - jekyll-sitemap
 
@@ -26,7 +25,6 @@ kramdown:
   entity_output: as_char
   toc_levels: 1..6
   use_coderay: false
-  parse_block_html: true
 
 
 
