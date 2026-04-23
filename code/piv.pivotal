@@ -1,3 +1,5 @@
+
+
 with mydata
     group by year
         agg mean columnA, columnB, columnC
