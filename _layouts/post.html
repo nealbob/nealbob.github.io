@@ -1,0 +1,112 @@
+---
+layout: default
+---
+
+<style>
+/* Pivotal token colours — scoped so they don't touch Rouge-highlighted blocks */
+.language-pivotal .token.keyword  { color: #859900; }
+.language-pivotal .token.function { color: #268bd2; }
+.language-pivotal .token.string   { color: #2aa198; }
+.language-pivotal .token.number   { color: #d33682; }
+.language-pivotal .token.boolean  { color: #d33682; }
+.language-pivotal .token.comment  { color: #657b83; font-style: italic; }
+.language-pivotal .token.variable { color: #cb4b16; }
+.language-pivotal .token.operator { color: #93a1a1; }
+
+/* Tab component */
+.tab-bar {
+  display: flex;
+  border-bottom: 2px solid #586e75;
+  margin-bottom: 0;
+}
+.tab-btn {
+  padding: 5px 16px;
+  border: 1px solid #586e75;
+  border-bottom: none;
+  background: #073642;
+  color: #839496;
+  cursor: pointer;
+  font-size: 0.85em;
+  border-radius: 4px 4px 0 0;
+  margin-right: 3px;
+}
+.tab-btn:hover  { background: #002b36; color: #93a1a1; }
+.tab-btn.active { background: #002b36; color: #fdf6e3; font-weight: bold; }
+.tab-panel { display: none; margin-top: 0; }
+.tab-panel.active { display: block; }
+</style>
+
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        {{ page.date | date: date_format }}
+      </time>
+      {%- if page.author -%}
+        &bull;
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span class="p-author h-card" itemprop="name">{{ page.author }}</span>
+        </span>
+      {%- endif -%}
+    </p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  {%- if site.disqus.shortname -%}
+    {%- include disqus_comments.html -%}
+  {%- endif -%}
+
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+
+</article>
+
+<script>window.Prism = window.Prism || {}; Prism.manual = true;</script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+<script>
+// Grammar derived from editors/vscode/syntaxes/pivotal.tmLanguage.json
+Prism.languages.pivotal = {
+  'comment': [
+    { pattern: /\/\*[\s\S]*?\*\//, greedy: true },
+    { pattern: /#.*|--.*$/m,       greedy: true }
+  ],
+  'string': {
+    pattern: /"(?:[^\\"]|\\.)*"|'(?:[^\\']|\\.)*'/,
+    greedy: true
+  },
+  'variable': /:[a-zA-Z][a-zA-Z0-9_]*/,
+  'number':   /\b\d+(?:\.\d+)?\b/,
+  'boolean':  /\b(?:true|false|none)\b/i,
+  'keyword': [
+    { pattern: /\bnot\s+(?:in|contains|startswith|endswith)\b/ },
+    { pattern: /\b(?:load|with|from|filter|select|sort|order|group|merge|pivot|python|plot|drop|fillna|dropna|distinct|concat|intersect|exclude|rename|apply|save|end|delete|show|unpivot|rolling|rank|lag|lead|cumsum|cummean|cummin|cummax|cast|agg|table|all)\b/ },
+    { pattern: /\b(?:query|where|else|as|on|by|rows|cols|head|summary|strict|stub|format|id|variable|value|left_on|right_on)\b/ },
+    { pattern: /\b(?:left|right|inner|outer|in|not|between|contains|startswith|endswith)\b/ },
+    { pattern: /\b(?:and|or|asc|desc)\b/i }
+  ],
+  'function': /\b(?:mean|min|max|sum|count|avg|median|std|nunique|wavg|wmean|pct|upper|lower|trim|ltrim|rtrim|substr|len|replace|year|month|day|quarter|dayofweek|hour|minute|date_format|to_date|date_diff|date_add|int|integer|float|string|str|bool|boolean|datetime)\b/,
+  'operator': /==|!=|>=|<=|>|<|\*\*|[+\-*/=]/
+};
+
+// Highlight only Pivotal blocks — leave Rouge-highlighted Python etc. untouched
+document.querySelectorAll('.language-pivotal code, code.language-pivotal').forEach(function (el) {
+  Prism.highlightElement(el);
+});
+
+function pvtlTab(btn, tabId) {
+  var group = btn.closest('.tab-bar').dataset.tabGroup;
+  document.querySelectorAll('.tab-bar[data-tab-group="' + group + '"] button').forEach(function (b) {
+    b.classList.remove('active');
+  });
+  document.querySelectorAll('.tab-panel[data-tab-group="' + group + '"]').forEach(function (c) {
+    c.classList.remove('active');
+  });
+  btn.classList.add('active');
+  document.getElementById(tabId).classList.add('active');
+}
+</script>
