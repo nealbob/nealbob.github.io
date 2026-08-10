@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "The Problem with pandas Isn’t Performance. It’s Cognitive Overhead."
+date: 2026-08-10 00:00:00 +1000
 excerpt: "Faster dataframe engines are nice, but they don't reduce the amount of syntax an analyst has to hold in their head."
 modified: 2026-08-10
 tags: [Python, pandas, data science, Pivotal]
