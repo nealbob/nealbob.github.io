@@ -5,7 +5,7 @@ modified: 2021-08-08T20:53:07.573882-04:00
 --- 
  - Hughes, N., Zhao, M., John, A., and Horne, A. (2026) '[Water markets under climate change: a monthly model of the Murray-Darling Basin](https://egusphere.copernicus.org/preprints/2026/egusphere-2025-6180/)', EGUsphere [preprint]
 
- - Hughes, N., Zhao, M., and Downham, R. (2026) '[A bio-economic approach for predicting monthly irrigation water demands](https://egusphere.copernicus.org/preprints/2026/egusphere-2025-6181/)', EGUsphere [preprint]
+ - Hughes, N., Zhao, M., and Downham, R. (2026) '[A parametric bio-economic model of monthly irrigation water demands in the Murray-Darling Basin](https://www.sciencedirect.com/science/article/pii/S0378377426002921)', Agricultural Water Management, Vol. 330, 110411
 
  - Hughes, N., Gaydon, D., Gupta, M., Schepen, A., Tan, P., Brent, G., Turner, A., Bellew, S., Soh, W. Y., Sharman, C., Taylor, P., Carter, J., Bruget, D., Hochman, Z., Searle, R., Song, Y., Mitchell, P., Beletse, Y., Holzworth, D., Guillory, L., Brodie, C., McComb, J., and Singh, R. (2025) '[Monitoring agricultural and economic drought: the Australian Agricultural Drought Indicators (AADI)](https://nhess.copernicus.org/articles/25/3461/2025/)', Natural Hazards and Earth System Sciences, Vol. 25, pp. 3461–3482
 
