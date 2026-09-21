@@ -31,7 +31,7 @@ So what do the data look like when we try to control for that?
 
 Geelong have clearly done well at Kardinia Park, with a win rate of 76.3%. But they have also done well at other venues. Geelong still have the highest win rate for away games at 53.2%, with Collingwood at 50.7% (though Collingwood's away record may itself be inflated by playing a lot of away games at the MCG). Dig deeper and Geelong have the best win rate at both the MCG and Docklands, and are second for win rate in interstate away games (0.2 percentage points behind Collingwood, at 49.7%).
 
-Unpacking the effect of Kardinia Park is complicated by the fact that Geelong tend to play interstate teams and smaller Victorian clubs at the venue (with 'blockbuster' games against bigger clubs, particularly Hawthorn and Collingwood, typically played at the MCG). Further, since 1990 Geelong have, on average, played only eight of 11 home games at Kardinia Park. Geelong also rarely play finals there. Across all 880 home-and-away and finals games since 1990, Geelong have played just over a third (305) at Kardinia Park.
+Unpacking the effect of Kardinia Park is complicated by the fact that Geelong tend to play interstate teams and smaller Victorian clubs at the venue (with 'blockbuster' games against bigger clubs, particularly Hawthorn and Collingwood, typically played at the MCG). Further, since 1990 Geelong have, on average, played only eight of 11 home games at Kardinia Park. Geelong also rarely play finals there. Across all 880 home-and-away and finals games since 1990, Geelong have played around a third (305) at Kardinia Park.
 
 ## A model of team performance
 
@@ -61,11 +61,11 @@ Geelong are not the only side to have fallen regularly at the final hurdles. Syd
 
 ## Is refusing to bottom out part of the problem?
 
-[Open the interactive team-performance graphic]({{ '/images/afl-greatest-team/team-trajectories.html' | relative_url }}) to explore each club's ladder position and model-adjusted strength by year since 1990.
-
 History suggests that AFL team performance tends to go in cycles. Demographics, salary caps and the draft usually catch up with champion teams eventually: Brisbane after 2004, Hawthorn after 2015 and Richmond after 2020 all had steep drops in form, followed by multiple years in the bottom half of the ladder. The traditional wisdom has been to lean into these cycles: to "bottom out" and "rebuild".
 
-Since Chris Scott took over in 2011, Geelong have taken a different path, remaining consistently near the top. By 2022, only three players were left from Geelong's 2011 premiership side. It was a complete "rebuild" without bottoming out, achieved partly by recruiting mature-age players from other AFL teams, lower leagues (the VFL, WAFL and SANFL) and other sports (e.g., Gaelic football and athletics).
+*[Open this interactive graphic]({{ '/images/afl-greatest-team/team-trajectories.html' | relative_url }}) to explore each club's ladder position and model-adjusted strength by year since 1990.*
+
+Since Chris Scott took over in 2011, Geelong have taken a different path, remaining consistently near the top. By 2022, only three players were left from Geelong's 2011 premiership side. It was a complete rebuild without bottoming out, achieved partly by recruiting mature-age players from other AFL teams, lower leagues (the VFL, WAFL and SANFL) and other sports (e.g., Gaelic football and athletics).
 
 But does staying competitive year in, year out make it harder to reach the pinnacle? Sydney and Collingwood have had a similar experience to Geelong at times, remaining competitive for long periods and having many near misses. History seems to suggest that a core of young draft talent that stays together, is hardened by the adversity of difficult years and then reaches its athletic peak at the same time is a good recipe for a premiership.
 
@@ -73,7 +73,7 @@ Then again, what if another team is peaking when you're peaking? Like St Kilda i
 
 This is a complex area and while it's tempting to speculate, I'm not sure there are any easy answers.
 
-## What's made Geelong so hard to beat?
+## What's made Geelong so consistent?
 
 Many might argue that comparing sporting teams over such long periods is pointless. In 36 years, the players, coaches and administrators of all these clubs have turned over many times. We might talk about the Kevin Sheedy-era Bombers, the Leigh Matthews-era Lions, etc., but the 1990–2026 Cats? That's a bit meaningless.
 
@@ -85,4 +85,4 @@ The second factor is easier to define and harder to argue with: Stephen Wells. A
 
 ## Glass half-full or glass half-empty
 
-For some Geelong fans the pain of the near misses and the nagging feeling that premierships have been "left on the table" is hard to take. At the same time, by just about any statistical measure other than premierships, Geelong have been the best-performing team since 1990. And most other teams, except Brisbane and Hawthorn, would probably take Geelong's record if they could. When you think about it like this, being an unhappy Geelong supporter in 2026 would seem like extreme ingratitude.
+For some Geelong fans the pain of the near misses and the nagging feeling that premierships have been "left on the table" is hard to take. At the same time, by just about any statistical measure other than premierships, Geelong have been the best-performed team since 1990. And most other teams, except Brisbane and Hawthorn, would probably take Geelong's record if they could. When you think about it like this, being an unhappy Geelong supporter in 2026 would seem like extreme ingratitude.
