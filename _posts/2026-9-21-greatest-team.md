@@ -61,11 +61,7 @@ Geelong are not the only side to have fallen regularly at the final hurdles. Syd
 
 ## Is refusing to bottom out part of the problem?
 
-The graphic below shows team performance by year since 1990 in terms of ladder position and model-adjusted team strength:
-
-<iframe src="{{ '/images/afl-greatest-team/team-trajectories.html' | relative_url }}" title="Interactive AFL team performance since 1990" width="100%" height="900" style="border: 0;" loading="lazy"></iframe>
-
-[Open the interactive chart in a separate page]({{ '/images/afl-greatest-team/team-trajectories.html' | relative_url }}).
+[Open the interactive team-performance graphic]({{ '/images/afl-greatest-team/team-trajectories.html' | relative_url }}) to explore each club's ladder position and model-adjusted strength by year since 1990.
 
 History suggests that AFL team performance tends to go in cycles. Demographics, salary caps and the draft usually catch up with champion teams eventually: Brisbane after 2004, Hawthorn after 2015 and Richmond after 2020 all had steep drops in form, followed by multiple years in the bottom half of the ladder. The traditional wisdom has been to lean into these cycles: to "bottom out" and "rebuild".
 

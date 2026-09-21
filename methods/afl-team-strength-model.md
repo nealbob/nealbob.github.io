@@ -29,40 +29,40 @@ The modelling data begin in 1985. Results are reported from 1990, with 1985–19
 
 ## Margin model
 
-For match \(g\) in season \(y\), let \(M_g\) be team 1's final score minus team 2's final score. For a seven-season estimation window \(W\), the model is
+For match \\(g\\) in season \\(y\\), let \\(M_g\\) be team 1's final score minus team 2's final score. For a seven-season estimation window \\(W\\), the model is
 
-\[
+\\[
 M_g = \alpha_{i,y}-\alpha_{j,y}
       + \gamma_W G_g
       + \beta_W T_g
       + \delta_W H_g
       + I(y=2020)\left(\gamma_{20,W}G_g+\beta_{20,W}T_g+\delta_{20,W}H_g\right)
       + \varepsilon_g,
-\]
+\\]
 
-with \(\varepsilon_g \sim N(0,\sigma_W^2)\).
+with \\(\varepsilon_g \sim N(0,\sigma_W^2)\\).
 
 Here:
 
-- \(\alpha_{i,y}\) and \(\alpha_{j,y}\) are the two teams' season-specific strengths, measured in points. Within every season these coefficients sum to zero, so zero represents the average team in that season.
-- \(G_g\) is the difference in the teams' recorded affiliation with the match ground: +1 if only team 1 is affiliated, −1 if only team 2 is affiliated, and 0 otherwise. The selected model estimates one common ground-familiarity effect within each window.
-- \(T_g\) is team 2's base-to-ground distance minus team 1's, in thousands of kilometres. A positive value therefore means that travel favours team 1.
-- \(H_g\) records nominal hosting. The AFL Tables ordering was independently checked as nominal home then away for home-and-away matches, so \(H_g=1\) for those matches. It is set to zero in finals, where that interpretation is not imposed.
+- \\(\alpha_{i,y}\\) and \\(\alpha_{j,y}\\) are the two teams' season-specific strengths, measured in points. Within every season these coefficients sum to zero, so zero represents the average team in that season.
+- \\(G_g\\) is the difference in the teams' recorded affiliation with the match ground: +1 if only team 1 is affiliated, −1 if only team 2 is affiliated, and 0 otherwise. The selected model estimates one common ground-familiarity effect within each window.
+- \\(T_g\\) is team 2's base-to-ground distance minus team 1's, in thousands of kilometres. A positive value therefore means that travel favours team 1.
+- \\(H_g\\) records nominal hosting. The AFL Tables ordering was independently checked as nominal home then away for home-and-away matches, so \\(H_g=1\\) for those matches. It is set to zero in finals, where that interpretation is not imposed.
 - The additional 2020 terms allow all three location effects to differ in the hub season.
 
-The model contains a separate strength coefficient for every team-season in the window, but shares the location coefficients across the window. The reported estimate for season \(y\) is the strength coefficient from the window centred on \(y\). A normal window covers \(y-3\) to \(y+3\). At the end of the data, unavailable future seasons are not replaced with more distant past seasons: for example, the 2026 estimate uses 2023–2026 and is explicitly treated as a shortened endpoint estimate.
+The model contains a separate strength coefficient for every team-season in the window, but shares the location coefficients across the window. The reported estimate for season \\(y\\) is the strength coefficient from the window centred on \\(y\\). A normal window covers \\(y-3\\) to \\(y+3\\). At the end of the data, unavailable future seasons are not replaced with more distant past seasons: for example, the 2026 estimate uses 2023–2026 and is explicitly treated as a shortened endpoint estimate.
 
-The selected specification is fitted by least squares. All completed finals enter at full weight, while the residual standard deviation \(\sigma_W\), which controls the conversion from margins to probabilities, is estimated from home-and-away residuals only. Model-based and HC1 robust standard errors are also calculated for the team-strength coefficients.
+The selected specification is fitted by least squares. All completed finals enter at full weight, while the residual standard deviation \\(\sigma_W\\), which controls the conversion from margins to probabilities, is estimated from home-and-away residuals only. Model-based and HC1 robust standard errors are also calculated for the team-strength coefficients.
 
 ## Converting margins to a win percentage
 
-For a hypothetical neutral match between teams with strengths \(\alpha_i\) and \(\alpha_j\), the expected margin is \(\mu_{ij}=\alpha_i-\alpha_j\). Because AFL margins are integer-valued, the model treats the interval from −0.5 to +0.5 as the draw band. Thus
+For a hypothetical neutral match between teams with strengths \\(\alpha_i\\) and \\(\alpha_j\\), the expected margin is \\(\mu_{ij}=\alpha_i-\alpha_j\\). Because AFL margins are integer-valued, the model treats the interval from −0.5 to +0.5 as the draw band. Thus
 
-\[
+\\[
 p_{ij}=P(M>0.5)+\tfrac12 P(-0.5\leq M\leq0.5),
-\]
+\\]
 
-where \(M\sim N(\mu_{ij},\sigma_W^2)\). The value plotted for team \(i\) is the average of \(p_{ij}\) over an equal-weight distribution of all active teams in that season. This standardization includes a 50% self-match reference purely as a statistical device. It ensures that the league average is 50% in every season and prevents changes in schedule composition from mechanically shifting the scale.
+where \\(M\sim N(\mu_{ij},\sigma_W^2)\\). The value plotted for team \\(i\\) is the average of \\(p_{ij}\\) over an equal-weight distribution of all active teams in that season. This standardization includes a 50% self-match reference purely as a statistical device. It ensures that the league average is 50% in every season and prevents changes in schedule composition from mechanically shifting the scale.
 
 ## Model selection and checks
 
