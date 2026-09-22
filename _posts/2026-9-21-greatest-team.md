@@ -35,7 +35,7 @@ Unpacking the effect of Kardinia Park is complicated by the fact that Geelong te
 
 ## A model of team performance
 
-To get a better picture, we have to go a bit further and build a statistical model. I won't bore you with the details ([they can be found here for those interested]({{ '/methods/afl-team-strength-model/' | relative_url }})). The basic idea is to measure the performance of each team in each season since 1990, controlling for the quality of the opposition, travel, hosting status (i.e., home or away), and partially pooled ground-specific familiarity effects. This model makes use of both home-and-away games and finals (with equal weight) and can be used to produce a 'model-adjusted' win rate: the percentage of games each team would win against a common league-wide opponent distribution at a neutral venue. The results look like this:
+To get a better picture, we have to go a bit further and build a statistical model. I won't bore you with the details ([they can be found here for those interested]({{ '/methods/afl-team-strength-model/' | relative_url }})). The basic idea is to measure the performance of each team in each season since 1990, controlling for the quality of the opposition, travel, hosting status (i.e., home or away), and venue effects. This model makes use of both home-and-away games and finals (with equal weight) and can be used to produce a 'model-adjusted' win rate: the percentage of games each team would win against a common league-wide opponent distribution at a neutral venue. The results look like this:
 
 ![Model adjusted win rates]({{ '/images/afl-greatest-team/model-adjusted-team-strength.png' | relative_url }})
 
