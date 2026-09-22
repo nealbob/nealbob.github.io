@@ -75,7 +75,7 @@ This is a complex area and while it's tempting to speculate, I'm not sure there 
 
 ## What's made Geelong so consistent?
 
-Many might argue that comparing sporting teams over such long periods is pointless. In 36 years, the players, coaches and administrators of all these clubs have turned over many times. We might talk about the Kevin Sheedy-era Bombers, the Leigh Matthews-era Lions, etc., but the 1990–2026 Cats? That's a bit meaningless.
+Many would argue that comparing sporting teams over such long periods is pointless. In 36 years, the players, coaches and administrators of all these clubs have turned over many times. We might talk about the Kevin Sheedy-era Bombers, the Leigh Matthews-era Lions, etc., but the 1990–2026 Cats? That's a bit meaningless.
 
 Perhaps. But I think in Geelong's case there are a couple of things we can speculate on: 
 
