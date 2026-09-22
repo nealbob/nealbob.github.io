@@ -3,7 +3,7 @@ layout: post
 title: "The greatest team of all? AFL team performance since 1990"
 date: 2026-09-21 00:00:00 +1000
 excerpt: "What 36 years of match results reveal about Geelong's sustained success, home-ground advantage and finals record."
-modified: 2026-09-22
+modified: 2026-09-21
 tags: [AFL, Geelong, data analysis, sport]
 comments: true
 image: /images/afl-greatest-team/home-and-away-win-rates.png
@@ -23,7 +23,7 @@ In case it hasn't been obvious to this point, I'm a Geelong supporter, and this 
 
 ## At home or far away
 
-Geelong are in a unique position as the only Victorian team with a dedicated home stadium. Geelong are also one of the few clubs to have played consistently at the same home venue since 1990 (the others being Sydney at the SCG, and Melbourne and Richmond at the MCG). Kardinia Park is the narrowest playing field in the AFL, and Geelong are able to train there consistently (a luxury many other Victorian teams don't have).
+Geelong are in a unique position as the only Victorian team with a dedicated home stadium. Geelong are also one of the few clubs to have played consistently at the same home venue for the entire period since 1990 (the others being Sydney at the SCG, and Melbourne and Richmond at the MCG). Kardinia Park is the narrowest playing field in the AFL, and Geelong are able to train there consistently (a luxury many other Victorian teams don't have).
 
 So what do the data look like when we try to control for that?
 
@@ -35,13 +35,13 @@ Unpacking the effect of Kardinia Park is complicated by the fact that Geelong te
 
 ## A model of team performance
 
-To get a better picture, we have to go a bit further and build a statistical model. I won't bore you with the details ([they can be found here for those interested]({{ '/methods/afl-team-strength-model/' | relative_url }})). The basic idea is to measure the performance of each team in each season since 1990, controlling for the quality of the opposition, travel, hosting status (i.e., home or away), and partially pooled ground-specific familiarity effects. This model makes use of both home-and-away games and finals (with equal weight) and can be used to produce a 'model-adjusted' win rate: the percentage of games each team would win against a common league-wide opponent distribution at a neutral venue. The results look like this:
+To get a better picture, we have to go a bit further and build a statistical model. I won't bore you with the details ([they can be found here for those interested]({{ '/methods/afl-team-strength-model/' | relative_url }})). The basic idea is to measure the performance of each team in each season since 1990, controlling for the quality of the opposition, venue familiarity, travel, and hosting status (i.e., home or away). This model makes use of both home-and-away games and finals (with equal weight) and can be used to produce a 'model-adjusted' win rate: the percentage of games each team would win against an "average" opponent at a neutral venue. The results look like this:
 
 ![Model adjusted win rates]({{ '/images/afl-greatest-team/model-adjusted-team-strength.png' | relative_url }})
 
-Overall, the long-run rankings since 1990 don't change that much. Geelong are still out in front, although the gap to Collingwood is reduced by about a quarter (from 9.8 percentage points to 7.2). Meanwhile, some non-Victorian teams, particularly Adelaide and Sydney, improve a bit in the rankings.
+Overall, the long-run rankings since 1990 don't change that much. Geelong are still out in front, although the gap to Collingwood is reduced by about a quarter (from 9.8% to 7.3%). Meanwhile, some non-Victorian teams, particularly Adelaide and Sydney, improve a bit in the rankings.
 
-We shouldn't trivialise the effects of the draw: who plays who and where, can have a big effect on ladder position within individual seasons. But over 36 years, it tends to wash out. There are more results we could get into here, including Victorian versus non-Victorian teams and the fact that Collingwood's draw may not be as favourable as many people think. But let's leave that for another time.
+We shouldn't trivialise the effects of the draw: who plays whom, and where, can have a big effect on ladder position within individual seasons. But over 36 years, it tends to wash out. There are more results we could get into here, including Victorian versus non-Victorian teams and the fact that Collingwood's draw may not be as favourable as many people think. But let's leave that for another time.
 
 For now we can answer one of our questions. Has Geelong's win rate been inflated by Kardinia Park? Yes, but only a little bit.
 
@@ -87,4 +87,4 @@ The second factor is easier to define and harder to argue with: Stephen Wells. A
 
 For some Geelong fans the pain of the near misses and the nagging feeling that premierships have been "left on the table" is hard to take. At the same time, by just about any statistical measure other than premierships, Geelong have been the best-performed team since 1990. And most other teams, except Brisbane and Hawthorn, would probably take Geelong's record if they could. When you think about it like this, being an unhappy Geelong supporter in 2026 would seem like extreme ingratitude.
 
-What about the haters? It's fair to point out that Geelong's win rate is affected by our home-ground advantage. But it doesn't explain all of it. Supporters of Hawthorn, Brisbane, Richmond and West Coast might say to themselves, "We beat them when it matters"; others might clutch at conspiracy theories. But the truth is probably more mundane: a stable off-field environment, a good recruiter and a couple of bad days in September.
+What about the haters. Its fair to point out that Geelong's win rate is affected by our home ground advantage. But it doesnt explain all of it.  Supporters of Hawthon, Brisbane, Richmond and West Coast might might say to themselves "we beat them when it mattered", others might clutch to consipracry theories. But the truth is probably more mundane: a stable off-field environment, a good recruiter and a couple of bad days in September.
