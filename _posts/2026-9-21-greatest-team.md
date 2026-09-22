@@ -3,7 +3,7 @@ layout: post
 title: "The greatest team of all? AFL team performance since 1990"
 date: 2026-09-21 00:00:00 +1000
 excerpt: "What 36 years of match results reveal about Geelong's sustained success, home-ground advantage and finals record."
-modified: 2026-09-21
+modified: 2026-09-22
 tags: [AFL, Geelong, data analysis, sport]
 comments: true
 image: /images/afl-greatest-team/home-and-away-win-rates.png
@@ -15,7 +15,7 @@ Who's won the most home-and-away games in the history of the AFL (1990 to 2026)?
 
 The answer is the Geelong Cats, and by a fair margin. Geelong have a winning percentage of 64.4% in 810 home-and-away games since 1990, well ahead of the next-best team: Collingwood at 54.6%.
 
-Now, this is a chart sure to annoy a lot of people, particularly as Geelong seem to have become the [most hated team in the AFL](https://www.heraldsun.com.au/sport/afl/handbaggers-to-our-version-of-the-new-england-patriots-why-geelong-has-rivals-so-irritated/news-story/cb424cf70f4afadf4fc561a6e0693a10).
+Now, this chart is sure to annoy a lot of people, particularly as Geelong seem to have become the [most hated team in the AFL](https://www.heraldsun.com.au/sport/afl/handbaggers-to-our-version-of-the-new-england-patriots-why-geelong-has-rivals-so-irritated/news-story/cb424cf70f4afadf4fc561a6e0693a10).
 
 Critics will point out that Geelong don't have the best finals record. They might also argue that Geelong's home-and-away performance is inflated by their home-ground advantage at Kardinia Park. (They might go further and float conspiracy theories involving "FARMS" and "COTTON-ON", but let's not indulge that nonsense ...)
 
@@ -35,11 +35,11 @@ Unpacking the effect of Kardinia Park is complicated by the fact that Geelong te
 
 ## A model of team performance
 
-To get a better picture, we have to go a bit further and build a statistical model. I won't bore you with the details ([they can be found here for those interested]({{ '/methods/afl-team-strength-model/' | relative_url }})). The basic idea is to measure the performance of each team in each season since 1990, controlling for the quality of the opposition, venue familiarity, travel, and hosting status (i.e., home or away). This model makes use of both home-and-away games and finals (with equal weight) and can be used to produce a 'model-adjusted' win rate: the percentage of games each team would win against an "average" opponent at a neutral venue. The results look like this:
+To get a better picture, we have to go a bit further and build a statistical model. I won't bore you with the details ([they can be found here for those interested]({{ '/methods/afl-team-strength-model/' | relative_url }})). The basic idea is to measure the performance of each team in each season since 1990, controlling for the quality of the opposition, travel, hosting status (i.e., home or away), and partially pooled ground-specific familiarity effects. This model makes use of both home-and-away games and finals (with equal weight) and can be used to produce a 'model-adjusted' win rate: the percentage of games each team would win against a common league-wide opponent distribution at a neutral venue. The results look like this:
 
 ![Model adjusted win rates]({{ '/images/afl-greatest-team/model-adjusted-team-strength.png' | relative_url }})
 
-Overall, the long-run rankings since 1990 don't change that much. Geelong are still out in front, although the gap to Collingwood is reduced by about a quarter (from 9.8% to 7.3%). Meanwhile, some non-Victorian teams, particularly Adelaide and Sydney, improve a bit in the rankings.
+Overall, the long-run rankings since 1990 don't change that much. Geelong are still out in front, although the gap to Collingwood is reduced by about a quarter (from 9.8 percentage points to 7.2). The model-adjusted rates are 63.5% for Geelong and 56.3% for Collingwood. Meanwhile, some non-Victorian teams, particularly Adelaide and Sydney, improve a bit in the rankings.
 
 We shouldn't trivialise the effects of the draw: who plays whom, and where, can have a big effect on ladder position within individual seasons. But over 36 years, it tends to wash out. There are more results we could get into here, including Victorian versus non-Victorian teams and the fact that Collingwood's draw may not be as favourable as many people think. But let's leave that for another time.
 
@@ -79,10 +79,12 @@ Many might argue that comparing sporting teams over such long periods is pointle
 
 Perhaps. But I think in Geelong's case there are a couple of things we can speculate on: 
 
-First, while we shouldn't get too romantic about "culture", there must be something to say about Geelong's history and connection to place. While Geelong had a difficult period in the late 1990s and early 2000s, they didn't face the existential risks that other Victorian teams did (e.g., North Melbourne, Melbourne, Hawthorn, Footscray and Fitzroy). Geelong might be derided as 'Sleepy Hollow', but its stability is probably its greatest asset. Ford has sponsored Geelong [for over 100 years](https://www.ford.com.au/about-ford/sponsorship/geelong-football-club/). Meanwhile, Geelong have had only four head coaches since 1990. By my count Carlton have had 11. [Cause and effect might go both ways with coaching turnover](https://www.afl.com.au/news/858998/st-kilda-saints-unwanted-mantle-as-the-merry-go-round-spins-again), but there has to be some benefit from continuity.
+First, while we shouldn't get too romantic about "culture", there must be something to say about Geelong's history and connection to place. While Geelong had a difficult period in the late 1990s and early 2000s, they didn't face the existential risks that other Victorian teams did (e.g., North Melbourne, Melbourne, Hawthorn, Footscray and Fitzroy). Geelong might be derided as 'Sleepy Hollow', but its stability is clearly an asset. Ford has sponsored Geelong [for over 100 years](https://www.ford.com.au/about-ford/sponsorship/geelong-football-club/). Meanwhile, Geelong have had only four head coaches since 1990. By my count Carlton have had 11. [Cause and effect might go both ways with coaching turnover](https://www.afl.com.au/news/858998/st-kilda-saints-unwanted-mantle-as-the-merry-go-round-spins-again), but there has to be some benefit from continuity.
 
 The second factor is easier to define and harder to argue with: Stephen Wells. As far as I'm aware, he's the only person connected to Geelong for the entire period, having joined as an [assistant recruiter in 1984](https://www.geelongcats.com.au/news/235813/wells-receives-lifetime-achievement-award). Wells' ability to unearth playing talent with late draft picks and rookies has been [well documented](https://www.geelongadvertiser.com.au/sport/geelong-recruiting-doyen-stephen-wells-top-40-afl-draft-gems-ranked-in-order/news-story/81d3d0af096b6b6a48a75d26c1600dc1) and is arguably the most important factor in Geelong staying competitive for so long.
 
 ## Glass half-full or glass half-empty
 
 For some Geelong fans the pain of the near misses and the nagging feeling that premierships have been "left on the table" is hard to take. At the same time, by just about any statistical measure other than premierships, Geelong have been the best-performed team since 1990. And most other teams, except Brisbane and Hawthorn, would probably take Geelong's record if they could. When you think about it like this, being an unhappy Geelong supporter in 2026 would seem like extreme ingratitude.
+
+What about the haters? It's fair to point out that Geelong's win rate is affected by our home-ground advantage. But it doesn't explain all of it. Supporters of Hawthorn, Brisbane, Richmond and West Coast might say to themselves, "We beat them when it mattered"; others might clutch at conspiracy theories. But the truth is probably more mundane: a stable off-field environment, a good recruiter and a couple of bad days in September.

@@ -2,7 +2,7 @@
 layout: page
 title: "A simple statistical model of AFL game margins"
 permalink: /methods/afl-team-strength-model/
-modified: 2026-09-21
+modified: 2026-09-22
 ---
 
 This note accompanies [The greatest team of all? AFL team performance since 1990]({% post_url 2026-9-21-greatest-team %}).
@@ -33,7 +33,7 @@ For match \\(g\\) in season \\(y\\), let \\(M_g\\) be team 1's final score minus
 
 \\[
 M_g = \alpha_{i,y}-\alpha_{j,y}
-      + \gamma_W G_g
+      + (\gamma_W + u_{k[g],W})G_g
       + \beta_W T_g
       + \delta_W H_g
       + I(y=2020)\left(\gamma_{20,W}G_g+\beta_{20,W}T_g+\delta_{20,W}H_g\right)
@@ -45,7 +45,7 @@ with \\(\varepsilon_g \sim N(0,\sigma_W^2)\\).
 Here:
 
 - \\(\alpha_{i,y}\\) and \\(\alpha_{j,y}\\) are the two teams' season-specific strengths, measured in points. Within every season these coefficients sum to zero, so zero represents the average team in that season.
-- \\(G_g\\) is the difference in the teams' recorded affiliation with the match ground: +1 if only team 1 is affiliated, −1 if only team 2 is affiliated, and 0 otherwise. The selected model estimates one common ground-familiarity effect within each window.
+- \\(G_g\\) is the difference in the teams' recorded affiliation with the match ground: +1 if only team 1 is affiliated, −1 if only team 2 is affiliated, and 0 otherwise. The selected model estimates a common ground-familiarity effect \\(\gamma_W\\) plus a ground-specific deviation \\(u_{k[g],W}\\). The deviations are ridge-shrunk toward zero, with the penalty selected by training-set generalized cross-validation in each window.
 - \\(T_g\\) is team 2's base-to-ground distance minus team 1's, in thousands of kilometres. A positive value therefore means that travel favours team 1.
 - \\(H_g\\) records nominal hosting. The AFL Tables ordering was independently checked as nominal home then away for home-and-away matches, so \\(H_g=1\\) for those matches. It is set to zero in finals, where that interpretation is not imposed.
 - The additional 2020 terms allow all three location effects to differ in the hub season.
@@ -68,16 +68,16 @@ where \\(M\sim N(\mu_{ij},\sigma_W^2)\\). The value plotted for team \\(i\\) is 
 
 Specifications were compared using deterministic five-fold cross-validation. Entire rounds, rather than individual matches, were assigned cyclically to folds within each centre season. The common comparison sample comprised 6,141 held-out home-and-away matches across the fully centred 1990–2023 windows. Mean log loss was the primary selection criterion; Brier score and margin root mean squared error (RMSE) were retained as supporting diagnostics. This is retrospective blocked cross-validation, not a real-time forecasting exercise, because matches from surrounding seasons remain in the training window.
 
-The selected seven-season baseline model had a held-out mean log loss of 0.5840, Brier score of 0.1980 and margin RMSE of 37.1 points. Its probability predictions were materially better than the corresponding Bradley–Terry win/loss model: mean log loss was 0.5840 versus 0.6502, a difference of −0.0662 with a season-clustered 95% interval from −0.0879 to −0.0444.
+In the comparison matching the final article setup—full-weight finals in training and home-and-away round blocks held out—the selected seven-season partially pooled model had a mean log loss of 0.5816, Brier score of 0.1969 and margin RMSE of 37.0 points over 6,141 held-out matches from the fully centred 1990–2023 windows. The earlier regular-season-only comparison also showed that the Normal-margin probability predictions were materially better than the corresponding Bradley–Terry win/loss model.
 
 Several sensitivity tests informed the final specification:
 
 - One-, three-, five- and seven-season windows were compared. The seven-season window produced the lowest mean log loss among the common-ground baseline models, although the difference from five seasons was small.
-- Adding rest or recent-travel-load terms did not improve held-out log loss relative to the simpler current-match travel specification.
-- A partially pooled, ground-specific model had a slightly lower mean log loss than the common-ground model (difference −0.00041), but its season-clustered 95% interval (−0.00126 to 0.00043) included no improvement. The simpler common-ground specification was therefore retained. A fully unpooled model performed worse.
+- A partially pooled, ground-specific model had a slightly lower mean log loss than the common-ground article model (difference −0.00038), although its season-clustered 95% interval (−0.00108 to 0.00033) included no improvement. Partial pooling was reinstated because it was the raw predictive winner and provides shrinkage rather than unrestricted ground estimates. A fully unpooled model performed worse.
+- Lagged travel was defined as team 2's previous-match travel minus team 1's, in thousands of kilometres; relative rest was team 1's capped days of rest minus team 2's. Tested separately on top of partial ground pooling, lagged travel worsened mean log loss by 0.00027 and rest by 0.00043. Their unrestricted coefficients frequently had the opposite sign to the fatigue hypothesis. Constraining each coefficient to be non-negative mostly set it to zero and still worsened log loss, by 0.00024 for lagged travel and 0.00018 for rest. Neither term is included in the article model.
 - Finals weights of 0, 0.25, 0.5 and 1 were tested while always scoring the same held-out home-and-away matches. Full-weight finals improved mean log loss from 0.5840 to 0.5820; the paired difference was −0.00203 (season-clustered 95% interval −0.00292 to −0.00115). Finals were therefore included at full weight in the chart model.
 
-Across the 37 fitted reporting windows, the home-and-away residual standard error ranged from 30.9 to 39.4 points (mean 34.9). These values indicate substantial match-to-match variation even after adjustment, so small differences between teams or seasons should not be over-interpreted.
+Across the 37 fitted reporting windows, the home-and-away residual standard error ranged from 30.9 to 39.2 points (mean 34.8). These values indicate substantial match-to-match variation even after adjustment, so small differences between teams or seasons should not be over-interpreted.
 
 ## Interpretation and limitations
 
