@@ -13,7 +13,7 @@ Which team has the highest win percentage in the history of the AFL (1990 to 202
 
 ![AFL win rates since 1990]({{ '/images/afl-greatest-team/home-and-away-win-rates.png' | relative_url }})
 
-The answer is the Geelong Cats, and by a fair margin. Geelong have a win percentage of 64.4% in 810 home-and-away games since 1990, well ahead of the next-best team: Collingwood at 54.6%.
+The answer is the Geelong Cats, and by a fair margin. Geelong have a win percentage of 64.4% in 810 home-and-away games since 1990, well ahead of the next-best: Collingwood at 54.6%.
 
 Now, this chart is sure to annoy a lot of people, particularly since Geelong seem to have become the [most hated team in the AFL](https://www.heraldsun.com.au/sport/afl/handbaggers-to-our-version-of-the-new-england-patriots-why-geelong-has-rivals-so-irritated/news-story/cb424cf70f4afadf4fc561a6e0693a10).
 
@@ -53,7 +53,7 @@ OK, now here's the painful part for Geelong fans.
 
 Geelong have played in more finals, reached more prelims, and played in more grand finals than any other team since 1990, but they don't have the most premierships. That honour goes to Hawthorn and Brisbane (Hawthorn supporters would be quick to point out their 1988 and 1989 premierships here, while Lions supporters might argue instead for a 2000 cut-off, but you have to draw the line somewhere).
 
-Making sense of finals is difficult given the small sample sizes. There have been many near misses for Geelong: Peter Matera in the the 1992 grand final, missing the final six in 1993, the Leigh Colbert non-mark against Adelaide in 1997, Nick Davis in 2005, the 2008 debacle, the 2013 prelim that ended the "Kennett Curse", and the 2019 prelim and 2020 grand final at the hands of Richmond (ah, the memories). Of course, all teams have their share of hard-luck stories. The point is that, when it comes to finals, the gap between glory and heartbreak is pretty small.
+Making sense of finals is difficult given the small sample sizes. There've been many near misses for Geelong: Peter Matera in the the 1992 grand final, missing the final six in 1993, the Leigh Colbert non-mark against Adelaide in 1997, Nick Davis in 2005, the 2008 debacle, the 2013 prelim that ended the "Kennett Curse", and the 2019 prelim and 2020 grand final at the hands of Richmond (ah, the memories). Of course, all teams have their share of hard-luck stories. The point is that, when it comes to finals, the gap between glory and heartbreak is pretty small.
 
 Since 1990, Hawthorn and the Lions (and, to a lesser extent, West Coast and Richmond) have been effective at converting finals appearances into premierships. Hawthorn have five premierships from nine prelims and six grand finals (this includes one flag in the 1990s without a prelim under the old finals system). Meanwhile, the Lions are now into their eighth grand final with a chance to win their sixth premiership.
 
@@ -87,4 +87,4 @@ The second factor is easier to define and harder to argue with: Stephen Wells. A
 
 For some Geelong fans the pain of the near misses and the nagging feeling that premierships have been "left on the table" is hard to take. At the same time, by just about any statistical measure other than premierships, Geelong have been the best-performed team since 1990. And most other teams, except Brisbane and Hawthorn, would probably take Geelong's record if they could. When you think about it like this, being an unhappy Geelong supporter in 2026 would seem like extreme ingratitude.
 
-What about the haters? It's fair to point out that Geelong's win rate is affected by our home-ground advantage. But it doesn't explain all of it. Supporters of Hawthorn, Brisbane, Richmond and West Coast might say to themselves, "We beat them when it matters"; others might clutch at conspiracy theories. But the truth is probably more mundane: a stable off-field environment, a good recruiter and a couple of bad days in September.
+What about the haters? It's fair to point out that Geelong's win rate is affected by our home-ground advantage. But it doesn't explain all of it. Supporters of Hawthorn, Brisbane, Richmond and West Coast might say to themselves, "We beat them when it matters"; others might clutch at conspiracy theories. But the truth is probably more mundane: off-field stability, a good recruiter and a couple of bad days in September.
