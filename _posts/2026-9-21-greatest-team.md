@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The greatest team of all? AFL team performance since 1990"
+title: "The greatest team of all: AFL team performance since 1990"
 date: 2026-09-21 00:00:00 +1000
 excerpt: "What 36 years of match results reveal about Geelong's sustained success, home-ground advantage and finals record."
 modified: 2026-09-23
@@ -31,7 +31,7 @@ So what does the data look like when we try to control for that?
 
 Geelong have clearly done well at Kardinia Park, with a win rate of 76.3%. But they have also done well at other venues. Geelong still have the highest win rate for away games at 53.2%, with Collingwood at 50.7% (though Collingwood's away record may itself be inflated by playing a lot of away games at the MCG). Dig deeper, and Geelong have the best win rate at both the MCG and Docklands, and are second for win rate in interstate away games (0.2 percentage points behind Collingwood, at 49.7%).
 
-Unpacking the effect of Kardinia Park is complicated by the fact that Geelong tend to play interstate teams and smaller Victorian clubs at the venue (with 'blockbuster' games against bigger clubs, particularly Hawthorn and Collingwood, typically played at the MCG). Further, since 1990 Geelong have, on average, played only eight of 11 home games at Kardinia Park. Geelong also rarely play finals there. Across all 880 home-and-away and finals games since 1990, Geelong have played around a third (305) at Kardinia Park.
+Unpacking the effect of Kardinia Park is complicated by the fact that Geelong tend to play interstate teams and smaller Victorian clubs at the venue (with 'blockbuster' games against bigger clubs, particularly Hawthorn and Collingwood, typically played at the MCG). Further, since 1990 Geelong have, on average, played only eight of 11 home games at Kardinia Park. Geelong also rarely play finals there. Across all 880 home-and-away and finals games since 1990, Geelong have played only around a third (305) at Kardinia Park.
 
 ## A model of team performance
 
@@ -61,7 +61,7 @@ Geelong are not the only side to have fallen regularly at the final hurdles. Syd
 
 While the sample sizes are small, we can try to be a bit more precise and use a version of our model to evaluate finals performance relative to home-and-away form. The chart shows that, in relative terms, the Lions have performed the best in finals over the period, being on average 8.5 points per game better than their home-and-away form would suggest. Geelong are mid-pack, with finals form more or less matching their home-and-away form on average.
 
-So while Geelong have clearly had some off days in September, it seems that most of the time they've just been beaten by the better team.
+So while Geelong have clearly had some off days in September, it seems they've often just been beaten by the better team.
 
 ![Finals performance relative to home-and-away form]({{ '/images/afl-greatest-team/finals-overperformance.png' | relative_url }})
 
@@ -73,7 +73,7 @@ History suggests that AFL team performance tends to go in cycles. Demographics, 
 
 Since Chris Scott took over in 2011, Geelong have taken a different path, remaining consistently near the top. By 2022, only three players were left from Geelong's 2011 premiership side; a complete rebuild without bottoming out, achieved partly by recruiting mature-age players from other AFL teams, lower leagues (the VFL, WAFL and SANFL) and other sports (e.g., Gaelic football and athletics).
 
-But does staying competitive year in, year out make it harder to reach the pinnacle? Sydney and Collingwood have had a similar experience to Geelong at times, remaining competitive for long periods and having many near misses. History seems to suggest that a good recipe for a premiership is a core of young draft talent that stays together, is hardened by difficult years and reaches its athletic peak at the same time.
+But does staying competitive year in, year out make it harder to reach the pinnacle? Sydney and Collingwood have had a similar experience to Geelong at times, remaining competitive for long periods and having many near misses. History seems to suggest that a good recipe for a premiership is a core of young draft talent that stays together, is hardened by difficult years, then reaches its athletic peak at the same time.
 
 Then again, what if another team is peaking when you're peaking—like St Kilda in 1997, 2009 and 2010? In any case, history may not be the best predictor going forward: the competition and its rules are always changing, free agency is increasing player movement, sports science is extending careers, new clubs are entering, and so on.
 
