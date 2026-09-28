@@ -9,7 +9,7 @@ comments: true
 image: /images/afl-greatest-team/home-and-away-win-rates.png
 ---
 
-Brisbane now have the most premierships in the AFL era (1990 to 2026) but which team has the highest game win percentage over this period?
+Brisbane now have the most premierships in the AFL era (1990 to 2026), but which team has the highest game win percentage?
 
 ![AFL win rates since 1990]({{ '/images/afl-greatest-team/home-and-away-win-rates.png' | relative_url }})
 
@@ -73,7 +73,7 @@ History suggests that AFL team performance tends to go in cycles. Demographics, 
 
 Since Chris Scott took over in 2011, Geelong have taken a different path, remaining consistently near the top. By 2022, only three players were left from Geelong's 2011 premiership side; a complete rebuild without bottoming out, achieved partly by recruiting mature-age players from other AFL teams, lower leagues (the VFL, WAFL and SANFL) and other sports (e.g., Gaelic football and athletics).
 
-But does staying competitive year in, year out make it harder to reach the pinnacle? Sydney and Collingwood have had a similar experience to Geelong at times, remaining competitive for long periods and having many near misses. History seems to suggest that a good recipe for a premiership is a core of young draft talent that stays together then reaches its athletic peak at the same time. All the recent dynasty teams (from Geelong's 2007-2011 team to Brisbane's recent three-peat) have had extended periods in the lower half of the competition before their premiership window.
+But does staying competitive year in, year out make it harder to reach the pinnacle? Sydney and Collingwood have had a similar experience to Geelong at times, remaining competitive for long periods and having many near misses. History seems to suggest that a good recipe for a premiership is a core of young talent that stays together then reaches its athletic peak at the same time. All the recent dynasty teams (from Geelong's 2007-2011 team to Brisbane's recent three-peat) have had extended periods in the lower half of the competition before their premiership window.
 
 Then again, what if another team is peaking when you're peaking—like St Kilda in 1997, 2009 and 2010? In any case, history may not be the best predictor going forward: the competition and its rules are always changing, free agency is increasing player movement, sports science is extending careers, new clubs are entering, and so on. This is a complex area, and while it's tempting to speculate, I'm not sure there are any easy answers yet.
 
