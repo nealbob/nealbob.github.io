@@ -9,7 +9,7 @@ comments: true
 image: /images/afl-greatest-team/home-and-away-win-rates.png
 ---
 
-Brisbane now have the most premierships in the AFL era (1990 to 2026), but which team has the highest game win percentage?
+Brisbane now have the most premierships in the AFL era (1990 to 2026), but which team has the highest win percentage?
 
 ![AFL win rates since 1990]({{ '/images/afl-greatest-team/home-and-away-win-rates.png' | relative_url }})
 
