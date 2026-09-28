@@ -9,7 +9,7 @@ comments: true
 image: /images/afl-greatest-team/home-and-away-win-rates.png
 ---
 
-Which team has the highest win percentage in the history of the AFL (1990 to 2026)?
+Brisbane now have the most premierships in the AFL era (1990 to 2026) but which team has the highest game win percentage over this period?
 
 ![AFL win rates since 1990]({{ '/images/afl-greatest-team/home-and-away-win-rates.png' | relative_url }})
 
@@ -19,7 +19,7 @@ Now, this chart is sure to annoy a lot of people, particularly since Geelong see
 
 Critics will point out that Geelong don't have the best finals record. They might also argue that Geelong's home-and-away performance is inflated by their home-ground advantage at Kardinia Park. (They might go further and float conspiracy theories involving "FARMS" and "COTTON-ON", but let's not indulge that nonsense ...)
 
-In case it hasn't been obvious to this point, I'm a Geelong supporter, and this article focuses on Geelong. But I'm not here to take a victory lap. I want to take a look at the AFL data since 1990 and attempt to answer some questions: How have Geelong maintained such a strong home-and-away record? How much of that can be explained by Kardinia Park? And why hasn't this translated into more finals success?
+In case it hasn't been obvious to this point, I'm a Geelong supporter, and this article focuses on Geelong. But I'm not here to take a victory lap. I want to take a look at the AFL data since 1990 and attempt to answer some questions: How have Geelong maintained such a strong home-and-away record? How much of that can be explained by Kardinia Park? And why hasn't this translated into more premierships?
 
 ## At home or far away
 
@@ -51,13 +51,13 @@ OK, now here's the painful part for Geelong fans.
 
 ![Finals performance since 1990]({{ '/images/afl-greatest-team/finals-performance.png' | relative_url }})
 
-Geelong have played in more finals, reached more prelims, and played in more grand finals than any other team since 1990, but they don't have the most premierships. That honour goes to Hawthorn and Brisbane (Hawthorn supporters would be quick to point out their 1988 and 1989 premierships here, while Lions supporters might argue instead for a 2000 cut-off, but you have to draw the line somewhere).
+Geelong have played in more finals, reached more prelims, and played in more grand finals than any other team since 1990, but they don't have the most premierships. That honour goes to Brisbane with 6 followed by Hawthorn with 5 (Hawthorn supporters would be quick to point out their 1988 and 1989 flags here, but you have to draw the line somewhere).
 
 Making sense of finals is difficult given the small sample sizes. There have been many near misses for Geelong: Peter Matera in the 1992 grand final, missing the final six in 1993, the Leigh Colbert non-mark against Adelaide in 1997, Nick Davis in 2005, the 2008 debacle, the 2013 prelim that ended the "Kennett Curse", the 2019 prelim loss to Richmond, Dustin Martin in the 2020 grand final, Tom Stewart's concussion, then Jeremy Cameron's broken arm in 2025 (OK, OK I'll stop). Of course, all teams have their share of hard-luck stories. The point is that, when it comes to finals, the gap between glory and heartbreak is pretty small.
 
-Since 1990, Hawthorn and the Lions have been effective at converting finals appearances into premierships. Hawthorn have five premierships from nine prelims and six grand finals (including one flag in the 1990s without a prelim under the old finals system). Meanwhile, the Lions are now into their eighth grand final with a chance to win their sixth premiership.
+Since 1990, Hawthorn and the Lions have been effective at converting finals appearances into premierships. Hawthorn have five premierships from nine prelims and six grand finals (including one flag in the 1990s without a prelim under the old finals system). Meanwhile, the Lions have six flags from eight grand finals.
 
-Geelong are not the only side to have fallen regularly at the final hurdles. Sydney have two premierships from 11 prelims and eight grand finals, while Port Adelaide and the Bulldogs both have one flag from eight prelims and two grand finals.
+Geelong are not the only side to have fallen regularly at the final hurdles though. Sydney have two premierships from 11 prelims and eight grand finals, while Port Adelaide and the Bulldogs both have one flag from eight prelims and two grand finals.
 
 While the sample sizes are small, we can try to be a bit more precise and use a version of our model to evaluate finals performance relative to home-and-away form. The chart shows that, in relative terms, the Lions have performed the best in finals over the period, being on average 8.5 points per game better than their home-and-away form would suggest. Geelong are mid-pack, with finals form more or less matching their home-and-away form on average.
 
@@ -73,11 +73,9 @@ History suggests that AFL team performance tends to go in cycles. Demographics, 
 
 Since Chris Scott took over in 2011, Geelong have taken a different path, remaining consistently near the top. By 2022, only three players were left from Geelong's 2011 premiership side; a complete rebuild without bottoming out, achieved partly by recruiting mature-age players from other AFL teams, lower leagues (the VFL, WAFL and SANFL) and other sports (e.g., Gaelic football and athletics).
 
-But does staying competitive year in, year out make it harder to reach the pinnacle? Sydney and Collingwood have had a similar experience to Geelong at times, remaining competitive for long periods and having many near misses. History seems to suggest that a good recipe for a premiership is a core of young draft talent that stays together, is hardened by difficult years, then reaches its athletic peak at the same time.
+But does staying competitive year in, year out make it harder to reach the pinnacle? Sydney and Collingwood have had a similar experience to Geelong at times, remaining competitive for long periods and having many near misses. History seems to suggest that a good recipe for a premiership is a core of young draft talent that stays together then reaches its athletic peak at the same time. All the recent dynasty teams (from Geelong's 2007-2011 team to Brisbane's recent three-peat) have had extended periods in the lower half of the competition before their premiership window.
 
-Then again, what if another team is peaking when you're peaking—like St Kilda in 1997, 2009 and 2010? In any case, history may not be the best predictor going forward: the competition and its rules are always changing, free agency is increasing player movement, sports science is extending careers, new clubs are entering, and so on.
-
-This is a complex area, and while it's tempting to speculate, I'm not sure there are any easy answers.
+Then again, what if another team is peaking when you're peaking—like St Kilda in 1997, 2009 and 2010? In any case, history may not be the best predictor going forward: the competition and its rules are always changing, free agency is increasing player movement, sports science is extending careers, new clubs are entering, and so on. This is a complex area, and while it's tempting to speculate, I'm not sure there are any easy answers yet.
 
 ## What's made Geelong so consistent?
 
