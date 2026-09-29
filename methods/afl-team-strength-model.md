@@ -1,11 +1,11 @@
 ---
 layout: page
-title: "A simple statistical model of AFL game margins"
+title: "Estimating AFL team strength and competitive balance"
 permalink: /methods/afl-team-strength-model/
-modified: 2026-09-22
+modified: 2026-09-29
 ---
 
-This note accompanies [The greatest team of all? AFL team performance since 1990]({% post_url 2026-9-21-greatest-team %}).
+This note provides methodological detail for two articles: [*The greatest team of all? AFL team performance since 1990*]({% post_url 2026-9-21-greatest-team %}) and [*More even than ever? Competitive balance in the AFL*]({% post_url 2026-9-28-afl-balance %}).
 
 <script>
 window.MathJax = {
@@ -19,13 +19,17 @@ window.MathJax = {
 
 ## Overview
 
-This note outlines a simple statistical model of AFL game margins which measures team strength while controlling for opponent strength, venue familiarity, travel and home/away advantages. This model can be applied to estimate how many points stronger or weaker each team was relative to a common league average in a given season. This makes it easier to compare team strengths each season regardless of differences in fixturing. The model is retrospective: it is designed to describe completed seasons, not to reproduce the information that would have been available before each match (this is not a model designed for predicting future game outcomes).
+This note outlines a statistical model of AFL game margins which measures team strength while controlling for opponent strength, venue familiarity, travel and home/away advantages. The model estimates how many points stronger or weaker each team was relative to the league average in a given season. It also converts those estimates to a model-adjusted win rate against a common set of opponents, making comparisons less sensitive to differences in fixturing.
+
+The competitive-balance analysis uses these adjusted win rates in three ways: to measure the spread between teams within a season, to estimate movement between strength groups across seasons, and to calculate the persistence of team strength over time. Premierships and Grand Final appearances are analysed separately as observed binary outcomes.
+
+The model is retrospective. It is designed to describe completed seasons, not to reproduce the information that would have been available before each match, and it is not intended as a forecasting model.
 
 ## Data
 
 Match results come from [AFL Tables](https://afltables.com/afl/afl_index.html). The analysis uses one record per completed VFL/AFL match, including the final score, date, season, round and ground. Venue coordinates, season-specific team bases and team–ground affiliations are maintained in the project's configuration files and are used to construct the location variables.
 
-The modelling data begin in 1985. Results are reported from 1990, with 1985–1989 used to support the earliest rolling estimates. The current input contains 7,845 matches from 1985–2026: 7,488 home-and-away matches and 357 finals. The chart snapshot uses match data updated on 21 September 2026 and includes completed matches through 19 September 2026. Team names are normalized only for defined historical name changes: Footscray is grouped with the Western Bulldogs and the Kangaroos with North Melbourne; otherwise historically distinct clubs remain distinct.
+The modelling data begin in 1985. Results are reported from 1990, with 1985–1989 used to support the earliest rolling estimates. The current input contains 7,846 matches from 1985–2026: 7,488 home-and-away matches and 358 finals. The chart snapshot uses match data updated on 28 September 2026 and includes the complete 2026 season through the Grand Final on 26 September 2026. Team names are normalized only for defined historical name changes: Footscray is grouped with the Western Bulldogs and the Kangaroos with North Melbourne; otherwise historically distinct clubs remain distinct.
 
 ## Margin model
 
@@ -54,7 +58,7 @@ The model contains a separate strength coefficient for every team-season in the 
 
 The selected specification is fitted by least squares. All completed finals enter at full weight, while the residual standard deviation \\(\sigma_W\\), which controls the conversion from margins to probabilities, is estimated from home-and-away residuals only. Model-based and HC1 robust standard errors are also calculated for the team-strength coefficients.
 
-## Converting margins to a win percentage
+## Converting margins to a model-adjusted win percentage
 
 For a hypothetical neutral match between teams with strengths \\(\alpha_i\\) and \\(\alpha_j\\), the expected margin is \\(\mu_{ij}=\alpha_i-\alpha_j\\). Because AFL margins are integer-valued, the model treats the interval from −0.5 to +0.5 as the draw band. Thus
 
@@ -79,8 +83,72 @@ Several sensitivity tests informed the final specification:
 
 Across the 37 fitted reporting windows, the home-and-away residual standard error ranged from 30.9 to 39.2 points (mean 34.8). These values indicate substantial match-to-match variation even after adjustment, so small differences between teams or seasons should not be over-interpreted.
 
+## Competitive balance measures
+
+The competitive-balance analysis starts from the model-adjusted win rate described above, rather than each club's raw win percentage. This matters because clubs do not play identical schedules and because venue and travel advantages are unevenly distributed. Unless otherwise stated, comparisons begin in 1990 and include only clubs observed in the seasons being compared. The main era comparison divides the series into 1990–2007 and 2008–2026; a cross-season observation is assigned to the era of its later season.
+
+### The spread of team strength within a season
+
+Within-season competitive balance is described using the distribution of model-adjusted win rates across the active teams. The charts report selected percentiles, the gaps between the strongest and weakest parts of the distribution, and the cross-team standard deviation. Because the win rates are standardized against the same equal-weight opponent pool, their league mean is 50% in every season. A smaller percentile gap or standard deviation therefore indicates a more even season; a larger value indicates a wider separation between strong and weak teams.
+
+### Transitions between strength groups
+
+For the transition analysis, teams are ranked by model-adjusted win rate within each season, with rank 1 denoting the strongest team. The rankings are divided into either thirds or quarters using mid-rank cut points. For \(K\) groups, the group number for a team with rank \(r\) in a league of \(N\) teams is
+
+\[
+q(r;K,N)=1+\left\lfloor\frac{(r-0.5)K}{N}\right\rfloor,
+\]
+
+capped at \(K\). This convention keeps the strongest and weakest groups as symmetric as possible when the number of teams is not divisible by \(K\). With 18 teams, for example, the terciles contain six teams each and the quartiles contain 5, 4, 4 and 5 teams.
+
+For each lag \(k\), a club's group in season \(t\) is paired with its group in season \(t+k\). The analysis uses lags of one, two and three seasons and includes only clubs active at both endpoints. The estimated transition probability from starting group \(a\) to ending group \(b\) is the corresponding cell count divided by all transitions that began in group \(a\):
+
+\[
+\widehat P_{ab}^{(k)}=
+\frac{\#\{i:q_{i,t}=a,\ q_{i,t+k}=b\}}
+     {\#\{i:q_{i,t}=a\}}.
+\]
+
+Each row of a transition matrix therefore sums to 100%. Retention rates are diagonal probabilities: for example, top-tercile retention is the proportion of clubs starting in the top third that are still in the top third after \(k\) seasons.
+
+For charts over time, annual successes and trials are pooled within a centred seven-transition window. The smoothed probability is the sum of successes divided by the sum of trials, rather than an unweighted average of annual percentages. At the ends of the series, four to six transition years are used. Era comparisons assign a transition to the later season in the pair.
+
+### Auto-correlation of team strength across seasons
+
+For each later season and lag, clubs appearing in both seasons are paired and the Spearman rank correlation between their model-adjusted win rates is calculated. A high positive correlation means the ordering of clubs changed relatively little; a value near zero means the earlier ordering provides little information about the later one.
+
+Exact team names are used to form the strength-transition and correlation pairs after the stated historical name normalizations. No value is imputed for a club that is absent from either endpoint, and the Brisbane Bears and Brisbane Lions are not joined in these particular calculations.
+
+## Premiership and Grand Final measures
+
+Premiership and Grand Final statistics are constructed directly from Grand Final results, not from the margin model. For each active club and season, `grand_finalist` equals one for the two participating clubs and `premiership` equals one for the winner. A drawn Grand Final and its replay count as one season-level Grand Final event: the two clubs each receive one appearance and the replay winner receives the premiership.
+
+The outcome charts compare three similarly sized eras: 1970–1989, 1990–2007 and 2008–2026. Grand Final results from 1968 and 1969 are retained only to provide a complete two-season lookback for outcomes at the start of the first era.
+
+For these long-run outcome comparisons, name changes representing a continuing club are combined: Footscray with the Western Bulldogs, the Kangaroos with North Melbourne, South Melbourne with Sydney, and the Brisbane Bears with the Brisbane Lions. This broader continuity rule is stated separately because it differs from the exact-name pairing used for the team-strength transitions.
+
+### Repeat percentage
+
+Among the premierships or Grand Final appearances in an era, this is the proportion achieved by a club that recorded the same outcome at least once in the preceding \(k\) seasons. This is a lookback measure: for a two-season window, success in either of the previous two seasons counts as a repeat.
+
+Raw repeat percentages are affected by the number of clubs in the league. We therefore compare them with a random-allocation benchmark that preserves the clubs active in every season, assigns one premiership and two distinct Grand Final places per season, and treats seasons as independent. For a club active in the relevant prior seasons, the chance of at least one occurrence within a \(k\)-season lookback is based on
+
+\[
+1-\prod_{h=1}^{k}\left(1-\frac{s}{N_{t-h}}\right),
+\]
+
+where \(s=1\) for a premiership, \(s=2\) for a Grand Final appearance, and \(N_{t-h}\) is the number of active clubs in the prior season. Terms for seasons before a club entered the competition are omitted. These club- and season-specific probabilities are aggregated over the outcomes in each era. The reported relative-repeat statistic is the observed repeat percentage divided by this expectation, so 1 means no more repetition than random allocation after allowing for league size and club entry or exit.
+
+### Outcome concentration
+
+Outcome concentration is measured with the Herfindahl index, \(HHI=\sum_c s_c^2\), where \(s_c\) is club \(c\)'s share of the premierships or Grand Final places in an era. The article reports the observed HHI relative to its analytical expectation under the same season-specific random-allocation benchmark. Values above 1 indicate that outcomes are more concentrated among a small number of clubs than chance alone would imply. The reciprocal, \(1/HHI\), can also be read as the effective number of clubs sharing those outcomes.
+
 ## Interpretation and limitations
 
 The model-adjusted retrospective strength estimates are not a causal estimate of coaching, player quality or travel effects, and not a pre-match forecast. Centred windows deliberately borrow information from nearby seasons to estimate relatively stable location effects; consequently, most historical estimates use both earlier and later seasons. Team strength itself remains season-specific and is not smoothed across years.
+
+The transition groups and persistence statistics treat the estimated win rates as observed inputs. They do not propagate the uncertainty in each team's strength coefficient. Sampling noise can move teams near a tercile or quartile boundary from one group to another, and measurement error will generally weaken observed correlations. Successive transition pairs and centred moving averages also overlap, so they should not be read as independent observations.
+
+Premiership and Grand Final persistence is descriptive rather than causal. The random benchmark answers a deliberately narrow question—how much repetition would be expected if the available outcome places were allocated independently among the clubs active in each season. It does not model differences in club quality, list cycles, finals systems or other mechanisms that may generate persistence.
 
 The location controls depend on recorded team bases and ground affiliations and cannot capture every circumstance, particularly the unusual 2020 hub season. Dedicated 2020 interaction terms reduce that risk but do not make the season directly comparable in every respect. The most recent estimates also use shortened windows and may change when further matches or later seasons become available.
