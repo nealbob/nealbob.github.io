@@ -21,7 +21,7 @@ Measuring competitive balance in the AFL is complicated for a number of reasons.
 
 We can attempt to address some of this with a bit of statistical modelling. In short, we combine game data from the home-and-away season and finals to estimate a [model of team strength]({{ '/methods/afl-team-strength-model/' | relative_url }}) that controls for the vagaries of the draw, including the effects of venue, travel and opposition strength. This model can then be used to produce an adjusted win rate for each season: notionally, the percentage of games each team would be likely to win that year with a hypothetically even draw.
 
-Once we have this measure of team strength, we can look at competitive balance from two  perspectives. First, the eveness or spread of team strength within each season: how big is the gap between the top-, middle- and bottom-ranked teams? Second, team mobility across seasons: how hard is it for bottom-ranked teams to catch up to and eventually displace top-ranked teams?
+Once we have this measure of team strength, we can look at competitive balance from two  perspectives. First, the evenness or spread of team strength within each season: how big is the gap between the top-, middle- and bottom-ranked teams? Second, team mobility across seasons: how hard is it for bottom-ranked teams to catch up to and eventually displace top-ranked teams?
 
 ## More even at the top, less even at the bottom
 
