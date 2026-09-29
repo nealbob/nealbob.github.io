@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "More even than ever? Competitive balance in the AFL"
+title: "More even than ever? Competitive balance in the AFL 1990 to 2026"
 date: 2026-09-28 00:00:00 +1000
 excerpt: "What can the data tell us about the evenness and mobility of team strength in the Australian Football League?"
 modified: 2026-09-28
