@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Who gets the best fixtures in the AFL? (No, it's not Collingwood)"
+title: "Who gets the best fixture in the AFL? (No, it's not Collingwood)"
 date: 2026-10-31 00:00:00 +1000
 excerpt: "The 2027 fixture is out. Let's take a closer look at fixture winners and losers since 1990."
 modified: 2026-10-31
