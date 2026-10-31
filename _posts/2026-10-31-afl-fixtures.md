@@ -53,4 +53,4 @@ That said, these results differ quite a bit from many in the media, particularly
 
 Fremantle also do better in this list. While they have a tough set of double-up opponents (as you would expect for a grand finalist), they get 13 games in Perth, including away games against West Coast and North Melbourne (this 2027 calculation does not include cumulative season travel burden though).
 
-Of course, this analysis assumes teams perform in 2027 like they did in 2026, which they won't. But for now, at least, fixture difficulty looks broadly as you would expect based on 2026 performance, with a few differences due to where teams play their home games, particularly those selling home games interstate.
+Of course, this analysis assumes teams perform in 2027 like they did in 2026, which they won't. But for now, at least, fixture difficulty looks broadly as you would expect based on 2026 performance, with a few oddities due to where teams choose to play their home games.
