@@ -9,7 +9,7 @@ comments: true
 image: /images/afl-fixtures/fixture-advantage-1990-2026.png
 ---
 
-The 2027 AFL fixture came out this week, and within a few hours media outlets were telling us who had the best and worst draws. Fox Sports' [assessment](https://www.foxsports.com.au/afl/afl-fixture-2027-winners-and-losers-from-afl-draw-fixture-difficulty-analysis-as-every-teams-doubleups-revealed-hardest-and-easiest-2027-draws/news-story/71836847d925e02a410d663528a3c371), based on the 2026 percentages of double-up opponents, created some rage bait by suggesting Collingwood had one of the best draws.
+The 2027 AFL fixture came out this week, and within a few hours media outlets were telling us who had the best and worst draws, with Fox Sports' [assessment](https://www.foxsports.com.au/afl/afl-fixture-2027-winners-and-losers-from-afl-draw-fixture-difficulty-analysis-as-every-teams-doubleups-revealed-hardest-and-easiest-2027-draws/news-story/71836847d925e02a410d663528a3c371) (based on the 2026 percentages of double-up opponents) creating some rage bait by suggesting Collingwood had one of the best draws.
 
 But that analysis was rather basic. A more careful assessment has to look beyond double-ups and consider the full fixture, including travel and venue. This should be obvious, and it was to many people on [Reddit](https://www.reddit.com/r/AFL/comments/1xi90w8/2027_fixture_difficulty/). (For what it's worth, this [assessment](https://x.com/sportpunter/status/2115633344365109656) from [SportPunter](https://www.sportpunter.com/) came out a few hours later and was more accurate).
 
