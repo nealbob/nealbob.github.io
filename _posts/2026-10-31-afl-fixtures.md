@@ -37,7 +37,7 @@ So while there might be a few things to quibble about in this model (the effect 
 
 ## What about the travel burden for non-Victorian clubs?
 
-The results above include relative travel distance for each game, but these effects largely cancel out over a season for non-Victorian teams: a disadvantage away, an advantage at home. Many would argue that teams like West Coast and Fremantle also face a burden from accumulating much more travel over a season. Below are results from a model that adds cumulative season travel. It pushes Fremantle and West Coast down in the rankings, and some Victorian teams, including Collingwood, up.
+The results above include relative travel distance for each game, but these effects largely cancel out over a season for non-Victorian teams: a disadvantage away, an advantage at home. Many would argue that teams like West Coast and Fremantle also face a burden from accumulating more travel over a season. Below are results from a model that adds cumulative season travel. It pushes Fremantle and West Coast down in the rankings, and some Victorian teams, including Collingwood, up.
 
 ![Long-run AFL fixture advantage with cumulative season travel]({{ '/images/afl-fixtures/fixture-advantage-cumulative-travel.png' | relative_url }})
 
@@ -49,8 +49,8 @@ Below is what the model says about fixture advantage or disadvantage for 2027, u
 
 ![AFL 2027 fixture advantage]({{ '/images/afl-fixtures/fixture-advantage-2027-simple.png' | relative_url }})
 
-That said, these results differ quite a bit from many in the media, particularly by Fox Footy. Melbourne have a much harder draw here, partly because they play a home game in Alice Springs. Meanwhile, Collingwood's fixture is close to neutral. Although the Pies play Essendon and Richmond twice, for their two home games at Docklands they've drawn St Kilda and the Bulldogs: the worst possible result for these games.
+That said, these results differ quite a bit from many in the media, particularly Fox Footy. Melbourne have a much harder draw here, partly because they play a home game in Alice Springs. Meanwhile, Collingwood's fixture is close to neutral. Although the Pies play Essendon and Richmond twice, for their two home games at Docklands they've drawn St Kilda and the Bulldogs: the worst possible result for these games.
 
 Fremantle also do better in this list. While they have a tough set of double-up opponents (as you would expect for a grand finalist), they get 13 games in Perth, including away games against West Coast and North Melbourne (this 2027 calculation does not include cumulative season travel burden though).
 
-Of course, this analysis assumes teams perform in 2027 like they did in 2026, which they won't. But for now, at least, fixture difficulty looks broadly as you would expect based on 2026 performance, with a few differences due to where teams play their home games, particularly those voluntarily selling home games interstate.
+Of course, this analysis assumes teams perform in 2027 like they did in 2026, which they won't. But for now, at least, fixture difficulty looks broadly as you would expect based on 2026 performance, with a few differences due to where teams play their home games, particularly those selling home games interstate.
