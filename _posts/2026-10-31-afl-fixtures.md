@@ -15,11 +15,11 @@ But that analysis was rather basic. A more careful assessment has to look beyond
 
 ## Fixture advantage 1990 to 2026
 
-Before getting into 2027, let's look at the AFL history from 1990 to 2026 and see which teams have had the best fixtures on average. This analysis is based on a statistical model of AFL team strength that accounts for opponent, venue, travel and hosting status ([details are here]({{ '/methods/afl-team-strength-model/' | relative_url }})). The figure shows the effect of the fixture on an average team's expected win percentage:
+Before getting into 2027, let's look at the AFL from 1990 to 2026 and see which teams have had the best fixtures on average. This analysis is based on a statistical model of AFL team strength that accounts for opponent, venue, travel and hosting status ([details are here]({{ '/methods/afl-team-strength-model/' | relative_url }})). The figure shows the effect of the fixture on an average team's expected win percentage:
 
 ![Long-run AFL fixture advantage, 1990 to 2026]({{ '/images/afl-fixtures/fixture-advantage-1990-2026.png' | relative_url }})
 
-This shows Gold Coast having the most favourable draw on average and the Bulldogs the hardest (the results are based on each club's active seasons, so Gold Coast's and GWS's results cover a shorter period than the others).
+Here Gold Coast have the most favourable draw on average and the Bulldogs the hardest (the results are based on each club's active seasons, so Gold Coast's and GWS's results cover a shorter period than the others).
 
 Since 2014 the AFL has explicitly taken previous-season performance into account for fixturing, giving weaker teams easier draws. Since Gold Coast have spent most of this time in the bottom third of the ladder, it's not too surprising they've had an easier fixture. Geelong, despite being the most consistent team of the period, are reasonably high on this list, due to their unique position as the only Victorian team with a dedicated home venue ([more on that here]({% post_url 2026-9-21-greatest-team %})).
 
@@ -33,7 +33,7 @@ Collingwood also play some nominal home games at Docklands, which the model trea
 
 Lastly, there is the "opponent mix" (i.e., double-up) component. In the long run, Collingwood have had the hardest opponent mix in the AFL. My guess is that, in addition to being a consistently strong team over the period, financial incentives to put Collingwood in blockbuster games against quality opponents may play a part. Presumably, it is in no one's interests for Collingwood to play lots of games against Gold Coast or North Melbourne. That's speculation of course; some of this might be bad luck (fixtures are based on previous years' rankings, so it doesn't always work out as intended).
 
-So while there might be a few things to quibble about in this model (the effect of the Collingwood "army", or whether Docklands should be considered "home" for Collingwood), at the very least it looks like Collingwood's draw is not as easy as people think.
+So while there might be a few things to quibble about in this model (the effect of the Collingwood "army", or whether Docklands should be considered "home" for Collingwood), it still looks like Collingwood's draw is not as easy as people think.
 
 ## What about the travel burden for non-Victorian clubs?
 
