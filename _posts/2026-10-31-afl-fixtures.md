@@ -9,9 +9,7 @@ comments: true
 image: /images/afl-fixtures/fixture-advantage-1990-2026.png
 ---
 
-The 2027 AFL fixture came out this week, and within a few hours media outlets were telling us who had the best and worst draws. 
-
-Fox Sports' [assessment](https://www.foxsports.com.au/afl/afl-fixture-2027-winners-and-losers-from-afl-draw-fixture-difficulty-analysis-as-every-teams-doubleups-revealed-hardest-and-easiest-2027-draws/news-story/71836847d925e02a410d663528a3c371), based on the 2026 percentages of double-up opponents, created some rage bait by suggesting Collingwood had one of the best draws.
+The 2027 AFL fixture came out this week, and within a few hours media outlets were telling us who had the best and worst draws. Fox Sports' [assessment](https://www.foxsports.com.au/afl/afl-fixture-2027-winners-and-losers-from-afl-draw-fixture-difficulty-analysis-as-every-teams-doubleups-revealed-hardest-and-easiest-2027-draws/news-story/71836847d925e02a410d663528a3c371), based on the 2026 percentages of double-up opponents, created some rage bait by suggesting Collingwood had one of the best draws.
 
 But that analysis was rather basic. A more careful assessment has to look beyond which teams are played twice and consider the full fixture, including travel and venue. This should be obvious, and it was to many people on [Reddit](https://www.reddit.com/r/AFL/comments/1xi90w8/2027_fixture_difficulty/). But I guess being fast and controversial is more important than being right. (For what it's worth, this [assessment](https://x.com/sportpunter/status/2115633344365109656) from [SportPunter](https://www.sportpunter.com/) came out a few hours later and was much better).
 
@@ -49,7 +47,7 @@ The statistical evidence for a cumulative travel effect is mixed: in some cases 
 
 Below is what the model says about fixture advantage or disadvantage for 2027, using 2026 team strengths. As most analyses have suggested, Brisbane have by far the hardest draw (as they should!), while Essendon, Richmond, West Coast and North Melbourne have some of the easiest (as you would expect).
 
-![AFL 2027 fixture advantage by component]({{ '/images/afl-fixtures/fixture-advantage-2027-components.png' | relative_url }})
+![AFL 2027 fixture advantage]({{ '/images/afl-fixtures/fixture-advantage-2027-simple.png' | relative_url }})
 
 That said, these results differ from some reported in the media, particularly by Fox Footy, and are closer to those of SportPunter. Melbourne have a much harder draw here, partly because they play a home game in Alice Springs. Meanwhile, Collingwood's fixture is close to neutral. Although the Pies play Essendon and Richmond twice, for their two home games at Docklands they've drawn St Kilda and the Bulldogs: the worst possible result for these games.
 
