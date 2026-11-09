@@ -3,7 +3,7 @@ layout: page
 title: Research
 modified: 2021-08-08T20:53:07.573882-04:00
 --- 
- - Hughes, N., Zhao, M., John, A., and Horne, A. (2026) '[Water markets under climate change: a monthly model of the Murray-Darling Basin](https://egusphere.copernicus.org/preprints/2026/egusphere-2025-6180/)', EGUsphere [preprint]
+ - Hughes, N., Zhao, M., John, A., and Horne, A. (2026) '[Water Markets for Climate Change Adaptation: Trade, Storage, and Investment Under Stochastic Water Supply](https://link.springer.com/article/10.1007/s10640-026-01127-9)', Environmental and Resource Economics, Vol. 89, article 77
 
  - Hughes, N., Zhao, M., and Downham, R. (2026) '[A parametric bio-economic model of monthly irrigation water demands in the Murray-Darling Basin](https://www.sciencedirect.com/science/article/pii/S0378377426002921)', Agricultural Water Management, Vol. 330, 110411
 
